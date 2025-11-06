@@ -1,0 +1,4 @@
+
+just looking for quick wins for first deployment, can u give it a quick polish, clean the footer and use Corneroom terms/words, also add. privacy.html we need for app store listing.
+
+also check and make sure u change the copy text in the right plae cos most are injected via JS last time i chedked.
