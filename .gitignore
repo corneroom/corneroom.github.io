@@ -45,3 +45,5 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# Local-only files
+README.md
