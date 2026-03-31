@@ -24,19 +24,18 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl xl:text-8xl">
-          Your Corner{" "}
+          Where would{" "}
           <span
             className="animate-gradient bg-clip-text text-transparent"
             style={{ backgroundImage: "linear-gradient(90deg, #FF642B, #FB8F75, #86C3E1, #DBB5EE, #FF642B)" }}
           >
-            of the World
+            you go?
           </span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50 lg:text-xl">
-          One platform for every space. Sleep in a stranger&apos;s spare room in Tokyo.
-          Work from a rooftop in Bali. Shower after a hike in Patagonia.
-          Or list your own space and start earning.
+          Sleep, work, shower, or explore — find spaces in 120+ countries.
+          Or list your own and start earning.
         </p>
       </motion.div>
 
