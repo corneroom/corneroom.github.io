@@ -18,11 +18,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npx next build
+
+      - name: Prepare deploy
+        run: touch out/.nojekyll
+
       - name: Deploy PR preview
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
+          publish_dir: out
           destination_dir: pr-${{ github.event.pull_request.number }}
           publish_branch: gh-pages-previews
           keep_files: true
@@ -33,25 +47,18 @@ jobs:
           script: |
             const prNumber = context.payload.pull_request.number;
             const previewUrl = `https://corneroom.github.io/pr-${prNumber}/`;
-            const body = `## Preview Deployment
+            const body = `## 🔍 Preview
 
-            | Version | URL |
-            |---------|-----|
-            | **Root** | [${previewUrl}](${previewUrl}) |
-            | **v0** | [${previewUrl}v0/](${previewUrl}v0/) |
-            | **v1** | [${previewUrl}v1/](${previewUrl}v1/) |
-            | **v2** | [${previewUrl}v2/](${previewUrl}v2/) |
+            **${previewUrl}**
 
-            > This preview updates automatically with each push to this PR.
-            > It will be cleaned up when the PR is closed.`;
+            > Updates automatically with each push. Cleaned up when PR closes.`;
 
-            // Check if we already commented
             const comments = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: prNumber,
             });
-            const existing = comments.data.find(c => c.body.includes('Preview Deployment'));
+            const existing = comments.data.find(c => c.body.includes('Preview'));
 
             if (existing) {
               await github.rest.issues.updateComment({

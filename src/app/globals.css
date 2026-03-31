@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme extend {
+  --color-primary: #FF642B;
+  --color-primary-dark: #E35522;
+  --color-primary-light: #FFA07B;
+  --color-secondary: #FB8F75;
+
+  --color-cat-sleep: #86C3E1;
+  --color-cat-work: #DBB5EE;
+  --color-cat-shower: #FAF271;
+  --color-cat-boat: #F9906C;
+  --color-cat-social: #FF642B;
+
+  --font-sans: "SF Pro Rounded", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #050505;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated gradient text */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Glow pulse */
+@keyframes glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.animate-glow { animation: glow 3s ease-in-out infinite; }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient, .animate-glow, [style*="marquee"] {
+    animation: none !important;
+  }
+}
