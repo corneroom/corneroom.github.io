@@ -1,0 +1,70 @@
+name: PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy PR preview
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          publish_branch: gh-pages-previews
+          keep_files: true
+
+      - name: Comment preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const previewUrl = `https://corneroom.github.io/pr-${prNumber}/`;
+            const body = `## Preview Deployment
+
+            | Version | URL |
+            |---------|-----|
+            | **Root** | [${previewUrl}](${previewUrl}) |
+            | **v0** | [${previewUrl}v0/](${previewUrl}v0/) |
+            | **v1** | [${previewUrl}v1/](${previewUrl}v1/) |
+            | **v2** | [${previewUrl}v2/](${previewUrl}v2/) |
+
+            > This preview updates automatically with each push to this PR.
+            > It will be cleaned up when the PR is closed.`;
+
+            // Check if we already commented
+            const comments = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+            });
+            const existing = comments.data.find(c => c.body.includes('Preview Deployment'));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body,
+              });
+            }
