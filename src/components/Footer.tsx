@@ -18,13 +18,13 @@ const footerLinks = {
     { label: "Blog", href: "#" },
     { label: "Careers", href: "#" },
     { label: "Press", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Contact", href: "/contact" },
   ],
   Legal: [
     { label: "Terms of Service", href: "/terms" },
     { label: "Privacy Policy", href: "/privacy" },
-    { label: "Cookie Policy", href: "#" },
-    { label: "Community Guidelines", href: "#" },
+    { label: "Support", href: "/support" },
+    { label: "Delete Account", href: "/delete-account" },
   ],
 };
 
