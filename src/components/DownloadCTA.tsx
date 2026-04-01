@@ -18,7 +18,7 @@ export default function DownloadCTA() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.15),transparent_60%)]" />
 
           <div className="relative flex flex-col items-center px-8 py-20 text-center lg:py-28">
-            <h2 className="text-3xl font-bold tracking-tight lg:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight lg:text-6xl">
               Ready to explore the world?
             </h2>
             <p className="mx-auto mt-4 max-w-md text-base text-white/80">

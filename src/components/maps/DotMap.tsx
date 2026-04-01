@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-// Simplified world map as dot grid — major landmass coordinates mapped to a 200x100 grid
+// Simplified world map as dot grid — major landmass coordinates mapped to a 160x80 grid
 const landDots: [number, number][] = [
   // North America
   [30,22],[32,22],[34,22],[28,24],[30,24],[32,24],[34,24],[36,24],[26,26],[28,26],[30,26],[32,26],[34,26],[36,26],[24,28],[26,28],[28,28],[30,28],[32,28],[34,28],[22,30],[24,30],[26,30],[28,30],[30,30],[32,30],[34,30],[20,32],[22,32],[24,32],[26,32],[28,32],[30,32],[32,32],[18,34],[20,34],[22,34],[24,34],[26,34],[28,34],[30,34],[32,34],[34,34],[20,36],[22,36],[24,36],[26,36],[28,36],[30,36],[32,36],[34,36],[36,36],[22,38],[24,38],[26,38],[28,38],[30,38],[32,38],[34,38],[36,38],
@@ -22,64 +20,49 @@ const landDots: [number, number][] = [
   [118,38],[120,38],[122,38],[118,40],[120,40],[122,40],[124,40],[120,42],[122,42],[124,42],[126,42],
 ];
 
-// Active cities with glow markers
-const cities: { x: number; y: number; name: string; delay: number }[] = [
-  { x: 26, y: 34, name: "New York", delay: 0 },
-  { x: 20, y: 36, name: "Los Angeles", delay: 0.5 },
-  { x: 90, y: 26, name: "London", delay: 1 },
-  { x: 92, y: 28, name: "Paris", delay: 1.5 },
-  { x: 94, y: 32, name: "Rome", delay: 0.3 },
-  { x: 106, y: 28, name: "Dubai", delay: 0.8 },
-  { x: 116, y: 30, name: "Mumbai", delay: 1.2 },
-  { x: 120, y: 36, name: "Bangkok", delay: 0.6 },
-  { x: 128, y: 30, name: "Tokyo", delay: 1.8 },
-  { x: 136, y: 56, name: "Sydney", delay: 0.9 },
-  { x: 38, y: 56, name: "São Paulo", delay: 1.4 },
-  { x: 88, y: 42, name: "Nairobi", delay: 0.2 },
-  { x: 96, y: 24, name: "Stockholm", delay: 1.1 },
-  { x: 120, y: 40, name: "Bali", delay: 0.7 },
+// City pin locations — simple dots, no labels
+const cities: { x: number; y: number }[] = [
+  { x: 26, y: 34 },   // New York
+  { x: 20, y: 36 },   // Los Angeles
+  { x: 90, y: 26 },   // London
+  { x: 92, y: 28 },   // Paris
+  { x: 94, y: 32 },   // Rome
+  { x: 106, y: 28 },  // Dubai
+  { x: 116, y: 30 },  // Mumbai
+  { x: 120, y: 36 },  // Bangkok
+  { x: 128, y: 30 },  // Tokyo
+  { x: 136, y: 56 },  // Sydney
+  { x: 38, y: 56 },   // São Paulo
+  { x: 88, y: 42 },   // Nairobi
+  { x: 96, y: 24 },   // Stockholm
+  { x: 120, y: 40 },  // Bali
 ];
 
-export function WorldDotMap({ className = "", showCities = true, dotOpacity = 0.12, dotSize = 1.2, cityDotSize = 2.5 }: {
-  className?: string;
-  showCities?: boolean;
-  dotOpacity?: number;
-  dotSize?: number;
-  cityDotSize?: number;
-}) {
+export function WorldDotMap({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 160 80" className={className} fill="none">
-      {/* Land dots */}
+      {/* Land dots — subtle gray */}
       {landDots.map(([x, y], i) => (
-        <circle key={i} cx={x * 0.95 + 5} cy={y * 0.85 + 5} r={dotSize} fill="white" opacity={dotOpacity} />
+        <circle
+          key={i}
+          cx={x * 0.95 + 5}
+          cy={y * 0.85 + 5}
+          r={1}
+          fill="white"
+          opacity={0.08}
+        />
       ))}
 
-      {/* City markers */}
-      {showCities && cities.map((city) => (
-        <g key={city.name}>
-          {/* Glow ring */}
-          <motion.circle
-            cx={city.x * 0.95 + 5}
-            cy={city.y * 0.85 + 5}
-            r={cityDotSize * 3}
-            fill="#FF642B"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: [0, 0.15, 0], scale: [0.5, 1.5, 0.5] }}
-            transition={{ duration: 3, repeat: Infinity, delay: city.delay, ease: "easeInOut" }}
-          />
-          {/* Core dot */}
-          <motion.circle
-            cx={city.x * 0.95 + 5}
-            cy={city.y * 0.85 + 5}
-            r={cityDotSize}
-            fill="#FF642B"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: city.delay * 0.3, duration: 0.5 }}
-          />
-          {/* Bright center */}
-          <circle cx={city.x * 0.95 + 5} cy={city.y * 0.85 + 5} r={cityDotSize * 0.4} fill="white" opacity={0.8} />
-        </g>
+      {/* City pins — clean solid dots */}
+      {cities.map((city, i) => (
+        <circle
+          key={`city-${i}`}
+          cx={city.x * 0.95 + 5}
+          cy={city.y * 0.85 + 5}
+          r={1.8}
+          fill="#FF642B"
+          opacity={0.8}
+        />
       ))}
     </svg>
   );

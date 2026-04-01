@@ -41,7 +41,7 @@ export default function HowItWorks() {
           className="mb-16 text-center"
         >
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">How it works</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight lg:text-5xl">
+          <h2 className="mt-3 text-4xl font-bold tracking-tight lg:text-6xl">
             Three steps to your next adventure
           </h2>
         </motion.div>

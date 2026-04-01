@@ -1,17 +1,122 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+
+const bgImages = [
+  "/images/heroes/1.jpg",
+  "/images/heroes/2.jpg",
+  "/images/heroes/3.jpg",
+  "/images/heroes/4.jpg",
+  "/images/heroes/5.jpg",
+  "/images/heroes/6.jpg",
+  "/images/heroes/7.jpg",
+  "/images/heroes/8.jpg",
+];
+
+const destinations = [
+  { city: "Tokyo", color: "#86C3E1" },
+  { city: "Bali", color: "#F9906C" },
+  { city: "Lisbon", color: "#DBB5EE" },
+  { city: "Stockholm", color: "#FAF271" },
+  { city: "Marrakech", color: "#FF642B" },
+  { city: "Cape Town", color: "#86C3E1" },
+  { city: "Buenos Aires", color: "#FB8F75" },
+  { city: "Bangkok", color: "#F9906C" },
+  { city: "Seoul", color: "#DBB5EE" },
+  { city: "Barcelona", color: "#FF642B" },
+  { city: "Dubai", color: "#FAF271" },
+  { city: "Singapore", color: "#86C3E1" },
+  { city: "Medellin", color: "#FB8F75" },
+  { city: "Hanoi", color: "#F9906C" },
+  { city: "Tbilisi", color: "#DBB5EE" },
+];
 
 export default function Hero() {
+  const [destIdx, setDestIdx] = useState(0);
+  const [bgIdx, setBgIdx] = useState(0);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Cycle destinations every 4s
+  useEffect(() => {
+    const t = setInterval(() => setDestIdx((p) => (p + 1) % destinations.length), 4000);
+    return () => clearInterval(t);
+  }, []);
+
+  // Cycle background images every 8s (slower than text)
+  useEffect(() => {
+    const t = setInterval(() => setBgIdx((p) => (p + 1) % bgImages.length), 8000);
+    return () => clearInterval(t);
+  }, []);
+
+  // Track mouse for parallax + glow
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      setMouse({
+        x: (e.clientX - rect.left) / rect.width - 0.5,
+        y: (e.clientY - rect.top) / rect.height - 0.5,
+      });
+    };
+    window.addEventListener("mousemove", handler, { passive: true });
+    return () => window.removeEventListener("mousemove", handler);
+  }, []);
+
+  const dest = destinations[destIdx];
+
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
-      {/* Background glows */}
+    <section ref={sectionRef} className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6">
+      {/* Mouse-follow glow */}
+      <div
+        className="pointer-events-none absolute h-[600px] w-[600px] rounded-full bg-primary/12 blur-[150px] transition-transform duration-700 ease-out"
+        style={{
+          left: `calc(50% + ${mouse.x * 300}px)`,
+          top: `calc(40% + ${mouse.y * 200}px)`,
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+
+      {/* Static corner glows */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="animate-glow absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-primary/15 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cat-sleep/8 blur-[100px]" />
-        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cat-work/8 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] rounded-full bg-cat-sleep/6 blur-[100px]" />
+        <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cat-work/6 blur-[100px]" />
       </div>
 
+      {/* Rotating cinematic background images — crossfade with parallax */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={bgIdx}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 0.25, scale: 1.05 }}
+            exit={{ opacity: 0, scale: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={bgImages[bgIdx]}
+              alt=""
+              fill
+              className="object-cover transition-transform duration-1000 ease-out"
+              style={{
+                transform: `translate(${mouse.x * 15}px, ${mouse.y * 10}px)`,
+              }}
+              sizes="100vw"
+              priority={bgIdx === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
+        {/* Heavy vignette — clears center for text */}
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,transparent_0%,#050505_70%)]" />
+        {/* Top/bottom fade */}
+        <div className="absolute inset-x-0 top-0 z-10 h-40 bg-gradient-to-b from-[#050505] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[#050505] to-transparent" />
+      </div>
+
+      {/* Main content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -23,23 +128,35 @@ export default function Hero() {
           Now available in 120+ countries
         </div>
 
+        {/* Headline with typing destination */}
         <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl xl:text-8xl">
-          Your Corner{" "}
-          <span
-            className="animate-gradient bg-clip-text text-transparent"
-            style={{ backgroundImage: "linear-gradient(90deg, #FF642B, #FB8F75, #86C3E1, #DBB5EE, #FF642B)" }}
-          >
-            of the World
+          Where would you go
+          <br />
+          <span className="inline-flex items-baseline gap-3">
+            <span className="text-white/30">to</span>
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={destIdx}
+                initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
+                transition={{ duration: 0.4 }}
+                style={{ color: dest.color }}
+              >
+                {dest.city}
+              </motion.span>
+            </AnimatePresence>
+            <span className="text-white/30">?</span>
           </span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50 lg:text-xl">
-          One platform for every space. Sleep in a stranger&apos;s spare room in Tokyo.
-          Work from a rooftop in Bali. Shower after a hike in Patagonia.
-          Or list your own space and start earning.
+          Sleep, work, shower, or explore — find spaces in 120+ countries.
+          Or list your own and start earning.
         </p>
       </motion.div>
 
+      {/* CTAs */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

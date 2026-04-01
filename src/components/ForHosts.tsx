@@ -39,7 +39,7 @@ export default function ForHosts() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">For hosts</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight lg:text-5xl">
+            <h2 className="mt-3 text-4xl font-bold tracking-tight lg:text-6xl">
               Turn your space into income
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-white/50">
