@@ -12,10 +12,11 @@ const footerLinks = {
     { label: "Shower", href: "#spaces" },
     { label: "Boat", href: "#spaces" },
     { label: "Nightlife", href: "#spaces" },
-    { label: "Parking", href: "#spaces" },
-    { label: "Storage", href: "#spaces" },
   ],
-  Company: [
+  Community: [
+    { label: "Meetups", href: "/meetups" },
+    { label: "Traveler Jobs", href: "/traveler-jobs" },
+    { label: "Volunteer", href: "/volunteer" },
     { label: "About", href: "/about" },
     { label: "Careers", href: "/careers" },
     { label: "Press", href: "/press" },
