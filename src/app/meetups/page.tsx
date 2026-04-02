@@ -1,0 +1,317 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+
+const upcomingMeetups = [
+  {
+    city: "Toronto",
+    country: "Canada",
+    quarter: "Q2 2026",
+    tagline: "Where it all started",
+  },
+  {
+    city: "Lisbon",
+    country: "Portugal",
+    quarter: "Q3 2026",
+    tagline: "Europe's digital nomad capital",
+  },
+  {
+    city: "Bali",
+    country: "Indonesia",
+    quarter: "Q4 2026",
+    tagline: "The co-living paradise",
+  },
+];
+
+const howItWorks = [
+  {
+    title: "We pick a city",
+    desc: "Each quarter we choose a new city from our global network of 120+ countries.",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+      </svg>
+    ),
+  },
+  {
+    title: "Hosts & guests RSVP",
+    desc: "Open invitations go out to our community. Spots are limited — first come, first served.",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+      </svg>
+    ),
+  },
+  {
+    title: "We meet up",
+    desc: "A curated evening of stories, food, and genuine connection between people who share spaces.",
+    icon: (
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+      </svg>
+    ),
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+export default function MeetupsPage() {
+  return (
+    <div className="min-h-screen bg-[#050505]">
+      {/* Nav */}
+      <header className="border-b border-white/8 px-6 py-4 lg:px-10">
+        <div className="mx-auto flex max-w-6xl items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FF642B]">
+              <svg viewBox="0 0 100 100" className="h-4 w-4" fill="white">
+                <path d="M50 95c-.7 0-1.5-.2-2.2-.6C46.5 93.5 16 73.7 16 39.1 16 20.3 31.3 5 50 5s34 15.3 34 34.1c0 34.6-30.5 54.5-31.8 55.3-.7.4-1.5.6-2.2.6zm0-68c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12z" />
+              </svg>
+            </div>
+            <span className="text-base font-bold text-white">corneroom</span>
+          </Link>
+          <Link href="/" className="text-sm text-white/50 transition-colors hover:text-white">
+            &larr; Back to home
+          </Link>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative overflow-hidden px-6 pt-24 pb-20 lg:px-10">
+        {/* Orange glow */}
+        <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[500px] w-[700px] rounded-full bg-[#FF642B]/[0.07] blur-[120px]" />
+
+        <motion.div
+          className="relative mx-auto max-w-3xl text-center"
+          initial="hidden"
+          animate="visible"
+          variants={stagger}
+        >
+          <motion.p
+            className="text-sm font-semibold uppercase tracking-widest text-[#FF642B]"
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+          >
+            Community Events
+          </motion.p>
+          <motion.h1
+            className="mt-4 text-4xl font-bold text-white lg:text-6xl"
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+          >
+            Corneroom Meetups
+          </motion.h1>
+          <motion.p
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50"
+            variants={fadeUp}
+            transition={{ duration: 0.6 }}
+          >
+            Every quarter, we bring hosts and guests together in a new city. Real
+            connections, real stories, real community.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* How it works */}
+      <section className="px-6 pb-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl font-bold text-white lg:text-3xl">How it works</h2>
+            <p className="mt-3 text-sm text-white/40">Three steps. One unforgettable evening.</p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-5 sm:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+          >
+            {howItWorks.map((step, i) => (
+              <motion.div
+                key={step.title}
+                className="group rounded-2xl border border-white/8 bg-white/[0.03] p-8 text-center transition-all hover:border-white/15 hover:bg-white/[0.05]"
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FF642B]/10 text-[#FF642B] transition-colors group-hover:bg-[#FF642B]/20">
+                  {step.icon}
+                </div>
+                <p className="mt-2 text-xs font-semibold text-white/20">0{i + 1}</p>
+                <h3 className="mt-3 text-lg font-bold text-white">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/40">{step.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Upcoming meetups */}
+      <section className="px-6 pb-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="mb-12 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl font-bold text-white lg:text-3xl">Upcoming meetups</h2>
+            <p className="mt-3 text-sm text-white/40">Mark your calendar. Spots are limited.</p>
+          </motion.div>
+
+          <motion.div
+            className="grid grid-cols-1 gap-5 md:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={stagger}
+          >
+            {upcomingMeetups.map((meetup) => (
+              <motion.div
+                key={meetup.city}
+                className="group relative overflow-hidden rounded-2xl border border-white/8 bg-white/[0.03] p-8 transition-all hover:border-[#FF642B]/30 hover:bg-white/[0.05]"
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+              >
+                {/* Subtle corner accent */}
+                <div className="pointer-events-none absolute -top-12 -right-12 h-24 w-24 rounded-full bg-[#FF642B]/[0.06] blur-2xl transition-all group-hover:bg-[#FF642B]/[0.12]" />
+
+                <p className="relative text-xs font-semibold uppercase tracking-widest text-[#FF642B]">
+                  {meetup.quarter}
+                </p>
+                <h3 className="relative mt-3 text-2xl font-bold text-white">
+                  {meetup.city}
+                </h3>
+                <p className="relative mt-1 text-sm font-medium text-white/30">
+                  {meetup.country}
+                </p>
+                <p className="relative mt-4 text-sm italic text-white/50">
+                  &ldquo;{meetup.tagline}&rdquo;
+                </p>
+                <a
+                  href="#"
+                  className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#e5572a] hover:shadow-lg hover:shadow-[#FF642B]/20"
+                >
+                  RSVP
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Past highlights */}
+      <section className="px-6 pb-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="rounded-2xl border border-white/8 bg-white/[0.03] p-10 text-center lg:p-14"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest text-white/20">Past highlights</p>
+            <h2 className="mt-4 text-2xl font-bold text-white lg:text-3xl">
+              Coming soon
+            </h2>
+            <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-white/40">
+              Our first meetups are coming soon. Follow us on social media to see
+              highlights from each event.
+            </p>
+            <div className="mt-6 flex justify-center gap-3">
+              <a
+                href="https://twitter.com/corneroomApp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-white/10"
+              >
+                <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 01-1.93.07 4.28 4.28 0 004 2.98 8.521 8.521 0 01-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                </svg>
+                Twitter
+              </a>
+              <a
+                href="https://instagram.com/corneroomApp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-white/10"
+              >
+                <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                </svg>
+                Instagram
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-6 pb-24 lg:px-10">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="relative overflow-hidden rounded-2xl border border-[#FF642B]/20 bg-gradient-to-br from-[#FF642B]/[0.08] to-transparent p-12 text-center lg:p-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Glow */}
+            <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 h-[300px] w-[500px] rounded-full bg-[#FF642B]/[0.06] blur-[100px]" />
+
+            <p className="relative text-xs font-semibold uppercase tracking-widest text-[#FF642B]">
+              Don&apos;t miss out
+            </p>
+            <h2 className="relative mt-4 text-3xl font-bold text-white lg:text-4xl">
+              Join the next meetup
+            </h2>
+            <p className="relative mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
+              Be the first to know when we announce the next city. RSVP now to
+              reserve your spot.
+            </p>
+            <a
+              href="#"
+              className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#e5572a] hover:shadow-xl hover:shadow-[#FF642B]/25"
+            >
+              RSVP Now
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-white/8 px-6 py-6 lg:px-10">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 text-xs text-white/30">
+          <span>&copy; {new Date().getFullYear()} Corneroom. All rights reserved.</span>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="hover:text-white/60">Privacy</Link>
+            <Link href="/terms" className="hover:text-white/60">Terms</Link>
+            <Link href="/contact" className="hover:text-white/60">Contact</Link>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
