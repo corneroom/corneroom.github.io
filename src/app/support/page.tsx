@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /* ── FAQ data ── */
 const faqs = [
@@ -106,47 +106,8 @@ const quickLinks = [
   },
 ];
 
-/* ── Accordion item ── */
-function FaqItem({ faq, isOpen, onToggle }: { faq: (typeof faqs)[0]; isOpen: boolean; onToggle: () => void }) {
-  return (
-    <div className="border-b border-white/[0.06] last:border-b-0">
-      <button
-        onClick={onToggle}
-        className="flex w-full items-center justify-between gap-4 py-5 text-left transition-colors hover:text-[#FF642B]"
-      >
-        <span className="text-[15px] font-medium text-white">{faq.q}</span>
-        <motion.span
-          animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-3.5 w-3.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-          </svg>
-        </motion.span>
-      </button>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="pb-5 text-sm leading-relaxed text-white/50">
-              {faq.a}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
 /* ── Page ── */
 export default function SupportPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
@@ -261,14 +222,18 @@ export default function SupportPage() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6"
           >
-            {faqs.map((faq, i) => (
-              <FaqItem
-                key={i}
-                faq={faq}
-                isOpen={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
-              />
-            ))}
+            <Accordion type="single" collapsible>
+              {faqs.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="border-white/[0.06]">
+                  <AccordionTrigger className="py-5 text-[15px] font-medium text-white hover:text-[#FF642B] [&>svg]:text-white/50">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5 text-sm leading-relaxed text-white/50">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </motion.div>
         </div>
       </section>
