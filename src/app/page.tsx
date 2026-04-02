@@ -15,10 +15,10 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <GlobalMap />
       <Categories />
       <HostShowcase />
       <HowItWorks />
-      <GlobalMap />
       <ForHosts />
       <Testimonials />
       <TrustBadges />

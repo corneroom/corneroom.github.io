@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import {
   motion,
-  AnimatePresence,
   useMotionValue,
   useTransform,
   animate,
 } from "framer-motion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 /* ─── Animated counter ─── */
 function AnimatedCounter({
@@ -56,54 +56,7 @@ function AnimatedCounter({
   );
 }
 
-/* ─── FAQ item ─── */
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <button
-      onClick={() => setOpen(!open)}
-      className="w-full rounded-2xl border border-white/8 bg-white/[0.03] p-6 text-left transition-all hover:border-white/15 hover:bg-white/[0.05]"
-    >
-      <div className="flex items-center justify-between gap-4">
-        <span className="text-sm font-semibold text-white lg:text-base">
-          {q}
-        </span>
-        <motion.span
-          animate={{ rotate: open ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/10 text-white/50"
-        >
-          <svg
-            className="h-3.5 w-3.5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M12 4v16m8-8H4"
-            />
-          </svg>
-        </motion.span>
-      </div>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="pt-4 text-sm leading-relaxed text-white/50">{a}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </button>
-  );
-}
+/* FAQItem removed — using shadcn Accordion instead */
 
 /* ─── Data ─── */
 const guestFeatures = [
@@ -745,11 +698,18 @@ export default function PricingPage() {
             viewport={{ once: true, amount: 0.1 }}
             className="mt-12 space-y-3"
           >
-            {faqData.map((faq) => (
-              <motion.div key={faq.q} variants={fadeUp}>
-                <FAQItem q={faq.q} a={faq.a} />
-              </motion.div>
-            ))}
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqData.map((faq, i) => (
+                <AccordionItem key={i} value={`faq-${i}`} className="rounded-2xl border border-white/8 bg-white/[0.03] px-6 transition-all hover:border-white/15 hover:bg-white/[0.05]">
+                  <AccordionTrigger className="py-5 text-sm font-semibold text-white lg:text-base [&>svg]:text-white/50">
+                    {faq.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-5 text-sm leading-relaxed text-white/50">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </motion.div>
         </div>
       </section>
