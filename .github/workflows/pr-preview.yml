@@ -28,6 +28,8 @@ jobs:
 
       - name: Build
         run: npx next build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /pr-${{ github.event.pull_request.number }}
 
       - name: Prepare deploy
         run: touch out/.nojekyll
