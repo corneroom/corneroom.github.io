@@ -3,8 +3,7 @@
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
-// Replace with real GA4 measurement ID
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = "G-39FGGH8GE4";
 
 export default function Analytics() {
   const [consentGiven, setConsentGiven] = useState(false);
