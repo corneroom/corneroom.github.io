@@ -205,7 +205,7 @@ export default function MeetupsPage() {
                   &ldquo;{meetup.tagline}&rdquo;
                 </p>
                 <a
-                  href="#"
+                  href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
                   className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#e5572a] hover:shadow-lg hover:shadow-[#FF642B]/20"
                 >
                   RSVP
@@ -289,7 +289,7 @@ export default function MeetupsPage() {
               reserve your spot.
             </p>
             <a
-              href="#"
+              href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
               className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#e5572a] hover:shadow-xl hover:shadow-[#FF642B]/25"
             >
               RSVP Now
