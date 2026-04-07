@@ -2,18 +2,14 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import AppBadges from "./AppBadges";
 
-const bgImages = [
-  "/images/heroes/1.jpg",
-  "/images/heroes/2.jpg",
-  "/images/heroes/3.jpg",
-  "/images/heroes/4.jpg",
-  "/images/heroes/5.jpg",
-  "/images/heroes/6.jpg",
-  "/images/heroes/7.jpg",
-  "/images/heroes/8.jpg",
+const bgVideos = [
+  "/videos/1.mp4",
+  "/videos/2.mp4",
+  "/videos/3.mp4",
+  "/videos/4.mp4",
+  "/videos/5.mp4",
 ];
 
 const destinations = [
@@ -36,7 +32,7 @@ const destinations = [
 
 export default function Hero() {
   const [destIdx, setDestIdx] = useState(0);
-  const [bgIdx, setBgIdx] = useState(0);
+  const [vidIdx, setVidIdx] = useState(() => Math.floor(Math.random() * bgVideos.length));
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -46,11 +42,14 @@ export default function Hero() {
     return () => clearInterval(t);
   }, []);
 
-  // Cycle background images every 8s (slower than text)
-  useEffect(() => {
-    const t = setInterval(() => setBgIdx((p) => (p + 1) % bgImages.length), 8000);
-    return () => clearInterval(t);
-  }, []);
+  // Cycle to next random video when current one ends (via onEnded)
+  const handleVideoEnd = () => {
+    setVidIdx((p) => {
+      let next = Math.floor(Math.random() * bgVideos.length);
+      while (next === p && bgVideos.length > 1) next = Math.floor(Math.random() * bgVideos.length);
+      return next;
+    });
+  };
 
   // Track mouse for parallax + glow
   useEffect(() => {
@@ -86,27 +85,24 @@ export default function Hero() {
         <div className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-cat-work/6 blur-[100px]" />
       </div>
 
-      {/* Rotating cinematic background images — crossfade with parallax */}
+      {/* Video background — random, crossfade on end */}
       <div className="pointer-events-none absolute inset-0 z-0">
         <AnimatePresence mode="sync">
           <motion.div
-            key={bgIdx}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 0.25, scale: 1.05 }}
-            exit={{ opacity: 0, scale: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            key={vidIdx}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 0.3, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, ease: "easeInOut" as const }}
             className="absolute inset-0"
           >
-            <Image
-              src={bgImages[bgIdx]}
-              alt=""
-              fill
-              className="object-cover transition-transform duration-1000 ease-out"
-              style={{
-                transform: `translate(${mouse.x * 15}px, ${mouse.y * 10}px)`,
-              }}
-              sizes="100vw"
-              priority={bgIdx === 0}
+            <video
+              src={bgVideos[vidIdx]}
+              autoPlay
+              muted
+              playsInline
+              onEnded={handleVideoEnd}
+              className="h-full w-full object-cover"
             />
           </motion.div>
         </AnimatePresence>

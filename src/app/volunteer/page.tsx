@@ -266,7 +266,7 @@ export default function VolunteerPage() {
                 get back to you soon.
               </p>
               <a
-                href="#"
+                href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-4 text-sm font-bold text-white transition-all hover:brightness-110 hover:shadow-[0_0_30px_rgba(255,100,43,0.3)]"
               >
                 Apply to volunteer
