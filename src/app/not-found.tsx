@@ -3,7 +3,7 @@ export const metadata = {
   description: "Get the Corneroom app to discover spaces near you.",
 };
 
-export default function ListingFallbackPage() {
+export default function NotFound() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white px-6 py-16">
       <div className="max-w-md w-full text-center">
@@ -11,7 +11,7 @@ export default function ListingFallbackPage() {
           Open in Corneroom
         </h1>
         <p className="text-gray-600 mb-8">
-          This listing is best viewed in the Corneroom app. Get the app below to
+          This content is best viewed in the Corneroom app. Get the app below to
           discover spaces in 120+ countries.
         </p>
 
