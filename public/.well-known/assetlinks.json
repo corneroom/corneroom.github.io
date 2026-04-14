@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ca.inspiredtech.corneroom",
+      "sha256_cert_fingerprints": [
+        "60:91:A9:F2:3E:CD:21:E3:33:5F:DF:61:86:8A:37:2B:50:C1:29:9B:A9:05:C1:83:08:60:48:01:D4:26:33:2B"
+      ]
+    }
+  }
+]

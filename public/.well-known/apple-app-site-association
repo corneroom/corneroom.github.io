@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "H5G4U85QQR.ca.inspiredtech.corneroom",
+        "paths": [
+          "/listing/*",
+          "/feed/*",
+          "/refer/*"
+        ]
+      }
+    ]
+  }
+}
