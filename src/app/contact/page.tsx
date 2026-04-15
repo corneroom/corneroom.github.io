@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = { title: "Contact — Corneroom" };
 
@@ -7,43 +8,37 @@ const channels = [
     icon: "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
     title: "General Inquiries",
     desc: "Questions about Corneroom, partnerships, or anything else",
-    action: "info@corneroom.com",
-    href: "mailto:info@corneroom.com",
+    user: "info",
   },
   {
     icon: "M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z",
     title: "Support",
     desc: "Help with bookings, listings, payments, or your account",
-    action: "support@corneroom.com",
-    href: "mailto:support@corneroom.com",
+    user: "support",
   },
   {
     icon: "M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z",
     title: "Privacy & Data",
     desc: "Data requests, account deletion, GDPR inquiries",
-    action: "privacy@corneroom.com",
-    href: "mailto:privacy@corneroom.com",
+    user: "privacy",
   },
   {
     icon: "M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z",
     title: "Press & Media",
     desc: "Press kit, interviews, brand assets, media inquiries",
-    action: "press@corneroom.com",
-    href: "mailto:press@corneroom.com",
+    user: "press",
   },
   {
     icon: "M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z",
     title: "Careers",
     desc: "Join our remote-first team building for a global community",
-    action: "careers@corneroom.com",
-    href: "mailto:careers@corneroom.com",
+    user: "careers",
   },
   {
     icon: "M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z",
     title: "Safety (24/7)",
     desc: "Urgent safety concerns — prioritized around the clock",
-    action: "safety@corneroom.com",
-    href: "mailto:safety@corneroom.com",
+    user: "safety",
   },
 ];
 
@@ -135,9 +130,8 @@ export default function ContactPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {channels.map((ch) => (
-              <a
+              <div
                 key={ch.title}
-                href={ch.href}
                 className="group rounded-2xl border border-white/8 bg-white/[0.03] p-6 transition-all hover:border-white/15 hover:bg-white/[0.05]"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FF642B]/10 text-[#FF642B] transition-colors group-hover:bg-[#FF642B]/20">
@@ -147,8 +141,10 @@ export default function ContactPage() {
                 </div>
                 <h3 className="mt-4 text-sm font-bold text-white">{ch.title}</h3>
                 <p className="mt-1 text-xs text-white/40">{ch.desc}</p>
-                <p className="mt-3 text-xs font-semibold text-[#FF642B]">{ch.action}</p>
-              </a>
+                <p className="mt-3 text-xs font-semibold text-[#FF642B]">
+                  <ObfuscatedEmail user={ch.user} />
+                </p>
+              </div>
             ))}
           </div>
         </div>

@@ -1,4 +1,5 @@
 import LegalLayout from "@/components/LegalLayout";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = { title: "Safety — Corneroom" };
 
@@ -278,7 +279,7 @@ export default function SafetyPage() {
         </li>
         <li>
           <strong>Email:</strong> Send a detailed report to{" "}
-          <a href="mailto:safety@corneroom.com">safety@corneroom.com</a>.
+          <ObfuscatedEmail user="safety" />.
         </li>
         <li>
           <strong>Support chat:</strong> Available 24/7 in the app under Settings &rarr; Help &amp;
@@ -301,7 +302,7 @@ export default function SafetyPage() {
       <p>
         Corneroom prohibits retaliation against anyone who reports a concern in good faith. If you
         experience retaliation after making a report, contact{" "}
-        <a href="mailto:safety@corneroom.com">safety@corneroom.com</a> immediately.
+        <ObfuscatedEmail user="safety" /> immediately.
       </p>
 
       {/* ------------------------------------------------------------------ */}
@@ -317,7 +318,7 @@ export default function SafetyPage() {
         </li>
         <li>
           <strong>Corneroom 24/7 Safety Line:</strong>{" "}
-          <a href="mailto:safety@corneroom.com">safety@corneroom.com</a> &mdash; monitored around
+          <ObfuscatedEmail user="safety" /> &mdash; monitored around
           the clock, every day of the year.
         </li>
         <li>
@@ -345,7 +346,7 @@ export default function SafetyPage() {
       </ul>
       <p>
         If you have suggestions for how we can make Corneroom safer, we welcome your input at{" "}
-        <a href="mailto:safety@corneroom.com">safety@corneroom.com</a>.
+        <ObfuscatedEmail user="safety" />.
       </p>
     </LegalLayout>
   );

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 /* ── FAQ data ── */
 const faqs = [
@@ -53,7 +54,7 @@ const faqs = [
   },
   {
     q: "I\u2019m having trouble with the app",
-    a: "Try restarting the app or updating to the latest version. If the issue persists, contact us via the options below or email support@corneroom.com.",
+    a: "Try restarting the app or updating to the latest version. If the issue persists, contact us via the options below or use the email link in the support cards below.",
   },
 ];
 
@@ -257,8 +258,7 @@ export default function SupportPage() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {/* Email support */}
-            <motion.a
-              href="mailto:support@corneroom.com"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.55 }}
@@ -273,12 +273,12 @@ export default function SupportPage() {
                 Email Support
               </p>
               <p className="mt-1 text-xs text-[#FF642B]">
-                support@corneroom.com
+                <ObfuscatedEmail user="support" />
               </p>
               <p className="mt-2 text-xs text-white/30">
                 Usually responds within 24 hours
               </p>
-            </motion.a>
+            </motion.div>
 
             {/* In-app support */}
             <motion.div
@@ -304,8 +304,7 @@ export default function SupportPage() {
             </motion.div>
 
             {/* Safety line */}
-            <motion.a
-              href="mailto:safety@corneroom.com"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.65 }}
@@ -320,12 +319,12 @@ export default function SupportPage() {
                 Safety Line
               </p>
               <p className="mt-1 text-xs text-[#FF642B]">
-                safety@corneroom.com
+                <ObfuscatedEmail user="safety" />
               </p>
               <p className="mt-2 text-xs text-white/30">
                 24/7 for urgent safety concerns
               </p>
-            </motion.a>
+            </motion.div>
           </div>
         </div>
       </section>
