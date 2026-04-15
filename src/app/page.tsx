@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
+import RealMoments from "@/components/RealMoments";
 import HowItWorks from "@/components/HowItWorks";
 import GlobalMap from "@/components/GlobalMap";
 import ForHosts from "@/components/ForHosts";
@@ -18,6 +19,7 @@ export default function Home() {
       <GlobalMap />
       <Categories />
       <HostShowcase />
+      <RealMoments />
       <HowItWorks />
       <ForHosts />
       <Testimonials />

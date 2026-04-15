@@ -34,6 +34,7 @@ export default function Navbar() {
           <a href="#how-it-works" className="transition-colors hover:text-white">How it works</a>
           <a href="#hosts" className="transition-colors hover:text-white">Host & Earn</a>
           <a href="#community" className="transition-colors hover:text-white">Community</a>
+          <a href="/about" className="transition-colors hover:text-white">Story</a>
         </nav>
 
         <div className="flex items-center gap-2">

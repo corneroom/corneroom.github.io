@@ -1,6 +1,6 @@
 # Corneroom Website
 
-Promo site for [Corneroom](https://corneroom.com) — deployed via GitHub Pages.
+Promo site for [Corneroom](https://corneroom.com) — deployed via Cloudflare Pages.
 
 ## Stack
 
@@ -52,8 +52,9 @@ public/
 ### Quick edits (content, copy, colors)
 
 1. Edit files in `src/` directly
-2. Push to `main` — GitHub Actions builds and deploys automatically
-3. Live at [corneroom.com](https://corneroom.com) within ~1 minute
+2. Test locally with `npm run dev`
+3. Push to `main` — Cloudflare Pages picks up the change and deploys automatically
+4. Live at [corneroom.com](https://corneroom.com) within a few minutes
 
 ### Larger changes (new sections, layout rework)
 
@@ -62,14 +63,13 @@ public/
    git checkout -b feature/new-section
    ```
 2. Make changes, test locally with `npm run dev`
-3. Push and open a PR:
+3. Push the branch:
    ```bash
    git push -u origin feature/new-section
-   gh pr create --title "Add new section"
    ```
-4. GitHub Actions builds the PR and comments a **preview URL**
-5. Review the preview, get feedback, iterate
-6. Merge PR → auto-deploys to production
+4. Cloudflare Pages builds a **preview deployment** for the branch and exposes it under a per-branch subdomain (visible in the Cloudflare Pages dashboard or the GitHub PR check)
+5. Review the preview, iterate
+6. Open a PR and merge → production deploys from `main`
 
 ### Updating photos
 
@@ -77,23 +77,23 @@ Replace any file in `public/images/heroes/` (numbered `1.jpg` through `12.jpg`).
 
 ## Deployment
 
-Fully automated via GitHub Actions:
+Hosted on **Cloudflare Pages** with the GitHub repo connected as the build source. Build and deploy are handled by Cloudflare — no GitHub Actions workflow is responsible for production deploys. Pushing to `main` triggers an automatic production build; pushing to any other branch triggers a preview deployment.
 
 | Trigger | What happens | URL |
 |---------|-------------|-----|
-| Push to `main` | Builds + deploys to production | [corneroom.com](https://corneroom.com) |
-| Open/update PR | Builds + deploys preview, comments link | `corneroom.github.io/pr-{number}/` |
-| Close PR | Cleans up preview | — |
+| Push to `main` | Cloudflare Pages builds + deploys to production | [corneroom.com](https://corneroom.com) |
+| Push to feature branch | Cloudflare Pages builds + deploys a preview | per-branch preview URL (see Cloudflare dashboard) |
 
-### Workflows
+### Build settings (Cloudflare dashboard)
 
-- `.github/workflows/deploy.yml` — production deploy
-- `.github/workflows/pr-preview.yml` — PR preview deploy + comment
-- `.github/workflows/pr-cleanup.yml` — PR preview cleanup
+- **Framework preset**: Next.js (Static HTML Export)
+- **Build command**: `npm run build`
+- **Build output directory**: `out`
+- **Node version**: 20+ (matches `next.config.ts` requirements)
 
 ### Custom Domain
 
-DNS is configured on GoDaddy (`corneroom.com` → GitHub Pages IPs). The `CNAME` file in the repo root tells GitHub Pages which domain to serve.
+DNS is configured on GoDaddy. `corneroom.com` is delegated to Cloudflare Pages via the standard CNAME / Cloudflare DNS records configured in the Cloudflare dashboard. The `CNAME` file in the repo root is a legacy artifact from the previous GitHub Pages deploy and is no longer load-bearing — Cloudflare Pages routes via its own DNS configuration.
 
 ## Design Tokens
 

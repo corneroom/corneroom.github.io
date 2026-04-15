@@ -45,6 +45,7 @@ export default function LegalLayout({
           <div className="flex gap-4">
             <Link href="/privacy" className="hover:text-white/60">Privacy</Link>
             <Link href="/terms" className="hover:text-white/60">Terms</Link>
+            <Link href="/community-standards" className="hover:text-white/60">Community Standards</Link>
             <Link href="/support" className="hover:text-white/60">Support</Link>
             <Link href="/contact" className="hover:text-white/60">Contact</Link>
           </div>

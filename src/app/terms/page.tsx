@@ -95,6 +95,10 @@ export default function TermsPage() {
         <li>Upload malicious content, spam, or viruses</li>
         <li>Impersonate another person or entity</li>
       </ul>
+      <p>
+        Each of these restrictions is described in greater detail in our{" "}
+        <a href="/community-standards">Community Standards</a>, which form part of these Terms.
+      </p>
 
       <h2>10. User-Generated Content</h2>
       <p>
