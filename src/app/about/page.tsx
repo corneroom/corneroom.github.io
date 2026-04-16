@@ -66,7 +66,7 @@ function Milestone({
 }) {
   return (
     <motion.div
-      className="relative flex gap-6 pb-12 last:pb-0 md:gap-10"
+      className="group relative flex gap-6 pb-12 last:pb-0 md:gap-10"
       initial={{ opacity: 0, x: -40 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -74,19 +74,24 @@ function Milestone({
     >
       {/* Vertical line + dot */}
       <div className="relative flex flex-col items-center">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#FF642B] bg-[#FF642B]/10">
-          <div className="h-3 w-3 rounded-full bg-[#FF642B]" />
-        </div>
+        <motion.div
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#FF642B] bg-gradient-to-br from-[#FF642B]/20 to-[#FF642B]/5 transition-all group-hover:scale-110"
+          whileHover={{ scale: 1.1 }}
+        >
+          <div className="h-4 w-4 rounded-full bg-[#FF642B]" />
+        </motion.div>
         <div className="w-px flex-1 bg-gradient-to-b from-[#FF642B]/40 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="-mt-1">
-        <span className="mb-1 inline-block rounded-full bg-[#FF642B]/10 px-3 py-0.5 text-xs font-semibold tracking-wide text-[#FF642B]">
+      <div className="-mt-2 flex-1">
+        <span className="mb-2 inline-block rounded-full bg-[#FF642B]/15 px-4 py-1 text-xs font-bold tracking-widest text-[#FF642B] uppercase">
           {year}
         </span>
-        <h3 className="mt-2 text-lg font-semibold text-white md:text-xl">{title}</h3>
-        <p className="mt-1 max-w-md text-sm leading-relaxed text-white/50 md:text-base">
+        <h3 className="mt-2 text-lg font-bold text-white transition-colors group-hover:text-[#FF642B] md:text-xl">
+          {title}
+        </h3>
+        <p className="mt-2 max-w-md text-sm leading-relaxed text-white/60 md:text-base">
           {description}
         </p>
       </div>
@@ -121,6 +126,40 @@ function ValueCard({
       </div>
       <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
       <p className="text-sm leading-relaxed text-white/50">{description}</p>
+    </motion.div>
+  );
+}
+
+/* ─── Pain point card ─── */
+function PainPointCard({
+  icon,
+  title,
+  description,
+  index,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  index: number;
+}) {
+  return (
+    <motion.div
+      className="group relative rounded-2xl border border-red-500/20 bg-gradient-to-br from-red-500/5 to-red-500/[0.02] p-8 overflow-hidden"
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: index * 0.15 }}
+    >
+      {/* Glow */}
+      <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-red-500/10 blur-3xl transition-all group-hover:bg-red-500/15" />
+
+      <div className="relative z-10">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-red-500/20 text-red-300">
+          {icon}
+        </div>
+        <h3 className="mb-3 text-lg font-semibold text-white">{title}</h3>
+        <p className="text-sm leading-relaxed text-white/60">{description}</p>
+      </div>
     </motion.div>
   );
 }
@@ -173,6 +212,24 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 /* ═══════════════════════════════════════════════
    ICONS (inline SVGs)
    ═══════════════════════════════════════════════ */
+
+const IconDollar = () => (
+  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+const IconMap = () => (
+  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9 6L6 9m0 0l-3-3m3 3L9 3m0 0l3 3m-3-3v12a9 9 0 1118 0V3m-9 9h.01M12 15h.01M15 12h.01" />
+  </svg>
+);
+
+const IconBriefcase = () => (
+  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 6.375c0 2.278-1.535 4.172-3.6 4.577m-13.58-1.9C3.503 7.897 2.25 5.066 2.25 2.848C2.25 1.003 3.807-.25 5.25-.25c1.59 0 2.856 1.288 3 3a3.021 3.021 0 013 3c0 1.712-1.288 2.856-3 3m15.75-6.327A12.059 12.059 0 013.671 15.75H12a6 6 0 005.25 3.h3.75a3 3 0 003-3V6.637M4.5 12.75h15m-6 3.75v-2.25" />
+  </svg>
+);
 
 const IconHeart = () => (
   <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -300,7 +357,8 @@ export default function AboutPage() {
             travelers with hosts who have space to share -- not just beds, but{" "}
             <span className="text-white/70">any space</span>. A couch for the
             night. A desk for the afternoon. A shower after a red-eye. A parking
-            spot downtown. A boat slip for the weekend.
+            spot downtown. A boat slip for the weekend. We built Corneroom because travel
+            shouldn't be expensive, isolated, or stressful.
           </motion.p>
         </motion.div>
 
@@ -314,21 +372,96 @@ export default function AboutPage() {
       </Section>
 
       {/* ══════════════════════════════════════════
+          WHY WE BUILT THIS
+          ══════════════════════════════════════════ */}
+      <Section className="border-y border-white/[0.04] bg-white/[0.01]">
+        <div className="mx-auto max-w-5xl space-y-12">
+          <motion.div
+            className="space-y-4 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionLabel>The Problem We Solve</SectionLabel>
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+              Travel shouldn't be <span className="text-red-400">this expensive</span>, <span className="text-red-400">this isolated</span>, or <span className="text-red-400">this lonely</span>
+            </h2>
+          </motion.div>
+
+          {/* Pain point cards grid */}
+          <div className="grid gap-6 md:grid-cols-3">
+            <PainPointCard
+              icon={<IconDollar />}
+              title="Hotels Cost Too Much"
+              description="2–3 days in a new city? Hotels charge $100+ per night. That's not travel, that's expensive."
+              index={0}
+            />
+            <PainPointCard
+              icon={<IconMap />}
+              title="Layovers Are Frustrating"
+              description="24-hour layover? Luggage storage is $40. Cafés charge $8 per coffee. You feel like a tourist, not a traveler."
+              index={1}
+            />
+            <PainPointCard
+              icon={<IconBriefcase />}
+              title="Work Travel Is Lonely"
+              description="8 hours in a café staring at the barista. No shower, no rest, no connection. Just work, and silence."
+              index={2}
+            />
+          </div>
+
+          {/* Mission statement */}
+          <motion.div
+            className="relative overflow-hidden rounded-3xl border border-[#FF642B]/30 bg-gradient-to-br from-[#FF642B]/10 via-[#FF642B]/5 to-transparent p-10 md:p-14"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            {/* Decorative glow */}
+            <div className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-[#FF642B]/20 blur-3xl" />
+
+            <div className="relative z-10 space-y-4">
+              <h3 className="text-2xl font-bold text-[#FF642B] md:text-3xl">
+                Corneroom exists to fix this.
+              </h3>
+              <p className="text-base leading-relaxed text-white/80 md:text-lg">
+                We connect travelers with <span className="font-semibold text-white">real homes</span>, <span className="font-semibold text-white">real hosts</span>, and <span className="font-semibold text-white">real communities</span>.
+              </p>
+              <p className="text-base leading-relaxed text-white/70 md:text-lg">
+                When a guest and host meet on Corneroom, something beautiful happens—not a transaction, but a <span className="font-semibold text-white">connection</span>. A shared meal. Stories over coffee. A recommendation only a neighbor can give.
+              </p>
+              <p className="pt-4 text-base font-semibold text-white md:text-lg">
+                <span className="text-[#FF642B]">That</span> is the measure of our success.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* ══════════════════════════════════════════
           OUR STORY (Timeline)
           ══════════════════════════════════════════ */}
       <Section id="story">
         <SectionLabel>Our Story</SectionLabel>
         <SectionTitle>From couches to a global platform</SectionTitle>
         <motion.p
-          className="mb-14 max-w-2xl text-base leading-relaxed text-white/40 md:text-lg"
+          className="mb-6 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Corneroom started the way most honest ideas do -- out of personal
-          frustration. Here is how we got from there to here.
+          Corneroom started the way most honest ideas do—out of personal frustration. We lived it. Now we're solving it.
         </motion.p>
+        <motion.div
+          className="mb-10 h-px w-32 bg-gradient-to-r from-[#FF642B]/50 to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        />
 
         <div className="ml-2 md:ml-8">
           {milestones.map((m, i) => (
@@ -347,15 +480,30 @@ export default function AboutPage() {
           BY THE NUMBERS
           ══════════════════════════════════════════ */}
       <Section className="border-y border-white/[0.04] bg-white/[0.01]">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <SectionLabel>By the Numbers</SectionLabel>
           <SectionTitle>Impact at scale</SectionTitle>
-        </div>
-        <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+          <motion.p
+            className="mx-auto mt-4 max-w-2xl text-base text-white/50"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Every number represents a connection. A traveler who found their space. A host who welcomed someone new.
+          </motion.p>
+        </motion.div>
+        <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           <StatCounter target={120} suffix="+" label="Countries" />
           <StatCounter target={10} suffix="K+" label="Spaces" />
           <StatCounter target={50} suffix="K+" label="Guests" />
-          <StatCounter target={4.8} suffix="" label="Rating" decimals={1} />
+          <StatCounter target={4.8} suffix="" label="Avg Rating" decimals={1} />
         </div>
       </Section>
 
@@ -363,20 +511,25 @@ export default function AboutPage() {
           VALUES
           ══════════════════════════════════════════ */}
       <Section id="values">
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <SectionLabel>Our Values</SectionLabel>
           <SectionTitle>What we stand for</SectionTitle>
           <motion.p
-            className="mx-auto mb-14 max-w-2xl text-base leading-relaxed text-white/40 md:text-lg"
+            className="mx-auto mb-16 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.15 }}
           >
-            These are not slogans on a wall. They are enforced policies, product
-            decisions, and the reason people trust Corneroom.
+            These are not slogans on a wall. They're enforced policies, product decisions, and the reason people trust Corneroom.
           </motion.p>
-        </div>
+        </motion.div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <ValueCard
@@ -393,8 +546,8 @@ export default function AboutPage() {
           />
           <ValueCard
             icon={<IconUsers />}
-            title="Community"
-            description="The best hosts leave restaurant tips in listings and text transit directions before you arrive. We build tools that reward treating strangers like neighbors."
+            title="Community First"
+            description="Every booking is an opportunity for a human connection. Hosts and guests who meetup, share meals, and exchange stories -- that is how we measure success, not transaction volume."
             index={2}
           />
           <ValueCard
@@ -410,33 +563,40 @@ export default function AboutPage() {
           THE TEAM
           ══════════════════════════════════════════ */}
       <Section className="border-t border-white/[0.04]">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionLabel>The Team</SectionLabel>
-          <SectionTitle>Small team. Big ambition.</SectionTitle>
+        <div className="mx-auto max-w-3xl">
           <motion.div
-            className="space-y-5 text-base leading-relaxed text-white/50 md:text-lg"
+            className="mb-12 text-center"
             initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SectionLabel>The Team</SectionLabel>
+            <SectionTitle>Built by travelers, for travelers</SectionTitle>
+          </motion.div>
+
+          <motion.div
+            className="space-y-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 md:p-10"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <p>
+            <p className="text-base leading-relaxed text-white/70 md:text-lg">
               Corneroom is built by a small, passionate, remote-first team at{" "}
-              <span className="font-medium text-white/80">
+              <span className="font-semibold text-white">
                 Inspired Technologies &amp; Business Solutions Inc.
               </span>
-              , headquartered in Toronto, Canada. We are engineers, designers, and
-              operators who have collectively traveled to over 60 countries -- not
-              as tourists, but as the kind of travelers who sleep on couches, work
-              from cafes, and know what it means to need a space that does not
-              exist on any legacy platform.
+              , headquartered in Toronto, Canada.
             </p>
-            <p>
-              We are intentionally small because we believe the best products come
-              from teams that use what they build. Every feature ships because
-              someone on the team needed it on a trip.{" "}
-              <span className="text-white/70">That is our quality bar.</span>
+            <p className="text-base leading-relaxed text-white/70 md:text-lg">
+              We are engineers, designers, and operators who have collectively traveled to 60+ countries—not as tourists, but as people who sleep on couches, work from cafés, and know what it means to need a space that doesn't exist on any legacy platform.
             </p>
+            <div className="border-t border-white/[0.06] pt-6">
+              <p className="text-base leading-relaxed text-white/70 md:text-lg">
+                We are intentionally small because <span className="font-semibold text-white">the best products come from teams that use what they build</span>. Every feature we ship exists because someone on our team needed it on a trip. <span className="text-[#FF642B] font-semibold">That is our quality bar.</span>
+              </p>
+            </div>
           </motion.div>
         </div>
       </Section>
