@@ -48,8 +48,11 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-                <svg viewBox="0 0 100 100" className="h-4 w-4" fill="white">
-                  <path d="M50 95c-.7 0-1.5-.2-2.2-.6C46.5 93.5 16 73.7 16 39.1 16 20.3 31.3 5 50 5s34 15.3 34 34.1c0 34.6-30.5 54.5-31.8 55.3-.7.4-1.5.6-2.2.6zm0-68c-6.6 0-12 5.4-12 12s5.4 12 12 12 12-5.4 12-12-5.4-12-12-12z" />
+                <svg viewBox="0 0 64 64" className="h-5 w-5" fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M32 4C18 4 8 15 8 26c0 17 24 34 24 34s24-17 24-34C56 15 46 4 32 4z" strokeWidth="4"/>
+                  <path d="M21 28 L32 17 L43 28" strokeWidth="4"/>
+                  <rect x="27" y="28" width="10" height="13" rx="1.5" strokeWidth="3.5"/>
+                  <circle cx="33.5" cy="35" r="1.5" fill="white" stroke="none"/>
                 </svg>
               </div>
               <span className="text-lg font-bold">corneroom</span>
