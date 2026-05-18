@@ -58,7 +58,7 @@ export default function Footer() {
               <span className="text-lg font-bold">corneroom</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/40">
-              Your corner of the world. Share and discover spaces globally.
+              Share &amp; discover spaces globally.
             </p>
 
             {/* Social */}

@@ -148,7 +148,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/50 lg:text-xl">
-          Sleep, work, shower, or explore — find spaces in 120+ countries.
+          Sleep, work, shower, boat & more — find unique spaces in 120+ countries.
           Or list your own and start earning.
         </p>
       </motion.div>
