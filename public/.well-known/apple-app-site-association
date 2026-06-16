@@ -5,6 +5,8 @@
       {
         "appID": "H5G4U85QQR.ca.inspiredtech.corneroom",
         "paths": [
+          "/app",
+          "/app/*",
           "/listing/*",
           "/feed/*",
           "/refer/*"
