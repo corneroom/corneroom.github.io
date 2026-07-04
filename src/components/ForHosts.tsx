@@ -52,7 +52,7 @@ export default function ForHosts() {
                 <div key={perk.title} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
                   <span className="text-xl">{perk.emoji}</span>
                   <h4 className="mt-2 text-sm font-bold">{perk.title}</h4>
-                  <p className="mt-1 text-xs text-white/40">{perk.desc}</p>
+                  <p className="mt-1 text-xs text-white/55">{perk.desc}</p>
                 </div>
               ))}
             </div>

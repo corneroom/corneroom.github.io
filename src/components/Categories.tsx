@@ -8,7 +8,7 @@ const categories = [
   { name: "Work", emoji: "💻", color: "#DBB5EE", desc: "Co-working, home offices, quiet desks", img: "/images/categories/work.avif" },
   { name: "Shower", emoji: "🚿", color: "#FAF271", desc: "Gyms, bathrooms, freshen up anywhere", img: "/images/categories/shower.jpg" },
   { name: "Boat", emoji: "⛵", color: "#F9906C", desc: "Sailboats, houseboats, ocean stays", img: "/images/categories/boat.jpg" },
-  { name: "Nightlife", emoji: "🌙", color: "#FF642B", desc: "Bar tables, party spaces, social vibes", img: "/images/categories/nightlife.jpg" },
+  { name: "Social", emoji: "🌙", color: "#FF642B", desc: "Bar tables, party spaces, social vibes", img: "/images/categories/nightlife.jpg" },
   { name: "Parking", emoji: "🅿️", color: "#FFB74D", desc: "Driveways, garages, parking spots", img: "/images/categories/parking.jpg" },
   { name: "Storage", emoji: "📦", color: "#81C784", desc: "Store your stuff safely anywhere", img: "/images/categories/storage.jpg" },
 ];
@@ -53,7 +53,7 @@ export default function Categories() {
                 <div className="relative aspect-[3/4] w-full overflow-hidden">
                   <Image
                     src={cat.img}
-                    alt={cat.name}
+                    alt={`${cat.name} spaces`}
                     fill
                     className="object-cover brightness-[0.6] transition-all duration-700 group-hover:brightness-[0.85] group-hover:scale-110"
                     sizes="260px"

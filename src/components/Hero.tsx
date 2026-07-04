@@ -193,7 +193,7 @@ export default function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
-          className="flex flex-col items-center gap-2 text-white/20"
+          className="flex flex-col items-center gap-2 text-white/40"
         >
           <span className="text-xs">Scroll to explore</span>
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

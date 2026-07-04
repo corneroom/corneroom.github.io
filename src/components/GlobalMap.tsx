@@ -45,7 +45,7 @@ export default function GlobalMap() {
         >
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">Global network</p>
           <h2 className="mt-3 text-4xl font-bold tracking-tight lg:text-6xl">
-            Spaces in <span className="text-primary">every corner</span>
+            Spaces <span className="text-primary">around the world</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-base text-white/50">
             Active hosts and travelers across 120+ countries, sharing spaces every day.

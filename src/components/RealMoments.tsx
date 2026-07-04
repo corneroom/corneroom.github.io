@@ -51,7 +51,7 @@ export default function RealMoments() {
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/50 lg:text-lg">
             Corneroom isn&apos;t only for overnight stays. It&apos;s for the in-between
-            hours when travel gets awkward — and someone with a spare corner can
+            hours when travel gets awkward — and someone with space to spare can
             make it easier.
           </p>
         </motion.div>

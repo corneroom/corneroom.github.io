@@ -65,7 +65,7 @@ export default function HostShowcase() {
                 <div className={`relative w-full overflow-hidden ${isCenter ? "aspect-[3/5]" : "aspect-[3/4.5]"}`}>
                   <Image
                     src={host.img}
-                    alt={host.name}
+                    alt={`${host.name}, host in ${host.city}`}
                     fill
                     className="object-cover"
                     sizes="220px"

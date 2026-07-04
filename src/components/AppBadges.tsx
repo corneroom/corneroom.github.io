@@ -20,7 +20,7 @@ const AppBadges: FC<AppBadgesProps> = ({ size = "md", className = "" }) => {
     <div className={`flex items-center gap-3 ${className}`}>
       {/* Download on the App Store */}
       <a
-        href="#"
+        href="https://apps.apple.com/app/corneroom/id6740086312"
         aria-label="Download on the App Store"
         className="inline-block transition-opacity hover:opacity-80"
       >
@@ -82,7 +82,7 @@ const AppBadges: FC<AppBadgesProps> = ({ size = "md", className = "" }) => {
 
       {/* Get it on Google Play */}
       <a
-        href="#"
+        href="https://play.google.com/store/apps/details?id=ca.inspiredtech.corneroom"
         aria-label="Get it on Google Play"
         className="inline-block transition-opacity hover:opacity-80"
       >

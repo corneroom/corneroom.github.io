@@ -20,9 +20,9 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <div className="flex items-center gap-2.5">
+        <a href="/" aria-label="Corneroom home" className="flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-            <svg viewBox="0 0 64 64" className="h-5 w-5" fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round">
+            <svg viewBox="0 0 64 64" className="h-5 w-5" fill="none" stroke="white" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M32 4C18 4 8 15 8 26c0 17 24 34 24 34s24-17 24-34C56 15 46 4 32 4z" strokeWidth="4"/>
               <path d="M21 28 L32 17 L43 28" strokeWidth="4"/>
               <rect x="27" y="28" width="10" height="13" rx="1.5" strokeWidth="3.5"/>
@@ -30,7 +30,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className="text-lg font-bold tracking-tight">corneroom</span>
-        </div>
+        </a>
 
         <nav className="hidden items-center gap-6 text-sm text-white/50 md:flex">
           <a href="#spaces" className="transition-colors hover:text-white">Spaces</a>

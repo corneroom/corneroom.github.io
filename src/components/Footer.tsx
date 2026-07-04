@@ -11,7 +11,7 @@ const footerLinks = {
     { label: "Work", href: "#spaces" },
     { label: "Shower", href: "#spaces" },
     { label: "Boat", href: "#spaces" },
-    { label: "Nightlife", href: "#spaces" },
+    { label: "Social", href: "#spaces" },
   ],
   Community: [
     { label: "Meetups", href: "/meetups" },
@@ -58,7 +58,7 @@ export default function Footer() {
               <span className="text-lg font-bold">corneroom</span>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/40">
-              Share &amp; discover spaces globally.
+              Find &amp; share spaces worldwide.
             </p>
 
             {/* Social */}
@@ -83,7 +83,7 @@ export default function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-xs font-semibold uppercase tracking-widest text-white/30">{title}</h4>
+              <h4 className="text-xs font-semibold uppercase tracking-widest text-white/45">{title}</h4>
               <ul className="mt-4 space-y-2.5">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -99,10 +99,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-8 md:flex-row">
-          <p className="text-xs text-white/30">
+          <p className="text-xs text-white/45">
             &copy; {new Date().getFullYear()} Corneroom. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs text-white/30">
+          <div className="flex items-center gap-6 text-xs text-white/45">
             <a href="/terms" className="transition-colors hover:text-white/60">Terms</a>
             <a href="/privacy" className="transition-colors hover:text-white/60">Privacy</a>
             <a href="/cookies" className="transition-colors hover:text-white/60">Cookies</a>

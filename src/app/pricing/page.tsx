@@ -80,7 +80,7 @@ const guestFeatures = [
       />
     ),
     title: "Small, capped service fee",
-    desc: "A transparent fee on future bookings, always shown before you confirm. Capped so it never spirals on premium listings.",
+    desc: "A transparent fee on future bookings, always shown before you confirm. Capped so it never spirals on higher-priced spaces.",
   },
   {
     icon: (

@@ -289,7 +289,7 @@ const milestones = [
     year: "Momentum",
     title: "Reached 50,000+ guests worldwide",
     description:
-      "A milestone of trust. Fifty thousand travelers chose Corneroom for sleep, work, showers, boats, nightlife, parking, and storage across the globe.",
+      "A milestone of trust. Fifty thousand travelers chose Corneroom for sleep, work, showers, boats, social spaces & more across the globe.",
   },
   {
     year: "The Future",

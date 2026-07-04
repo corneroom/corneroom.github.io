@@ -31,7 +31,7 @@ export default function TrustBadges() {
                 </svg>
               </div>
               <h4 className="mt-3 text-xs font-bold">{badge.title}</h4>
-              <p className="mt-1 text-[10px] leading-snug text-white/40">{badge.desc}</p>
+              <p className="mt-1 text-[10px] leading-snug text-white/55">{badge.desc}</p>
             </motion.div>
           ))}
         </div>
