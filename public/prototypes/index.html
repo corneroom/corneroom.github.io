@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Corneroom — homepage prototypes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#FF642B;--coral:#FB8F75;--bg:#1E1610;--bg2:#271C15;--soft:#F6EBE2}
+  *{box-sizing:border-box;margin:0}
+  body{font-family:'Inter',sans-serif;color:var(--soft);background:var(--bg);min-height:100vh;
+       background-image:radial-gradient(52rem 36rem at 85% -8%, rgba(255,100,43,.18), transparent 60%),
+                        radial-gradient(46rem 36rem at -8% 55%, rgba(134,195,225,.07), transparent 55%);}
+  .sora{font-family:'Sora',sans-serif}
+  .wrap{max-width:1040px;margin:0 auto;padding:5rem 1.5rem}
+  .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:600}
+  h1{font-size:2.6rem;font-weight:800;margin-top:1rem;line-height:1.05}
+  header p{color:rgba(246,235,226,.62);margin-top:.9rem;max-width:40rem;line-height:1.6}
+  .grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));margin-top:2.75rem}
+  .card{position:relative;display:block;text-decoration:none;color:inherit;border:1px solid rgba(246,235,226,.12);
+        border-radius:1.25rem;background:rgba(246,235,226,.04);padding:1.6rem;transition:.25s;overflow:hidden}
+  .card.live:hover{border-color:var(--primary);transform:translateY(-4px);background:rgba(255,100,43,.07)}
+  .card.building{opacity:.62}
+  .tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:600;padding:.28rem .65rem;border-radius:999px;margin-bottom:1rem}
+  .tag.on{background:rgba(255,100,43,.2);color:var(--primary)}
+  .tag.wip{background:rgba(246,235,226,.1);color:rgba(246,235,226,.6)}
+  .dot{width:.45rem;height:.45rem;border-radius:999px;background:currentColor}
+  .card h2{font-size:1.2rem;font-weight:700}
+  .card .sub{color:var(--coral);font-size:.82rem;font-weight:500;margin-top:.15rem}
+  .card p{color:rgba(246,235,226,.62);margin-top:.6rem;font-size:.9rem;line-height:1.55}
+  .arrow{margin-top:1.1rem;font-size:.85rem;color:var(--primary);font-weight:600}
+  .spin{display:inline-block;width:.8rem;height:.8rem;border:2px solid rgba(246,235,226,.25);border-top-color:var(--coral);border-radius:999px;animation:sp 1s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  footer{margin-top:3.5rem;font-size:.8rem;color:rgba(246,235,226,.4);line-height:1.7}
+  .note{margin-top:.4rem}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="sora kicker">Corneroom · internal preview</span>
+      <h1 class="sora">Homepage prototypes</h1>
+      <p>Alternative directions for corneroom.com — each a full homepage concept. Click a ready one to view it. The current live site is unchanged; we deploy only the direction we agree on (today that's the Scroll Story).</p>
+    </header>
+
+    <div class="grid">
+      <a class="card live" href="/prototypes/scroll-story/index.html">
+        <span class="tag on"><span class="dot"></span>Ready · front-runner</span>
+        <h2>Scroll Story</h2>
+        <div class="sub">Apple-style app showcase (E3)</div>
+        <p>A pinned phone crossfades through real app screens as you scroll — find, categories, book, verified, host &amp; earn. Best at explaining the multi-category product.</p>
+        <div class="arrow">View concept →</div>
+      </a>
+
+      <a class="card live" href="/prototypes/atlas/index.html">
+        <span class="tag on"><span class="dot"></span>Ready</span>
+        <h2>Atlas</h2>
+        <div class="sub">Immersive editorial · warm-dark</div>
+        <p>Cinematic full-bleed travel photography and a global, storytelling feel — the "brand film" homepage. Human, aspirational, community-led.</p>
+        <div class="arrow">View concept →</div>
+      </a>
+
+      <a class="card live" href="/prototypes/marketplace/index.html">
+        <span class="tag on"><span class="dot"></span>Ready</span>
+        <h2>Marketplace</h2>
+        <div class="sub">Product-led · search-first</div>
+        <p>Bright, familiar and conversion-focused — search hero, live category and listing cards, map moment, host earnings, trust. Gets people to the product fast.</p>
+        <div class="arrow">View concept →</div>
+      </a>
+
+      <a class="card live" href="/prototypes/pulse/index.html">
+        <span class="tag on"><span class="dot"></span>Ready</span>
+        <h2>Pulse</h2>
+        <div class="sub">Bold kinetic · brand-forward</div>
+        <p>Energetic, orange-forward, oversized kinetic type and motion — a confident, ownable brand statement with two-sided traveler/host energy.</p>
+        <div class="arrow">View concept →</div>
+      </a>
+
+      <a class="card live" href="/prototypes/marketplace-warm/index.html">
+        <span class="tag on"><span class="dot"></span>Ready · variation</span>
+        <h2>Marketplace — Warm</h2>
+        <div class="sub">Product-led bones + editorial soul</div>
+        <p>The winner, with photographic warmth: a real, human hero, warm-graded imagery, and a more emotive headline.</p>
+        <div class="arrow">View variation →</div>
+      </a>
+
+      <a class="card live" href="/prototypes/marketplace-interactive/index.html">
+        <span class="tag on"><span class="dot"></span>Ready · variation</span>
+        <h2>Marketplace — Interactive</h2>
+        <div class="sub">Working search + live demo</div>
+        <p>The winner, more alive: a real category picker in search, an animated app-phone demo, and a sticky mobile Get-the-app CTA.</p>
+        <div class="arrow">View variation →</div>
+      </a>
+
+      <a class="card live" href="/classic">
+        <span class="tag on"><span class="dot"></span>Archived</span>
+        <h2>Classic — previous site</h2>
+        <div class="sub">The homepage before the Interactive rebuild</div>
+        <p>The prior production homepage, kept live at <code>/classic</code> (noindex) for comparison after the Marketplace — Interactive direction became the new home.</p>
+        <div class="arrow">View classic site →</div>
+      </a>
+    </div>
+
+    <footer>
+      <div>Local preview · not deployed · noindex</div>
+      <div class="note">Marketplace is the chosen direction. The two Marketplace variations explore improvements; the original Marketplace stays unchanged for comparison.</div>
+    </footer>
+  </div>
+</body>
+</html>

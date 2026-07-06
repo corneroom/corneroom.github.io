@@ -1,31 +1,33 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Categories from "@/components/Categories";
-import RealMoments from "@/components/RealMoments";
-import HowItWorks from "@/components/HowItWorks";
-import GlobalMap from "@/components/GlobalMap";
-import ForHosts from "@/components/ForHosts";
-import HostShowcase from "@/components/HostShowcase";
-import Testimonials from "@/components/Testimonials";
-import TrustBadges from "@/components/TrustBadges";
-import DownloadCTA from "@/components/DownloadCTA";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import HomeInteractive from "./HomeInteractive";
+
+const title = "Corneroom — Find & share spaces worldwide";
+const description =
+  "Book affordable, verified spaces worldwide — to sleep, work, shower, boat, socialize & more. Or share your space and earn. Corneroom is a global, two-sided community.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title,
+    description,
+    url: "https://corneroom.com",
+    siteName: "Corneroom",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@corneroomApp",
+    title,
+    description,
+  },
+  other: {
+    "theme-color": "#FF642B",
+  },
+};
 
 export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <GlobalMap />
-      <Categories />
-      <HostShowcase />
-      <RealMoments />
-      <HowItWorks />
-      <ForHosts />
-      <Testimonials />
-      <TrustBadges />
-      <DownloadCTA />
-      <Footer />
-    </>
-  );
+  return <HomeInteractive />;
 }

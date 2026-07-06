@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Corneroom — E3 · Scroll Story (App Showcase)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme:{ extend:{
+  colors:{ primary:'#FF7A45', coral:'#FB8F75', bg:'#1E1610', bg2:'#271C15', soft:'#F6EBE2',
+    sleep:'#86C3E1', work:'#DBB5EE', shower:'#FAF271', boat:'#F9906C', social:'#FF642B' },
+  fontFamily:{ sora:['Sora','sans-serif'], sans:['Inter','sans-serif'] },
+}}}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:#F6EBE2;background:#1E1610;
+       background-image:radial-gradient(50rem 35rem at 80% 0%, rgba(255,122,69,.16), transparent 60%), radial-gradient(45rem 35rem at 0% 60%, rgba(134,195,225,.08), transparent 55%);}
+  .sora{font-family:'Sora',sans-serif}
+
+  /* device frame */
+  .phone{position:relative;width:clamp(220px,24vw,290px);aspect-ratio:1206/2622;border-radius:2.6rem;
+         background:#0c0907;padding:.55rem;box-shadow:0 2px 6px rgba(0,0,0,.4),0 40px 80px -30px rgba(255,122,69,.35),inset 0 0 0 2px rgba(246,235,226,.12)}
+  .phone__screen{position:relative;height:100%;width:100%;overflow:hidden;border-radius:2.1rem;background:#120d09}
+  .phone__notch{position:absolute;left:50%;top:.9rem;z-index:5;height:1.1rem;width:34%;transform:translateX(-50%);border-radius:1rem;background:#0c0907}
+  .phone__screen img{position:absolute;inset:0;height:100%;width:100%;object-fit:cover;opacity:0;transform:scale(1.04);
+                     transition:opacity .7s ease, transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .phone__screen img.active{opacity:1;transform:scale(1)}
+
+  /* steps */
+  .step{min-height:78vh;display:flex;flex-direction:column;justify-content:center}
+  .step__inner{opacity:.28;transform:translateY(14px);transition:opacity .5s ease, transform .5s cubic-bezier(.2,.7,.2,1)}
+  .step.active .step__inner{opacity:1;transform:none}
+  .chip{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;padding:.3rem .8rem;font-size:.72rem;font-weight:600}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .scrollcue{animation:bob 1.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .phone__screen img{transition:none}
+    .step__inner{opacity:1;transform:none}
+    .reveal{opacity:1;transform:none;transition:none}
+    .scrollcue{animation:none}
+  }
+  @media (max-width:767px){ .sticky-phone{position:static!important;height:auto!important} .step{min-height:auto;padding:2.5rem 0} }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Nav -->
+<header class="fixed top-0 z-50 w-full">
+  <div class="mx-auto mt-4 max-w-6xl px-4">
+    <div class="flex items-center justify-between rounded-full border border-soft/12 bg-bg/70 px-5 py-3 backdrop-blur-xl">
+      <a href="#top" class="flex items-center gap-2.5">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-primary text-bg"><svg viewBox="0 0 64 64" class="h-4 w-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4C18 4 8 15 8 26c0 17 24 34 24 34s24-17 24-34C56 15 46 4 32 4z" stroke-width="4"/><path d="M21 28 L32 17 L43 28" stroke-width="4"/><rect x="27" y="28" width="10" height="13" rx="1.5" stroke-width="3.5"/></svg></span>
+        <span class="sora text-lg font-600">corneroom</span>
+      </a>
+      <a href="#download" class="rounded-full bg-primary px-5 py-2 text-sm font-600 text-bg">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="relative flex min-h-screen flex-col items-center justify-center px-6 text-center">
+  <div class="reveal in">
+    <span class="chip border border-soft/15 text-soft/70">● Verified hosts &amp; guests · 120+ countries</span>
+    <h1 class="sora mt-6 text-5xl font-800 leading-[1.02] md:text-7xl">The whole journey,<br><span class="text-primary">in one app.</span></h1>
+    <p class="mx-auto mt-5 max-w-xl text-lg text-soft/70">Scroll to see how Corneroom helps you find affordable spaces, book in seconds, and host with confidence — worldwide.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="#download" class="rounded-full bg-primary px-7 py-3.5 text-sm font-600 text-bg transition hover:bg-coral">Get the app</a>
+      <a href="#story" class="rounded-full border border-soft/15 px-7 py-3.5 text-sm font-600 transition hover:bg-soft/10">Take the tour</a>
+    </div>
+  </div>
+  <a href="#story" class="scrollcue absolute bottom-8 text-soft/40" aria-label="Scroll down">
+    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+  </a>
+</section>
+
+<!-- Scrollytelling -->
+<section id="story" class="mx-auto max-w-6xl px-6">
+  <div class="grid gap-10 md:grid-cols-2">
+
+    <!-- Sticky phone -->
+    <div class="sticky-phone order-1 md:order-none" style="position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center">
+      <div class="phone">
+        <div class="phone__notch"></div>
+        <div class="phone__screen" id="screen">
+          <img data-i="0" src="screens/worldwide.png" alt="Discover spaces worldwide in the Corneroom app" class="active">
+          <img data-i="1" src="screens/sleep.png" alt="Sleep category in the Corneroom app">
+          <img data-i="2" src="screens/work.png" alt="Work category in the Corneroom app">
+          <img data-i="3" src="screens/shower.png" alt="Shower category in the Corneroom app">
+          <img data-i="4" src="screens/discover.png" alt="Discover and book a space in the Corneroom app">
+          <img data-i="5" src="screens/verified.png" alt="Verified hosts and guests in the Corneroom app">
+          <img data-i="6" src="screens/host.png" alt="List your space in the Corneroom app">
+          <img data-i="7" src="screens/earn.png" alt="Benefits of hosting in the Corneroom app">
+        </div>
+      </div>
+      <!-- progress dots -->
+      <div class="absolute right-2 top-1/2 hidden -translate-y-1/2 flex-col gap-2 md:flex" id="dots"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="relative">
+      <div class="step active" data-screen="0"><div class="step__inner"><span class="chip bg-primary/15 text-primary">Find spaces</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Search anywhere, worldwide</h2><p class="mt-3 max-w-md text-soft/70">Open the app to a world of affordable spaces in 120+ countries — filter by city, category, dates and price.</p></div></div>
+      <div class="step" data-screen="1"><div class="step__inner"><span class="chip" style="background:rgba(134,195,225,.18);color:#86C3E1">🛏️ Sleep</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Couches, rooms &amp; unique stays</h2><p class="mt-3 max-w-md text-soft/70">Sometimes free, often under $20. Real homes hosted by real, verified people.</p></div></div>
+      <div class="step" data-screen="2"><div class="step__inner"><span class="chip" style="background:rgba(219,181,238,.18);color:#DBB5EE">💻 Work</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">A quiet desk by the hour</h2><p class="mt-3 max-w-md text-soft/70">Take that call somewhere calm. Pay for the time, not the night.</p></div></div>
+      <div class="step" data-screen="3"><div class="step__inner"><span class="chip" style="background:rgba(250,242,113,.18);color:#FAF271">🚿 Shower</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Freshen up between trains</h2><p class="mt-3 max-w-md text-soft/70">A clean bathroom and a 30-minute slot — plus boat, social &amp; more, with new categories always arriving.</p></div></div>
+      <div class="step" data-screen="4"><div class="step__inner"><span class="chip bg-primary/15 text-primary">Book in seconds</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Tap to reserve</h2><p class="mt-3 max-w-md text-soft/70">Secure payment, instant confirmation, flexible cancellation. Your first booking is free.</p></div></div>
+      <div class="step" data-screen="5"><div class="step__inner"><span class="chip bg-primary/15 text-primary">Trust built in</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Verified hosts &amp; guests</h2><p class="mt-3 max-w-md text-soft/70">Everyone is ID &amp; review verified — on both sides — so you can share spaces with confidence.</p></div></div>
+      <div class="step" data-screen="6"><div class="step__inner"><span class="chip bg-primary/15 text-primary">Host &amp; earn</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">List a space in minutes</h2><p class="mt-3 max-w-md text-soft/70">A room, a desk, a boat — even a shower. Set your price and welcome verified guests.</p></div></div>
+      <div class="step" data-screen="7"><div class="step__inner"><span class="chip bg-primary/15 text-primary">Get paid</span><h2 class="sora mt-4 text-3xl font-700 md:text-4xl">Keep up to 90%</h2><p class="mt-3 max-w-md text-soft/70">Earn from the space you already have — direct deposit after every stay. Avg $2,400/mo per spare room.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Community -->
+<section class="mx-auto max-w-6xl px-6 py-24">
+  <div class="reveal text-center"><h2 class="sora text-3xl font-600 md:text-5xl">A community, worldwide</h2><p class="mt-3 text-soft/60">4.8 average · 50K+ guests · 8.5K+ verified hosts</p></div>
+  <div class="mt-10 grid gap-5 md:grid-cols-3">
+    <figure class="reveal rounded-3xl border border-soft/12 bg-soft/[.04] p-7"><div class="text-coral">★★★★★</div><blockquote class="mt-4 text-soft/85">"Found a Bali co-working space for half the price. Made friends for life."</blockquote><figcaption class="mt-4 text-sm text-soft/50">Aisha N. · guest, Lagos</figcaption></figure>
+    <figure class="reveal rounded-3xl border border-soft/12 bg-soft/[.04] p-7"><div class="text-coral">★★★★★</div><blockquote class="mt-4 text-soft/85">"I earn $2,400/mo hosting my spare room. Verified guests, zero hassle."</blockquote><figcaption class="mt-4 text-sm text-soft/50">Marco T. · host, Rome</figcaption></figure>
+    <figure class="reveal rounded-3xl border border-soft/12 bg-soft/[.04] p-7"><div class="text-coral">★★★★★</div><blockquote class="mt-4 text-soft/85">"Safe, verified hosts and guests. As a solo traveler, that's everything."</blockquote><figcaption class="mt-4 text-sm text-soft/50">Priya M. · guest, Mumbai</figcaption></figure>
+  </div>
+</section>
+
+<!-- CTA + footer -->
+<footer id="download" class="bg-bg2">
+  <div class="mx-auto max-w-6xl px-6 py-24 text-center">
+    <h2 class="sora text-4xl font-800 md:text-6xl">Your next space<br>is one tap away.</h2>
+    <p class="mx-auto mt-4 max-w-md text-soft/70">Download Corneroom — affordable spaces and a verified community, worldwide.</p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="#" class="rounded-xl bg-primary px-6 py-3 font-600 text-bg">App Store</a>
+      <a href="#" class="rounded-xl border border-soft/15 px-6 py-3 font-600">Google Play</a>
+    </div>
+    <div class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-soft/10 pt-8 text-sm text-soft/50 md:flex-row">
+      <span>© 2026 Corneroom · Find &amp; share spaces worldwide.</span>
+      <span class="flex gap-6"><a href="#" class="hover:text-soft">Terms</a><a href="#" class="hover:text-soft">Privacy</a><a href="#" class="hover:text-soft">Safety</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const screens = Array.from(document.querySelectorAll('#screen img'));
+  const steps = Array.from(document.querySelectorAll('.step'));
+  const dotsWrap = document.getElementById('dots');
+  steps.forEach((_,i)=>{ const d=document.createElement('span'); d.className='h-2 w-2 rounded-full bg-soft/25 transition-all'; d.dataset.i=i; dotsWrap.appendChild(d); });
+  const dots = Array.from(dotsWrap.children);
+
+  function setActive(i){
+    screens.forEach(img=>img.classList.toggle('active', +img.dataset.i===i));
+    steps.forEach((s,si)=>s.classList.toggle('active', si===i));
+    dots.forEach((d,di)=>{ d.classList.toggle('bg-primary', di===i); d.classList.toggle('w-5', di===i); d.classList.toggle('bg-soft/25', di!==i); });
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ setActive(steps.indexOf(e.target)); } });
+  },{ rootMargin:'-45% 0px -45% 0px', threshold:0 });
+  steps.forEach(s=>io.observe(s));
+  setActive(0);
+
+  // generic reveals
+  const rio = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target);} }),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>rio.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Corneroom — Find &amp; share spaces worldwide</title>
+<meta name="description" content="Corneroom is a global community for finding and sharing spaces worldwide — sleep, work, shower, boat, social & more. Affordable, verified on both sides, real." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#1E1610; --bg2:#271C15; --bg3:#2F2119;
+  --ink:#F6EBE2; --muted:rgba(246,235,226,.66); --faint:rgba(246,235,226,.42);
+  --line:rgba(246,235,226,.14);
+  --primary:#FF642B; --coral:#FB8F75;
+  --sleep:#86C3E1; --work:#DBB5EE; --shower:#FAF271; --boat:#F9906C; --social:#FF642B;
+  --maxw:1200px;
+  --disp:'Fraunces',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;line-height:1.6;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--primary);color:#1a0f08}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.disp{font-family:var(--disp);font-weight:600;letter-spacing:-.01em;line-height:1.02}
+.kicker{
+  font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--primary);display:inline-flex;align-items:center;gap:.6rem;
+}
+.kicker::before{content:"";width:26px;height:1px;background:var(--primary);opacity:.7}
+.kicker.center::before{display:none}
+.muted{color:var(--muted)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--sans);font-weight:600;font-size:.95rem;
+  padding:.85rem 1.5rem;border-radius:999px;cursor:pointer;border:1px solid transparent;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),background .3s,color .3s,border-color .3s;
+  will-change:transform;
+}
+.btn-primary{background:var(--primary);color:#1a0f08;box-shadow:0 10px 30px -12px rgba(255,100,43,.7)}
+.btn-primary:hover{transform:translateY(-2px);background:#ff7440}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:rgba(246,235,226,.4);background:rgba(246,235,226,.05)}
+.btn svg{width:16px;height:16px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .4s ease,border-color .4s ease,padding .4s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{background:rgba(30,22,16,.92);border-bottom-color:var(--line)}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:18px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+  transition:padding .4s ease;
+}
+.nav.scrolled .nav-inner{padding:12px 24px}
+.brand{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--disp);font-weight:600;font-size:1.35rem;letter-spacing:-.02em}
+.brand svg{width:26px;height:26px;flex:none}
+.nav-links{display:flex;align-items:center;gap:2rem;font-size:.92rem;font-weight:500;color:var(--muted)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12)}}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(30,22,16,.55) 0%, rgba(30,22,16,.12) 26%, rgba(30,22,16,.55) 62%, rgba(30,22,16,.96) 100%),
+    radial-gradient(80% 60% at 15% 90%, rgba(255,100,43,.28), transparent 60%);
+}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 6.5rem}
+.hero h1{font-size:clamp(2.9rem,7.2vw,6rem);max-width:16ch;margin:1.4rem 0 0}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--coral)}
+.hero-sub{font-size:clamp(1.05rem,1.9vw,1.35rem);color:var(--ink);max-width:42ch;margin-top:1.6rem;opacity:.9}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
+.hero-trust{display:flex;flex-wrap:wrap;gap:1.5rem 2rem;margin-top:2.6rem;font-size:.85rem;color:var(--muted)}
+.hero-trust span{display:inline-flex;align-items:center;gap:.5rem}
+.hero-trust svg{width:16px;height:16px;color:var(--primary)}
+.scroll-cue{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:3;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.scroll-cue i{width:1px;height:34px;background:linear-gradient(var(--primary),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
+
+/* ---------- marquee ---------- */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:1.1rem 0}
+.marquee-track{display:flex;gap:3rem;width:max-content;animation:scrollx 40s linear infinite}
+.marquee-track span{font-family:var(--disp);font-size:1.15rem;color:var(--muted);display:inline-flex;align-items:center;gap:3rem;white-space:nowrap}
+.marquee-track span::after{content:"◍";color:var(--primary);font-size:.7rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- section base ---------- */
+section{position:relative}
+.sec{padding:7rem 0}
+.sec-head{max-width:60ch}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-top:1.1rem}
+.sec-head p{color:var(--muted);font-size:1.08rem;margin-top:1.1rem;max-width:52ch}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* ---------- categories ---------- */
+.cats{background:var(--bg)}
+.cat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:3rem}
+.cat{
+  position:relative;border-radius:20px;overflow:hidden;min-height:340px;display:flex;
+  border:1px solid var(--line);isolation:isolate;
+}
+.cat.big{grid-column:span 3;min-height:420px}
+.cat.sm{grid-column:span 3}
+.cat.more{grid-column:span 6;min-height:150px;align-items:center;background:var(--bg2)}
+@media(max-width:900px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .cat.big,.cat.sm{grid-column:span 1;min-height:300px}
+  .cat.more{grid-column:span 2}
+}
+@media(max-width:560px){
+  .cat-grid{grid-template-columns:1fr}
+  .cat.big,.cat.sm,.cat.more{grid-column:span 1}
+}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.cat:hover img{transform:scale(1.07)}
+.cat::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(30,22,16,.15) 0%,rgba(30,22,16,.35) 45%,rgba(30,22,16,.92) 100%)}
+.cat-body{margin-top:auto;padding:1.5rem;width:100%}
+.cat-tag{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.cat-tag i{width:9px;height:9px;border-radius:999px;background:var(--acc);box-shadow:0 0 14px 1px var(--acc)}
+.cat-body h3{font-family:var(--disp);font-size:1.7rem;font-weight:600;margin-top:.5rem}
+.cat-body p{color:var(--muted);font-size:.92rem;margin-top:.3rem;max-width:34ch}
+.cat.more{border-style:dashed;border-color:rgba(255,100,43,.4)}
+.more-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;width:100%;padding:0 2rem;flex-wrap:wrap}
+.more-inner h3{font-family:var(--disp);font-size:1.6rem;font-weight:600}
+.more-inner p{color:var(--muted);font-size:.95rem;margin-top:.2rem}
+.more-arrow{font-size:1.3rem;color:var(--primary)}
+
+/* ---------- how it works ---------- */
+.how{background:var(--bg2)}
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:3rem}
+@media(max-width:820px){.tracks{grid-template-columns:1fr}}
+.track{border:1px solid var(--line);border-radius:24px;padding:2.2rem;background:var(--bg)}
+.track.host{background:linear-gradient(180deg,rgba(255,100,43,.10),rgba(255,100,43,.02));border-color:rgba(255,100,43,.28)}
+.track-label{font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--coral)}
+.track.host .track-label{color:var(--primary)}
+.track h3{font-family:var(--disp);font-size:1.7rem;font-weight:600;margin:.6rem 0 1.6rem}
+.step{display:flex;gap:1.1rem;padding:1.1rem 0;border-top:1px solid var(--line)}
+.step:first-of-type{border-top:none;padding-top:0}
+.step-n{flex:none;width:36px;height:36px;border-radius:999px;display:grid;place-items:center;font-family:var(--disp);font-weight:600;font-size:1rem;background:rgba(246,235,226,.06);border:1px solid var(--line)}
+.track.host .step-n{background:rgba(255,100,43,.15);border-color:rgba(255,100,43,.4);color:var(--primary)}
+.step h4{font-size:1.02rem;font-weight:600}
+.step p{color:var(--muted);font-size:.92rem;margin-top:.2rem}
+.track .btn{margin-top:1.6rem}
+
+/* ---------- trust / verified ---------- */
+.trust{background:var(--bg)}
+.split{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center;margin-top:2rem}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:40px}}
+.trust-list{margin-top:2rem;display:grid;gap:1.1rem}
+.trust-item{display:flex;gap:1rem;align-items:flex-start}
+.trust-ic{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,100,43,.14);border:1px solid rgba(255,100,43,.3);color:var(--primary)}
+.trust-ic svg{width:20px;height:20px}
+.trust-item h4{font-size:1.05rem;font-weight:600}
+.trust-item p{color:var(--muted);font-size:.94rem;margin-top:.15rem}
+
+/* phone frame */
+.phone{
+  position:relative;width:270px;max-width:76vw;margin:0 auto;
+  border-radius:42px;padding:11px;background:#0d0906;
+  border:1px solid rgba(246,235,226,.16);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px rgba(255,100,43,.08);
+}
+.phone::before{content:"";position:absolute;top:20px;left:50%;transform:translateX(-50%);width:90px;height:20px;background:#0d0906;border-radius:0 0 14px 14px;z-index:3}
+.phone img{width:100%;border-radius:32px;display:block}
+.phone-stage{position:relative;display:flex;justify-content:center}
+.phone-stage .glow{position:absolute;inset:-8% -14%;z-index:0;background:radial-gradient(50% 50% at 50% 40%,rgba(255,100,43,.35),transparent 70%);filter:blur(10px)}
+.phone-stage .phone{position:relative;z-index:1}
+.dual{display:flex;justify-content:center;gap:0}
+.dual .phone{width:230px}
+.dual .phone:first-child{transform:rotate(-5deg) translateX(18px);z-index:1}
+.dual .phone:last-child{transform:rotate(5deg) translateX(-18px);z-index:2}
+@media(max-width:560px){.dual .phone{width:60vw}}
+
+/* ---------- global reach ---------- */
+.reach{position:relative;overflow:hidden;padding:8rem 0}
+.reach-bg{position:absolute;inset:0;z-index:0}
+.reach-bg img{width:100%;height:100%;object-fit:cover}
+.reach-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,22,16,.86),rgba(30,22,16,.7) 45%,rgba(30,22,16,.94));}
+.reach-inner{position:relative;z-index:2;text-align:center;max-width:64ch;margin:0 auto}
+.reach h2{font-size:clamp(2.2rem,5.5vw,4rem);margin-top:1rem}
+.reach h2 em{font-style:italic;color:var(--coral);font-weight:500}
+.reach p{color:var(--muted);font-size:1.1rem;margin-top:1.2rem}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem 3.5rem;margin-top:3rem}
+.stat .num{font-family:var(--disp);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:600;color:var(--ink);line-height:1}
+.stat .lbl{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:.6rem}
+
+/* ---------- host & earn ---------- */
+.host{background:var(--bg2)}
+.host-split{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;margin-top:1rem}
+@media(max-width:860px){.host-split{grid-template-columns:1fr;gap:40px}}
+.host-points{margin-top:2rem;display:grid;gap:1.3rem}
+.host-point{display:flex;gap:.9rem;align-items:flex-start}
+.host-point svg{width:22px;height:22px;color:var(--primary);flex:none;margin-top:.1rem}
+.host-point b{font-weight:600}
+.host-point span{color:var(--muted);display:block;font-size:.94rem}
+.host .btn{margin-top:2rem}
+
+/* ---------- testimonials ---------- */
+.quotes{background:var(--bg)}
+.q-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:3rem}
+@media(max-width:860px){.q-grid{grid-template-columns:1fr}}
+.q{border:1px solid var(--line);border-radius:22px;padding:1.9rem;background:var(--bg2);display:flex;flex-direction:column;gap:1.3rem}
+.q .mark{font-family:var(--disp);font-size:2.6rem;line-height:.4;color:var(--primary);height:.7em}
+.q blockquote{font-size:1.06rem;color:var(--ink);flex:1}
+.q-by{display:flex;align-items:center;gap:.8rem}
+.q-by img{width:44px;height:44px;border-radius:999px;object-fit:cover}
+.q-by b{font-weight:600;font-size:.94rem;display:block}
+.q-by small{color:var(--faint);font-size:.8rem}
+.q-role{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .55rem;border-radius:999px;margin-left:auto}
+.role-guest{background:rgba(134,195,225,.16);color:var(--sleep)}
+.role-host{background:rgba(255,100,43,.16);color:var(--primary)}
+
+/* ---------- app CTA ---------- */
+.cta{padding:7rem 0}
+.cta-card{
+  position:relative;overflow:hidden;border-radius:32px;padding:4.5rem 3rem;text-align:center;
+  background:linear-gradient(135deg,#FF642B,#FB8F75);color:#2a1206;
+}
+.cta-card::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% -10%,rgba(255,255,255,.35),transparent 55%);pointer-events:none}
+.cta-card .kicker{color:#3a1608}.cta-card .kicker::before{background:#3a1608}
+.cta-card h2{font-family:var(--disp);font-weight:600;font-size:clamp(2rem,4.6vw,3.2rem);margin-top:1rem;position:relative}
+.cta-card p{margin-top:1rem;font-size:1.1rem;color:#3a1608;position:relative;max-width:46ch;margin-left:auto;margin-right:auto}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2.4rem;position:relative}
+.badge{display:inline-flex;align-items:center;gap:.7rem;background:#1a0f08;color:#F6EBE2;padding:.7rem 1.3rem;border-radius:14px;transition:transform .3s}
+.badge:hover{transform:translateY(-3px)}
+.badge svg{width:26px;height:26px;flex:none}
+.badge small{display:block;font-size:.62rem;letter-spacing:.06em;opacity:.7;line-height:1}
+.badge b{display:block;font-size:1.02rem;font-weight:600;line-height:1.25}
+
+/* ---------- footer ---------- */
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 0 2.5rem}
+.foot-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
+@media(max-width:760px){.foot-top{grid-template-columns:1fr 1fr}}
+.foot-brand .brand{font-size:1.5rem}
+.foot-brand p{color:var(--muted);margin-top:1rem;max-width:34ch;font-size:.95rem}
+.foot-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.chip{font-size:.72rem;font-weight:600;padding:.35rem .7rem;border-radius:999px;border:1px solid var(--line);color:var(--muted);display:inline-flex;gap:.4rem;align-items:center}
+.chip i{width:8px;height:8px;border-radius:999px;background:var(--c)}
+.foot-col h5{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1.1rem}
+.foot-col a{display:block;color:var(--muted);font-size:.92rem;padding:.32rem 0;transition:color .2s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--line);color:var(--faint);font-size:.82rem}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .hero-media img{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- top sentinel for nav state -->
+<div id="top-sentinel" aria-hidden="true" style="position:absolute;top:0;height:12px;width:1px"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Corneroom home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.4 5.4 10.5 7.35 12.2a1 1 0 0 0 1.3 0C14.6 20.5 20 15.4 20 10c0-4.42-3.58-8-8-8z" fill="#FF642B"/><path d="M12 5.7 16 9v4.6a.7.7 0 0 1-.7.7H8.7a.7.7 0 0 1-.7-.7V9l4-3.3z" fill="#1E1610"/><rect x="10.7" y="11.2" width="2.6" height="3.1" rx=".4" fill="#FF642B"/></svg>
+      corneroom
+    </a>
+    <div class="nav-links">
+      <a href="#categories">Spaces</a>
+      <a href="#how">How it works</a>
+      <a href="#host">Become a host</a>
+      <a href="#community">Community</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-primary" href="#get-app">Get the app</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-media">
+    <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?w=2000&q=80&auto=format&fit=crop"
+         alt="View from an airplane window over glowing golden clouds at sunset" fetchpriority="high" width="2000" height="1333">
+  </div>
+  <div class="hero-inner">
+    <span class="kicker">Find &amp; share spaces worldwide</span>
+    <h1 class="disp">A place to stay,<br>anywhere you <em>land</em>.</h1>
+    <p class="hero-sub">Corneroom is a global community sharing real spaces — to sleep, work, shower, boat, gather &amp; more. Affordable, human, and verified on both sides.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#categories">Find a space</a>
+      <a class="btn btn-ghost" href="#host">Become a host</a>
+    </div>
+    <div class="hero-trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Verified hosts &amp; guests</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>120+ countries</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/></svg>Free stays are real</span>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><i></i></div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Lisbon</span><span>Lagos</span><span>Tokyo</span><span>Mexico City</span><span>Chiang Mai</span><span>Nairobi</span><span>Berlin</span><span>São Paulo</span><span>Hanoi</span><span>Cape Town</span>
+    <span>Lisbon</span><span>Lagos</span><span>Tokyo</span><span>Mexico City</span><span>Chiang Mai</span><span>Nairobi</span><span>Berlin</span><span>São Paulo</span><span>Hanoi</span><span>Cape Town</span>
+  </div>
+</div>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="sec cats" id="categories">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">One app, every kind of space</span>
+      <h2 class="disp">Far beyond a room for the night.</h2>
+      <p>A spare bed, a quiet desk, a hot shower between flights, a weekend on the water, a place to gather. Real spaces, opened up by real people — with more categories added over time.</p>
+    </div>
+
+    <div class="cat-grid">
+      <a class="cat big reveal" style="--acc:var(--sleep)" href="#get-app">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1100&q=80&auto=format&fit=crop" alt="Warm bedroom with soft lighting and orange accent stools" width="1100" height="733">
+        <div class="cat-body">
+          <span class="cat-tag"><i></i>Sleep</span>
+          <h3 class="disp">Somewhere to rest</h3>
+          <p>Affordable beds and whole spaces — from a host's spare room to a place of your own.</p>
+        </div>
+      </a>
+
+      <a class="cat sm reveal d1" style="--acc:var(--work)" href="#get-app">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1100&q=80&auto=format&fit=crop" alt="People working together at a shared table in a warm wooden space" width="1100" height="733">
+        <div class="cat-body">
+          <span class="cat-tag"><i></i>Work</span>
+          <h3 class="disp">Room to focus</h3>
+          <p>Desks and quiet corners, wherever the day takes you.</p>
+        </div>
+      </a>
+
+      <a class="cat sm reveal" style="--acc:var(--shower)" href="#get-app">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1100&q=80&auto=format&fit=crop" alt="Clean, bright bathroom with a walk-in shower" width="1100" height="733">
+        <div class="cat-body">
+          <span class="cat-tag"><i></i>Shower</span>
+          <h3 class="disp">Freshen up</h3>
+          <p>A hot shower between a long journey and the next one.</p>
+        </div>
+      </a>
+
+      <a class="cat sm reveal d1" style="--acc:var(--boat)" href="#get-app">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1520255870062-bd79d3865de7?w=1100&q=80&auto=format&fit=crop" alt="A small boat on calm water at golden hour with mountains behind" width="1100" height="733">
+        <div class="cat-body">
+          <span class="cat-tag"><i></i>Boat</span>
+          <h3 class="disp">Stay on the water</h3>
+          <p>Cabins and berths for a night, or a whole trip out.</p>
+        </div>
+      </a>
+
+      <a class="cat sm reveal d2" style="--acc:var(--social)" href="#get-app">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1100&q=80&auto=format&fit=crop" alt="Friends laughing together around a table" width="1100" height="733">
+        <div class="cat-body">
+          <span class="cat-tag"><i></i>Social</span>
+          <h3 class="disp">Gather &amp; belong</h3>
+          <p>Spaces to meet locals, share a meal and find your people.</p>
+        </div>
+      </a>
+
+      <a class="cat more reveal" href="#get-app">
+        <div class="more-inner">
+          <div>
+            <h3 class="disp">&amp; more, always growing</h3>
+            <p>Corneroom's community keeps opening up new kinds of space to share.</p>
+          </div>
+          <span class="more-arrow">→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="sec how" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">How Corneroom works</span>
+      <h2 class="disp">Two sides of the same community.</h2>
+      <p>Whether you're arriving somewhere new or opening your door, it's the same simple, verified exchange.</p>
+    </div>
+
+    <div class="tracks">
+      <div class="track reveal">
+        <span class="track-label">For travellers &amp; guests</span>
+        <h3 class="disp">Find your stay</h3>
+        <div class="step"><div class="step-n">1</div><div><h4>Discover real spaces</h4><p>Search worldwide by category and budget — including free stays offered by the community.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div><h4>Book with confidence</h4><p>Message verified hosts, agree the details, and pay securely in the app.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div><h4>Arrive &amp; belong</h4><p>Show up as a verified guest, settle in, and leave a review that helps the next traveller.</p></div></div>
+        <a class="btn btn-ghost" href="#categories">Explore spaces</a>
+      </div>
+
+      <div class="track host reveal d1">
+        <span class="track-label">For hosts</span>
+        <h3 class="disp">Share &amp; earn</h3>
+        <div class="step"><div class="step-n">1</div><div><h4>List your space free</h4><p>Add a room, desk, shower, boat or spot to gather. Listing costs nothing.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div><h4>Welcome verified guests</h4><p>You choose who stays. Everyone is ID-verified, so you host with peace of mind.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div><h4>Get paid securely</h4><p>Set your price, and payouts land safely after each stay — on your terms.</p></div></div>
+        <a class="btn btn-primary" href="#host">Start hosting</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST / VERIFIED ================= -->
+<section class="sec trust" id="community">
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <span class="kicker">Verified, both ways</span>
+        <h2 class="disp" style="font-size:clamp(1.9rem,4vw,3rem)">Trust that goes both directions.</h2>
+        <p class="muted" style="margin-top:1rem">Real community only works when everyone is who they say they are. On Corneroom, verification isn't just for hosts — it's for guests too.</p>
+        <div class="trust-list">
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <div><h4>Hosts and guests are verified</h4><p>ID checks on both sides, so everyone knows who they're opening the door to.</p></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg></span>
+            <div><h4>Secure in-app payments</h4><p>Money is held and released safely — no cash handoffs, no guesswork.</p></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+            <div><h4>Real reviews, real reputations</h4><p>Every stay is rated by both sides, building trust the honest way.</p></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div><h4>Community standards</h4><p>Shared ground rules keep Corneroom kind, safe and welcoming for everyone.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1 phone-stage">
+        <div class="glow"></div>
+        <div class="phone"><img src="/prototypes/assets/screens/verified.png" alt="Corneroom app screen showing identity verification for hosts and guests" width="644" height="1400" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GLOBAL REACH ================= -->
+<section class="reach" id="reach">
+  <div class="reach-bg">
+    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=2000&q=80&auto=format&fit=crop" alt="Warm desert landscape stretching to the horizon" width="2000" height="1333" loading="lazy">
+  </div>
+  <div class="wrap">
+    <div class="reach-inner reveal">
+      <span class="kicker center">Worldwide</span>
+      <h2 class="disp">From a spare room in Lisbon<br>to a <em>boat in Lagos</em>.</h2>
+      <p>Corneroom is a genuinely global community — one app, spaces on every continent, and neighbours you haven't met yet.</p>
+      <div class="stats">
+        <div class="stat"><div class="num" data-count="120" data-suffix="+">0</div><div class="lbl">Countries</div></div>
+        <div class="stat"><div class="num" data-count="5" data-suffix="+">0</div><div class="lbl">Space categories &amp; more</div></div>
+        <div class="stat"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Verified community</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOST & EARN ================= -->
+<section class="sec host" id="host">
+  <div class="wrap">
+    <div class="host-split">
+      <div class="reveal">
+        <span class="kicker">Host &amp; earn</span>
+        <h2 class="disp" style="font-size:clamp(1.9rem,4.4vw,3.2rem)">Your space is worth something.</h2>
+        <p class="muted" style="margin-top:1rem">You don't need a second home to host. A spare room, a desk, a shower, a berth on your boat — open it up and earn from what you already have.</p>
+        <div class="host-points">
+          <div class="host-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><div><b>List for free, on your terms</b><span>No listing fees. You set the price, the availability and the house rules.</span></div></div>
+          <div class="host-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><div><b>Only verified guests</b><span>Every guest is ID-verified, so you always know who's arriving.</span></div></div>
+          <div class="host-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><div><b>Reliable, secure payouts</b><span>Payments are handled in-app and paid out safely after each stay.</span></div></div>
+        </div>
+        <a class="btn btn-primary" href="#get-app">List your space</a>
+      </div>
+      <div class="reveal d1 phone-stage">
+        <div class="glow"></div>
+        <div class="dual">
+          <div class="phone"><img src="/prototypes/assets/screens/host.png" alt="Corneroom app screen for hosting a space" width="644" height="1400" loading="lazy"></div>
+          <div class="phone"><img src="/prototypes/assets/screens/earn.png" alt="Corneroom app screen showing host earnings and payouts" width="644" height="1400" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="sec quotes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">From the community</span>
+      <h2 class="disp">Real people, real stays.</h2>
+    </div>
+    <div class="q-grid">
+      <figure class="q reveal">
+        <div class="mark">“</div>
+        <blockquote>I found a verified host with a spare room for less than a hostel — and left with a friend in a city I'd never been to.</blockquote>
+        <figcaption class="q-by">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=70&auto=format&fit=crop" alt="Portrait of Mara" width="44" height="44" loading="lazy">
+          <div><b>Mara</b><small>Guest · Lisbon</small></div>
+          <span class="q-role role-guest">Guest</span>
+        </figcaption>
+      </figure>
+
+      <figure class="q reveal d1">
+        <div class="mark">“</div>
+        <blockquote>My spare room sat empty for years. Now it pays part of my rent, and I've hosted travellers from four continents.</blockquote>
+        <figcaption class="q-by">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=70&auto=format&fit=crop" alt="Portrait of Daniel" width="44" height="44" loading="lazy">
+          <div><b>Daniel</b><small>Host · Mexico City</small></div>
+          <span class="q-role role-host">Host</span>
+        </figcaption>
+      </figure>
+
+      <figure class="q reveal d2">
+        <div class="mark">“</div>
+        <blockquote>Between flights I just needed a shower and a desk for a few hours. Corneroom had both, verified, a street away.</blockquote>
+        <figcaption class="q-by">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&q=70&auto=format&fit=crop" alt="Portrait of Amir" width="44" height="44" loading="lazy">
+          <div><b>Amir</b><small>Guest · Nairobi</small></div>
+          <span class="q-role role-guest">Guest</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APP CTA ================= -->
+<section class="cta" id="get-app">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <span class="kicker center">Get the app</span>
+      <h2>Find &amp; share spaces worldwide.</h2>
+      <p>Join the Corneroom community — travel affordably, host what you have, and belong wherever you go.</p>
+      <div class="badges">
+        <a class="badge" href="#" aria-label="Download on the App Store">
+          <svg viewBox="0 0 24 24" fill="#F6EBE2" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.49 2.27-1.18 3.08-.74.9-1.99 1.57-2.98 1.57-.12 0-.24-.02-.31-.03-.01-.06-.04-.22-.04-.39 0-1.15.57-2.27 1.2-2.98.81-.94 2.14-1.64 3.25-1.68.03.13.05.28.05.43zM20.9 17.14c-.03.07-.46 1.58-1.52 3.12-.94 1.34-1.94 2.71-3.43 2.71-1.52 0-1.9-.88-3.63-.88-1.7 0-2.3.91-3.67.91-1.38 0-2.33-1.26-3.43-2.8C3.93 18.38 2.9 15.57 2.9 12.92c0-4.28 2.8-6.55 5.55-6.55 1.45 0 2.68.95 3.6.95.86 0 2.22-1.01 3.9-1.01.62 0 2.89.06 4.38 2.19-.13.09-2.39 1.37-2.39 4.19 0 3.26 2.86 4.42 2.96 4.45z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <a class="badge" href="#" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9l.1.1L13.4 12 3.7 2.2l-.1.1z" fill="#86C3E1"/><path d="M17 15.3 13.4 12l3.6-3.3 4 2.3c1.1.6 1.1 1.7 0 2.3l-4 2z" fill="#FAF271"/><path d="M3.7 21.8 13.4 12l3.6 3.3-11 6.3c-.9.5-1.7.4-2.3.2z" fill="#F9906C"/><path d="M3.7 2.2 17 8.7 13.4 12 3.7 2.2z" fill="#FB8F75"/></svg>
+          <span><small>Get it on</small><b>Google Play</b></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.4 5.4 10.5 7.35 12.2a1 1 0 0 0 1.3 0C14.6 20.5 20 15.4 20 10c0-4.42-3.58-8-8-8z" fill="#FF642B"/><path d="M12 5.7 16 9v4.6a.7.7 0 0 1-.7.7H8.7a.7.7 0 0 1-.7-.7V9l4-3.3z" fill="#271C15"/><rect x="10.7" y="11.2" width="2.6" height="3.1" rx=".4" fill="#FF642B"/></svg>
+          corneroom
+        </a>
+        <p>Find &amp; share spaces worldwide. A global, verified community for affordable, real places to stay — sleep, work, shower, boat, social &amp; more.</p>
+        <div class="foot-chips">
+          <span class="chip" style="--c:var(--sleep)"><i></i>Sleep</span>
+          <span class="chip" style="--c:var(--work)"><i></i>Work</span>
+          <span class="chip" style="--c:var(--shower)"><i></i>Shower</span>
+          <span class="chip" style="--c:var(--boat)"><i></i>Boat</span>
+          <span class="chip" style="--c:var(--social)"><i></i>Social</span>
+          <span class="chip"><i style="background:var(--muted)"></i>&amp; more</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Explore</h5>
+        <a href="#categories">Spaces</a>
+        <a href="#how">How it works</a>
+        <a href="#reach">Worldwide</a>
+        <a href="#community">Community</a>
+      </div>
+      <div class="foot-col">
+        <h5>Hosting</h5>
+        <a href="#host">Become a host</a>
+        <a href="#host">List a space</a>
+        <a href="#host">Payouts</a>
+        <a href="#community">Verification</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Press</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> Corneroom · Find &amp; share spaces worldwide.</span>
+      <span>Affordable · Real · Community · Worldwide</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav scrolled state via sentinel (no scroll listeners)
+  var nav = document.getElementById('nav');
+  var sentinel = document.getElementById('top-sentinel');
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      nav.classList.toggle('scrolled', !e[0].isIntersecting);
+    },{rootMargin:'0px'}).observe(sentinel);
+  } else { nav.classList.add('scrolled'); }
+
+  // reveals
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){el.classList.add('in');});
+  } else {
+    var ro = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); ro.unobserve(en.target); }
+      });
+    },{threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+    reveals.forEach(function(el){ro.observe(el);});
+  }
+
+  // count-up stats
+  var nums = document.querySelectorAll('.num[data-count]');
+  function run(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.textContent = target + suffix; return; }
+    var start = null, dur = 1400;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts-start)/dur,1);
+      var eased = 1 - Math.pow(1-p,3);
+      el.textContent = Math.round(target*eased) + suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window && !reduce){
+    var no = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ run(en.target); no.unobserve(en.target); } });
+    },{threshold:0.5});
+    nums.forEach(function(el){no.observe(el);});
+  } else {
+    nums.forEach(run);
+  }
+})();
+</script>
+</body>
+</html>
