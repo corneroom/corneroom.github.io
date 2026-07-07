@@ -896,6 +896,14 @@ export default function HomeInteractive() {
                 <a href={SOCIAL.x} target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.3 8.3L23.2 22h-6.6l-5.2-6.8L5.5 22H2.3l7.8-8.9L1.2 2h6.8l4.7 6.2L18.9 2Zm-1.2 18h1.8L7.1 3.8H5.2L17.7 20Z" /></svg></a>
                 <a href={SOCIAL.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2 1.5 3.6 3.5 3.9v2.7c-1.3.1-2.5-.3-3.6-.9v5.7a5.4 5.4 0 1 1-5.4-5.4c.3 0 .6 0 .9.1v2.8a2.6 2.6 0 1 0 1.8 2.5V3h2.8Z" /></svg></a>
               </div>
+              <div className="foot-discover" style={{ marginTop: "1.6rem" }}>
+                <h4 style={{ marginBottom: ".7rem" }}>Discover</h4>
+                <ul style={{ listStyle: "none", display: "flex", flexWrap: "wrap", gap: ".5rem .9rem" }}>
+                  <li><a href="/couchsurfing-alternative">Couchsurfing alternative</a></li>
+                  <li><a href="/airbnb-alternative">Airbnb alternative</a></li>
+                  <li><a href="/free-places-to-stay">Free places to stay</a></li>
+                </ul>
+              </div>
             </div>
             <div className="foot">
               <h4>Explore</h4>

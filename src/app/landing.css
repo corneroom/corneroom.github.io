@@ -1,0 +1,360 @@
+/* ============================================================================
+   Corneroom SEO landing pages — shares the new warm-light design language.
+   These rules are ADDITIONS scoped under .landing; the page wrapper also
+   carries .home so it inherits all brand tokens, nav, buttons, sections,
+   trust cards, stores, and footer from home.css. No backdrop-filter on any
+   fixed element; everything is readable with JS disabled.
+   ============================================================================ */
+
+/* ============================== HERO ============================== */
+.landing .lp-hero {
+  position: relative;
+  padding: 64px 0 44px;
+  overflow: hidden;
+}
+.landing .lp-hero:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(58rem 40rem at 88% -18%, rgba(255, 100, 43, 0.16), transparent 58%),
+    radial-gradient(46rem 40rem at -6% 20%, rgba(251, 143, 117, 0.14), transparent 55%),
+    radial-gradient(40rem 34rem at 50% 130%, rgba(134, 195, 225, 0.14), transparent 60%);
+}
+.landing .lp-hero h1 {
+  font-size: clamp(2.2rem, 4.9vw, 3.5rem);
+  letter-spacing: -0.03em;
+  margin-top: 0.7rem;
+  max-width: 20ch;
+}
+.landing .lp-hero h1 .hl {
+  color: var(--primary);
+  position: relative;
+  white-space: nowrap;
+}
+.landing .lp-hero h1 .hl:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.04em;
+  height: 0.16em;
+  background: var(--shower);
+  opacity: 0.55;
+  z-index: -1;
+  border-radius: 4px;
+}
+.landing .lp-sub {
+  margin-top: 1.15rem;
+  font-size: 1.16rem;
+  color: var(--ink-2);
+  max-width: 42rem;
+}
+.landing .lp-hero .stores {
+  margin-top: 1.8rem;
+}
+.landing .hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+/* ============================== PROSE / SECTION COPY ============================== */
+.landing .prose {
+  max-width: 46rem;
+}
+.landing .prose p {
+  font-size: 1.06rem;
+  color: var(--ink-2);
+  margin-top: 0.95rem;
+}
+.landing .prose p + p {
+  margin-top: 0.9rem;
+}
+.landing .prose a {
+  color: var(--primary-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+}
+.landing .prose a:hover {
+  color: var(--primary);
+}
+.landing .prose strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.landing .checklist {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  margin: 1.4rem 0 0;
+}
+.landing .checklist li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 1.02rem;
+  color: var(--ink-2);
+}
+.landing .checklist li svg {
+  width: 22px;
+  height: 22px;
+  color: #2e9e5b;
+  flex: none;
+  margin-top: 2px;
+}
+
+/* ============================== CATEGORY STRIP ============================== */
+.landing .catstrip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-top: 0.4rem;
+}
+@media (max-width: 900px) {
+  .landing .catstrip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 520px) {
+  .landing .catstrip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.landing .cs {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 18px 16px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.landing .cs:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+.landing .cs .csdot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-bottom: 0.6rem;
+}
+.landing .cs .csplus {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 100, 43, 0.12);
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+.landing .cs .csplus svg {
+  width: 15px;
+  height: 15px;
+}
+.landing .cs b {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 1.04rem;
+  display: block;
+  color: var(--ink);
+}
+.landing .cs small {
+  color: var(--ink-3);
+  font-size: 0.82rem;
+  display: block;
+  margin-top: 0.15rem;
+}
+.landing .cs.more {
+  background: linear-gradient(135deg, #fff, var(--bg-2));
+}
+
+/* ============================== COMPARISON TABLE ============================== */
+.landing .cmp-wrap {
+  overflow-x: auto;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line);
+}
+.landing .cmp {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  background: #fff;
+}
+.landing .cmp caption {
+  text-align: left;
+  padding: 0 0 0.9rem;
+  color: var(--ink-3);
+  font-size: 0.9rem;
+}
+.landing .cmp th,
+.landing .cmp td {
+  padding: 15px 18px;
+  text-align: left;
+  font-size: 0.96rem;
+  border-bottom: 1px solid var(--line-2);
+  vertical-align: top;
+}
+.landing .cmp thead th {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 0.92rem;
+  background: var(--bg-2);
+  color: var(--ink);
+}
+.landing .cmp thead th.us {
+  color: var(--primary-ink);
+}
+.landing .cmp tbody tr:last-child td {
+  border-bottom: 0;
+}
+.landing .cmp td.feat {
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--disp);
+}
+.landing .cmp .yes {
+  color: #2e9e5b;
+  font-weight: 700;
+}
+.landing .cmp .no {
+  color: var(--ink-3);
+}
+.landing .cmp .us-col {
+  background: rgba(255, 100, 43, 0.04);
+}
+
+/* ============================== FAQ (native details) ============================== */
+.landing .faq {
+  display: grid;
+  gap: 0.8rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+.landing .faq details {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.landing .faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.landing .faq summary::-webkit-details-marker {
+  display: none;
+}
+.landing .faq summary:after {
+  content: "+";
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--primary);
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.landing .faq details[open] summary:after {
+  content: "–";
+}
+.landing .faq summary:hover {
+  color: var(--primary-ink);
+}
+.landing .faq .fa {
+  padding: 0 22px 20px;
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+/* ============================== RELATED LINKS ============================== */
+.landing .related {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media (max-width: 760px) {
+  .landing .related {
+    grid-template-columns: 1fr;
+  }
+}
+.landing .rl {
+  display: block;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.landing .rl:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+.landing .rl b {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 1.04rem;
+  display: block;
+  color: var(--ink);
+}
+.landing .rl small {
+  color: var(--ink-3);
+  font-size: 0.88rem;
+  display: block;
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+/* ============================== HOW-IT-WORKS (reuses .steps/.step from home) === */
+.landing .lp-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+@media (max-width: 800px) {
+  .landing .lp-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================== CLOSING CTA (reuses .appcta) ============================== */
+.landing .appcta {
+  text-align: center;
+}
+.landing .appcta .appcta-in {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.6rem;
+}
+.landing .appcta p {
+  margin-left: auto;
+  margin-right: auto;
+}
+.landing .appcta .stores {
+  justify-content: center;
+}
+
+/* soft-tinted section background used to break up long pages */
+.landing .tint {
+  background: var(--bg-2);
+}
