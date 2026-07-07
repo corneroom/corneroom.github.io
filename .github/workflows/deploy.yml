@@ -50,3 +50,36 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Notify IndexNow (Bing / Yandex / Seznam) so new & changed pages are recrawled fast.
+      # The IndexNow key is public by design (hosted at the site root), so no secret is needed.
+      # continue-on-error: an SEO ping must never fail a deploy.
+      - name: Notify IndexNow
+        if: success()
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: ed2c719862434da6990038be41c95fef
+          HOST: corneroom.com
+        run: |
+          echo "Waiting briefly for the deploy to propagate before pinging IndexNow…"
+          sleep 30
+          # Build the payload from the sitemap (canonical URLs only)
+          python3 - "$INDEXNOW_KEY" "$HOST" > indexnow-payload.json <<'PY'
+          import json, re, sys
+          key, host = sys.argv[1], sys.argv[2]
+          locs = re.findall(r'<loc>([^<]+)</loc>', open("public/sitemap.xml", encoding="utf-8").read())
+          print(json.dumps({
+              "host": host,
+              "key": key,
+              "keyLocation": f"https://{host}/{key}.txt",
+              "urlList": locs,
+          }))
+          PY
+          COUNT=$(python3 -c "import json;print(len(json.load(open('indexnow-payload.json'))['urlList']))")
+          echo "Submitting $COUNT URLs to IndexNow…"
+          for ep in "https://api.indexnow.org/indexnow" "https://www.bing.com/indexnow"; do
+            code=$(curl -sS -o /dev/null -w "%{http_code}" -X POST "$ep" \
+              -H "Content-Type: application/json; charset=utf-8" \
+              --data @indexnow-payload.json || echo "ERR")
+            echo "  $ep -> HTTP $code"
+          done
