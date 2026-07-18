@@ -377,11 +377,11 @@ export default function HomeInteractive() {
           <nav className="nav-links" aria-label="Primary">
             <a href="#explore">Explore</a>
             <a href="#how">How it works</a>
-            <a href="#host">Become a host</a>
+            <a href="/host">Become a host</a>
             <a href="#world">Worldwide</a>
           </nav>
           <div className="nav-cta">
-            <a href="#host" className="btn btn-ghost">Host your space</a>
+            <a href="/host" className="btn btn-ghost">Host your space</a>
             <a href="#app" className="btn btn-primary">Get the app</a>
           </div>
         </div>
@@ -803,7 +803,7 @@ export default function HomeInteractive() {
                 <li><Check /><span>Only ever host verified guests</span></li>
                 <li><Check /><span>Fast, secure payouts after each stay</span></li>
               </ul>
-              <div className="reveal d4"><a href="#app" className="btn btn-primary btn-lg">Start hosting</a></div>
+              <div className="reveal d4"><a href="/host" className="btn btn-primary btn-lg">Start hosting</a></div>
             </div>
 
             <div className="earn-card reveal d2" ref={earnCardRef}>
@@ -917,10 +917,10 @@ export default function HomeInteractive() {
             <div className="foot">
               <h4>Hosting</h4>
               <ul>
-                <li><a href="#host">List your space</a></li>
-                <li><a href="#host">Host earnings</a></li>
+                <li><a href="/host">List your space</a></li>
+                <li><a href="/host">Host earnings</a></li>
                 <li><a href="/safety">Verification</a></li>
-                <li><a href="#host">Payouts</a></li>
+                <li><a href="/payouts">Payouts</a></li>
               </ul>
             </div>
             <div className="foot">
