@@ -100,4 +100,34 @@
     <lastmod>2026-03-30</lastmod>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://corneroom.com/host</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://corneroom.com/host/toronto</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://corneroom.com/host/nyc</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://corneroom.com/host/bangkok</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://corneroom.com/host/chiang-mai</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://corneroom.com/host/hanoi</loc>
+    <lastmod>2026-07-17</lastmod>
+    <priority>0.7</priority>
+  </url>
 </urlset>
