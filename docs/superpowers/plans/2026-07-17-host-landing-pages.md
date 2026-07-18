@@ -85,7 +85,7 @@ export const HOST_CITIES: HostCity[] = [
       },
       {
         title: "Desks & workspaces",
-        desc: "Freelancers and traveling professionals want a bookable desk that isn't a $600/month coworking commitment.",
+        desc: "Freelancers and traveling professionals want a bookable desk that isn't a monthly coworking commitment.",
       },
     ],
   },

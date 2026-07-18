@@ -102,7 +102,7 @@ export function LandingNav() {
           <a href="/free-places-to-stay">Free stays</a>
           <a href="/couchsurfing-alternative">Couchsurfing alternative</a>
           <a href="/airbnb-alternative">Airbnb alternative</a>
-          <a href="/#host">Become a host</a>
+          <a href="/host">Become a host</a>
         </nav>
         <div className="nav-cta">
           <a href="/app" className="btn btn-ghost">

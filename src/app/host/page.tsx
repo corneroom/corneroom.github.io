@@ -320,7 +320,7 @@ export default function HostPage() {
             <div className="appcta">
               <div className="appcta-in">
                 <div>
-                  <h2>Your space could be earning by tonight</h2>
+                  <h2>Your space could be listed by tonight</h2>
                   <p>
                     Download the app, verify once, and list your first space — as a founding
                     host, everything you earn for 12 months is yours.
