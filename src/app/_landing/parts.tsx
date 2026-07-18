@@ -269,6 +269,9 @@ export function LandingFooter() {
                 <a href="/free-places-to-stay">Free places to stay</a>
               </li>
               <li>
+                <a href="/host">Become a host</a>
+              </li>
+              <li>
                 <a href="/app">Get the app</a>
               </li>
             </ul>

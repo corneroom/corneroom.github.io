@@ -86,6 +86,11 @@ const related = [
     title: "Get the app",
     blurb: "Browse, book and host verified spaces worldwide from your phone.",
   },
+  {
+    href: "/host",
+    title: "Become a host",
+    blurb: "List your space & earn — founding hosts keep 100% for 12 months.",
+  },
 ];
 
 export default function CouchsurfingAlternativePage() {
