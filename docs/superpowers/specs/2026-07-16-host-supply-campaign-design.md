@@ -14,9 +14,13 @@ campaign launches only after App Store 1.0.0 approval.
   12 months** + first placement when guests arrive.
 - **Timing:** Everything is built now; nothing deploys until 1.0.0 is approved.
   No pre-approval teaser or waitlist.
-- **Android:** No public Play Store listing yet → email capture on the page
-  ("Android is coming — leave your email"), via a form service (Formspree
-  recommended; site is a static export, no backend).
+- **Android:** onboards via a **Google Play Open testing** track — a public
+  Play Store listing + join link that installs like a normal app, with only
+  private feedback (no public star ratings) while in beta. A Play Console
+  **organization account already exists**, so the remaining work is listing +
+  forms + pipeline (see Dependencies). Email capture ("Android is coming —
+  leave your email", Formspree; site is a static export) ships on the page
+  only as a fallback if the Play track isn't live at campaign launch.
 - **North-star metric:** published listings per city — not installs, not taps.
 
 ## 1. `/host` flagship page
@@ -24,9 +28,9 @@ campaign launches only after App Store 1.0.0 approval.
 Built in this repo (Next.js static export, home design-system tokens from
 `src/app/home.css`). Sections:
 
-1. **Hero** — "List your space & earn" (canonical shipped copy), App Store
-   badge CTA, offer strap: "Founding hosts keep 100% of their earnings for
-   12 months."
+1. **Hero** — "List your space & earn" (canonical shipped copy), **both store
+   badges** (App Store + Google Play open-testing link), offer strap:
+   "Founding hosts keep 100% of their earnings for 12 months."
 2. **What you can list** — five category cards with brand category colors:
    Sleep #86C3E1 (spare room, guest bed), Work #DBB5EE (desk, home office),
    Shower #FAF271 (a bathroom — travelers between flights, gym-less days),
@@ -46,7 +50,8 @@ Built in this repo (Next.js static export, home design-system tokens from
    expectations up front.
 7. **FAQ** with FAQPage structured data — what can I list / fees / payouts /
    when do guests arrive / is it free / Android.
-8. **Android email capture** — Formspree-embedded form.
+8. **Android** — Google Play badge → open-testing listing. Fallback if Play
+   isn't live at launch: Formspree-embedded email capture form.
 
 SEO plumbing per `promo/seo-landing-pages.md` checklist: unique title (≤60
 chars) + meta description (≤155), single H1, sitemap.xml entry, IndexNow ping
@@ -104,14 +109,27 @@ but not overstated.
    but page copy must match whatever is actually honored at launch).
 3. **Thailand SMS sender-ID registration** resolved (Twilio) — blocker for
    Bangkok/Chiang Mai spend if signup requires OTP; verify Vietnam delivery.
-4. NYC campaigns run at reduced spend weight.
+4. **Google Play Open testing track live** (org Play Console account exists):
+   - Store listing: description copy + ASO screenshots re-exported at Play
+     sizes + feature graphic (1024×500).
+   - Data safety form (same answers as the Apple privacy nutrition label).
+   - Content rating questionnaire (chat + UGC, mirrors the iOS declaration).
+   - Fastlane `supply` lane (Play Developer API key) added alongside the
+     Firebase lane — same build number on both platforms, per the standing
+     rule.
+   - Budget one review round-trip: first Google review can take up to a week;
+     data-safety mismatches are the most common rejection.
+   - Stripe stays as-is: bookings are real-world services, exempt from Google
+     Play Billing.
+5. NYC campaigns run at reduced spend weight.
 
 **Build order:** pages + full campaign kit now → deploy at approval →
 campaigns go live per city as that city's dependencies clear.
 
 ## Out of scope
 
-- Play Store launch (separate track; email list converts when live).
+- Play Store **production** launch (open testing is the beta channel for now;
+  promotion to production is a later decision).
 - Host referral program (post-launch lever).
 - Programmatic SEO city pages beyond the 5 host pages (separate SEO plan).
 - Demand-side (traveler) campaigns.
