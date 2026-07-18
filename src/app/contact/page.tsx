@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Contact — Corneroom" };
+export const metadata = {
+  title: "Contact — Corneroom",
+  description:
+    "Get in touch with Corneroom — general inquiries, support, press, careers, and privacy contacts.",
+  alternates: { canonical: "/contact" },
+};
 
 const channels = [
   {

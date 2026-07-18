@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Safety — Corneroom" };
+export const metadata = {
+  title: "Safety — Corneroom",
+  description:
+    "How Corneroom keeps the community safe: verification for both hosts and guests, secure payments, reviews, and responsive support.",
+  alternates: { canonical: "/safety" },
+};
 
 export default function SafetyPage() {
   return (

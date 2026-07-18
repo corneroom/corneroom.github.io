@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Terms of Service — Corneroom" };
+export const metadata = {
+  title: "Terms of Service — Corneroom",
+  description:
+    "Corneroom's Terms of Service — the agreement that governs booking and hosting spaces on our platform.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsPage() {
   return (

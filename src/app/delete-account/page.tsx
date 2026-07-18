@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Delete Account — Corneroom" };
+export const metadata = {
+  title: "Delete Account — Corneroom",
+  description:
+    "How to delete your Corneroom account and what happens to your data.",
+  alternates: { canonical: "/delete-account" },
+};
 
 export default function DeleteAccountPage() {
   return (

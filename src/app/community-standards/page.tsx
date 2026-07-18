@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Community Standards — Corneroom" };
+export const metadata = {
+  title: "Community Standards — Corneroom",
+  description:
+    "The standards that keep Corneroom real: respect, honesty, and safety for every host and guest in our worldwide community.",
+  alternates: { canonical: "/community-standards" },
+};
 
 export default function CommunityStandardsPage() {
   return (

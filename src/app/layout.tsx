@@ -19,9 +19,6 @@ export const metadata: Metadata = {
     "earn",
   ],
   metadataBase: new URL("https://corneroom.com"),
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Corneroom — Where would you go?",
     description:

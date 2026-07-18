@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Press — Corneroom" };
+export const metadata = {
+  title: "Press — Corneroom",
+  description:
+    "Press resources for Corneroom: company facts, brand assets, and media contact for the global space-sharing platform.",
+  alternates: { canonical: "/press" },
+};
 
 const facts = [
   { label: "Countries", value: "120+" },

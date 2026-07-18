@@ -924,10 +924,21 @@ export default function HomeInteractive() {
               </ul>
             </div>
             <div className="foot">
+              <h4>Community</h4>
+              <ul>
+                <li><a href="/meetups">Meetups</a></li>
+                <li><a href="/traveler-jobs">Traveler jobs</a></li>
+                <li><a href="/volunteer">Volunteer</a></li>
+                <li><a href="/community-standards">Community standards</a></li>
+              </ul>
+            </div>
+            <div className="foot">
               <h4>Company</h4>
               <ul>
                 <li><a href="/about">About</a></li>
-                <li><a href="/community-standards">Community standards</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/press">Press</a></li>
+                <li><a href="/contact">Contact</a></li>
                 <li><a href="/safety">Safety</a></li>
                 <li><a href="/support">Support</a></li>
               </ul>
@@ -935,7 +946,12 @@ export default function HomeInteractive() {
           </div>
           <div className="foot-bottom">
             <span>© {new Date().getFullYear()} Corneroom · Find &amp; share spaces worldwide.</span>
-            <span>Affordable spaces · a verified community · worldwide</span>
+            <nav className="foot-legal" aria-label="Legal">
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
+              <a href="/cookies">Cookies</a>
+              <a href="/delete-account">Delete account</a>
+            </nav>
           </div>
         </div>
       </footer>

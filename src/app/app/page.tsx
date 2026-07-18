@@ -2,6 +2,7 @@ export const metadata = {
   title: "Open Corneroom",
   description:
     "Open the Corneroom app, or download it to book and host spaces worldwide.",
+  alternates: { canonical: "/app" },
 };
 
 // Landing target for the in-app links in our emails (https://corneroom.com/app).

@@ -4,6 +4,9 @@ import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata: Metadata = {
   title: "Cookie Policy — Corneroom",
+  description:
+    "Corneroom's Cookie Policy — how we use cookies and how you can control them.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiePolicyPage() {

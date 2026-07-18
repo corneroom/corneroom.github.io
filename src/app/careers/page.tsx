@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Careers — Corneroom" };
+export const metadata = {
+  title: "Careers — Corneroom",
+  description:
+    "Join the team building Corneroom, a global space-sharing platform. Open roles across mobile, backend, web, design & more — remote-friendly.",
+  alternates: { canonical: "/careers" },
+};
 
 const positions = [
   {

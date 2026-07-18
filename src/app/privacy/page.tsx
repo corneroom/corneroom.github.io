@@ -1,7 +1,12 @@
 import LegalLayout from "@/components/LegalLayout";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
-export const metadata = { title: "Privacy Policy — Corneroom" };
+export const metadata = {
+  title: "Privacy Policy — Corneroom",
+  description:
+    "Corneroom's Privacy Policy — how we collect, use, and protect your data.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPage() {
   return (
