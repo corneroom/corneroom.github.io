@@ -10,7 +10,9 @@
           "/listing/*",
           "/experiences/*",
           "/feed/*",
-          "/refer/*"
+          "/refer/*",
+          "/booking/*",
+          "/hosting/booking/*"
         ]
       }
     ]
