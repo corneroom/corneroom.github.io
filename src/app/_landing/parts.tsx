@@ -16,9 +16,12 @@ const inter = Inter({
 export const fontVars = `${jakarta.variable} ${inter.variable}`;
 
 /* Real store URLs — reused from AppBadges.tsx (do not invent). */
-export const APP_STORE_URL = "https://apps.apple.com/app/corneroom/id6740086312";
+export const APP_STORE_URL = "https://apps.apple.com/app/corneroom/id6754674174";
+// Open-testing (beta) opt-in link — NOT the production store URL, which doesn't
+// resolve until the app is promoted to production. Testers tap this to join,
+// then install from Play normally. Swap to the store URL at production launch.
 export const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=ca.inspiredtech.corneroom";
+  "https://play.google.com/apps/testing/ca.inspiredtech.corneroom";
 
 /* Pin + house mark — identical to the home design (NOT a letter tile). */
 export function Mark({ className = "mark" }: { className?: string }) {
