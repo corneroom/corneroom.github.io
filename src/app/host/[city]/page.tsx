@@ -58,7 +58,7 @@ const cityFaqs = (name: string): FaqItem[] => [
   },
   {
     q: "What does founding hosting cost?",
-    a: "Listing is free, and founding hosts pay a 0% platform fee for their first 12 months — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently.",
+    a: "Listing is free, and founding hosts pay a 0% platform fee through Corneroom's first year — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently.",
   },
   {
     q: "When do guests arrive?",
@@ -106,7 +106,7 @@ export default async function HostCityPage({
             <StoreButtons />
             <div className="hero-badges">
               <span className="chip">
-                <ChipCheck /> 0% platform fee for 12 months
+                <ChipCheck /> 0% platform fee, our first year
               </span>
               <span className="chip">
                 <ChipCheck /> Verified hosts &amp; guests
@@ -157,7 +157,7 @@ export default async function HostCityPage({
                 <li>
                   <ChipCheck />
                   <span>
-                    <b>0% platform fee for your first 12 months</b> — keep 100% of what you earn
+                    <b>0% platform fee through our first year</b> — keep 100% of what you earn
                   </span>
                 </li>
                 <li>
@@ -237,7 +237,7 @@ export default async function HostCityPage({
                   <h2>Be first on the map in {c.name}</h2>
                   <p>
                     Download the app, verify once, and list your first space — as a founding
-                    host, everything you earn for 12 months is yours.
+                    host, everything you earn in our first year is yours.
                   </p>
                   <StoreButtons />
                 </div>

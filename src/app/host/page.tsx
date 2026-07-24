@@ -19,7 +19,7 @@ import { HOST_CITIES } from "./cities";
 
 const title = "Become a Host — List Your Space & Earn | Corneroom";
 const description =
-  "List a spare room, desk, shower, boat, hangout space & more. Verified hosts & guests, you set the price — founding hosts keep 100% of their earnings for 12 months.";
+  "List a spare room, desk, shower, boat, hangout space & more. Verified hosts & guests, you set the price — founding hosts keep 100% of their earnings through our first year.";
 const slug = "host";
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "How much does it cost to be a host?",
-    a: "Listing a space is free. Founding hosts pay a 0% platform fee for their first 12 months — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently before anything is charged.",
+    a: "Listing a space is free. Founding hosts pay a 0% platform fee through Corneroom's first year — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently before anything is charged.",
   },
   {
     q: "How do I get paid?",
@@ -66,7 +66,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "How much can I earn?",
-    a: "That's genuinely up to you — your price, your space, your availability, your city. We won't invent a number: hosting income depends on demand where you are. What we can promise is that you keep 100% of it for your first 12 months as a founding host.",
+    a: "That's genuinely up to you — your price, your space, your availability, your city. We won't invent a number: hosting income depends on demand where you are. What we can promise is that you keep 100% of it as a founding host through our first year.",
   },
   {
     q: "When do guests arrive?",
@@ -118,13 +118,13 @@ export default function HostPage() {
             </h1>
             <p className="lp-sub">
               A spare room, a quiet desk, even a bathroom between flights — travelers need it,
-              and you set the price. Founding hosts keep 100% of their earnings for their first
-              12 months, with a permanent badge and first placement when guests arrive.
+              and you set the price. Founding hosts keep 100% of their earnings through our first
+              year, with a permanent badge and first placement when guests arrive.
             </p>
             <StoreButtons />
             <div className="hero-badges">
               <span className="chip">
-                <ChipCheck /> 0% platform fee for 12 months
+                <ChipCheck /> 0% platform fee, our first year
               </span>
               <span className="chip">
                 <ChipCheck /> Verified hosts &amp; guests
@@ -200,7 +200,7 @@ export default function HostPage() {
                 </li>
                 <li>
                   <ChipCheck />
-                  <span>Founding hosts keep 100% of earnings for 12 months</span>
+                  <span>Founding hosts keep 100% of earnings, our first year</span>
                 </li>
                 <li>
                   <ChipCheck />
@@ -228,7 +228,7 @@ export default function HostPage() {
                 <li>
                   <ChipCheck />
                   <span>
-                    <b>0% platform fee for your first 12 months</b> — keep 100% of what you earn
+                    <b>0% platform fee through our first year</b> — keep 100% of what you earn
                   </span>
                 </li>
                 <li>
@@ -323,7 +323,7 @@ export default function HostPage() {
                   <h2>Your space could be listed by tonight</h2>
                   <p>
                     Download the app, verify once, and list your first space — as a founding
-                    host, everything you earn for 12 months is yours.
+                    host, everything you earn in our first year is yours.
                   </p>
                   <StoreButtons />
                 </div>
