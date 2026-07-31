@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import BeaconMap from "@/components/maps/BeaconMap";
 import "./home.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -718,13 +719,7 @@ export default function HomeInteractive() {
         <section className="sec world" id="world">
           <div className="wrap world-grid">
             <div className="world-map reveal">
-              <img loading="lazy" src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=70&auto=format&fit=crop" alt="Stylized world map showing Corneroom spaces available across continents" width={520} height={440} />
-              <div className="world-pins" aria-hidden="true">
-                <b style={{ top: "34%", left: "28%" }} />
-                <b style={{ top: "30%", left: "50%" }} />
-                <b style={{ top: "62%", left: "44%" }} />
-                <b style={{ top: "48%", left: "78%" }} />
-              </div>
+              <BeaconMap />
             </div>
             <div className="world-copy">
               <p className="eyebrow" style={{ color: cssVar("coral") }}>Worldwide by design</p>
