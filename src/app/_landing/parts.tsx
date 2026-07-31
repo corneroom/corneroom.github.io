@@ -125,7 +125,12 @@ export function LandingNav() {
   );
 }
 
-type FaqItem = { q: string; a: string };
+type FaqItem = {
+  q: string;
+  a: string;
+  /* Optional trailing link rendered inline after the answer text. */
+  link?: { href: string; label: string };
+};
 
 /* Accessible, no-JS FAQ using native <details>. */
 export function FaqSection({ items }: { items: FaqItem[] }) {
@@ -134,7 +139,15 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
       {items.map((it) => (
         <details key={it.q}>
           <summary>{it.q}</summary>
-          <div className="fa">{it.a}</div>
+          <div className="fa">
+            {it.a}
+            {it.link ? (
+              <>
+                {" "}
+                <a href={it.link.href}>{it.link.label}</a>
+              </>
+            ) : null}
+          </div>
         </details>
       ))}
     </div>
@@ -340,7 +353,12 @@ export function buildFaqJsonLd(items: FaqItem[]) {
     mainEntity: items.map((it) => ({
       "@type": "Question",
       name: it.q,
-      acceptedAnswer: { "@type": "Answer", text: it.a },
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: it.link
+          ? `${it.a} ${it.link.label}: https://corneroom.com${it.link.href}`
+          : it.a,
+      },
     })),
   };
 }

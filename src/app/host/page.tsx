@@ -200,7 +200,13 @@ const faqs: FaqItem[] = [
   },
   {
     q: "How much does it cost to be a host?",
-    a: "Listing a space is free. Founding hosts pay a 0% platform fee through Corneroom's first year — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently before anything is charged.",
+    a: "Listing a space is free. Founding hosts pay a 0% platform fee through Corneroom's first year — you keep 100% of what you earn. After that, a small, capped service fee applies to paid bookings, always shown transparently before anything is charged. Not sure what to charge guests in the first place?",
+    link: { href: "/host/pricing", label: "Read our guide to pricing your space" },
+  },
+  {
+    q: "How should I price my space?",
+    a: "You set your own price — always. Our suggestion for a community that stays affordable: find what a similar space or service normally costs in your area, then price at roughly 40–60% of that. Start near the lower end to earn your first reviews, and adjust over time. It's guidance, not a rule.",
+    link: { href: "/host/pricing", label: "See the full pricing guide" },
   },
   {
     q: "How do I get paid?",
@@ -230,6 +236,11 @@ const related = [
     title: `Host in ${c.name}`,
     blurb: `Become a founding host in ${c.name}.`,
   })),
+  {
+    href: "/host/pricing",
+    title: "How to price your space",
+    blurb: "Price it affordably so real people say yes.",
+  },
   {
     href: "/payouts",
     title: "How payouts work",

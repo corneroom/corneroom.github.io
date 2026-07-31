@@ -284,6 +284,16 @@
   font-size: 0.98rem;
   line-height: 1.62;
 }
+.landing .faq .fa a {
+  color: var(--primary-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+}
+.landing .faq .fa a:hover {
+  color: var(--primary);
+}
 
 /* ============================== RELATED LINKS ============================== */
 .landing .related {
@@ -357,6 +367,35 @@
 /* soft-tinted section background used to break up long pages */
 .landing .tint {
   background: var(--bg-2);
+}
+
+/* soft callout box — used for the "guidance, not a rule" / illustrative notes */
+.landing .callout {
+  display: flex;
+  gap: 0.8rem;
+  align-items: flex-start;
+  background: rgba(255, 100, 43, 0.06);
+  border: 1px solid rgba(255, 100, 43, 0.22);
+  border-radius: var(--r);
+  padding: 16px 18px;
+  max-width: 46rem;
+  color: var(--ink-2);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.landing .callout.c-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.landing .callout svg {
+  width: 22px;
+  height: 22px;
+  color: var(--primary);
+  flex: none;
+  margin-top: 1px;
+}
+.landing .callout b {
+  color: var(--ink);
 }
 
 /* ============================== HERO: COPY + APP SCREENSHOT ============================== */
