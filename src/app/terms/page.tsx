@@ -114,6 +114,18 @@ export default function TermsPage() {
         of your content. You represent that you have the right to post all content you upload.
       </p>
 
+      <h3>Zero Tolerance for Objectionable Content and Abusive Users</h3>
+      <p>
+        Corneroom has zero tolerance for objectionable content and abusive behavior. Content that
+        is offensive, harassing, threatening, hateful, or otherwise objectionable is prohibited and
+        will be removed. Users who post such content or engage in abusive behavior toward others may
+        have their content removed and their accounts suspended or terminated. You can report
+        objectionable content or block an abusive user at any time within the app; reports are
+        reviewed by our moderation team, and we act on objectionable content and abusive users we
+        confirm. These standards are described in greater detail in our{" "}
+        <a href="/community-standards">Community Standards</a>, which form part of these Terms.
+      </p>
+
       <h2>11. Non-Discrimination Policy</h2>
       <p>
         Corneroom is committed to building an inclusive community. Hosts and guests must treat
