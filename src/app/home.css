@@ -136,6 +136,8 @@
 
 /* HERO VISUAL — phone + floating cards */
 .home .hero-vis{position:relative;display:flex;justify-content:center}
+/* Enlarge the hero phone so the app screens read clearly */
+.home .hero-vis .phone{width:308px}
 .home .phone{position:relative;width:270px;border-radius:38px;padding:10px;background:#1E1610;
   box-shadow:0 30px 70px rgba(30,22,16,.30),0 8px 20px rgba(30,22,16,.18);z-index:2}
 .home .phone .screen{border-radius:29px;overflow:hidden;background:#fff;aspect-ratio:1179/2556}

@@ -377,7 +377,7 @@
   gap: 14px;
 }
 .landing .lp-hero-vis .phone {
-  width: 246px;
+  width: 290px;
 }
 .landing .phone-tag {
   display: inline-flex;
@@ -399,6 +399,55 @@
   height: 8px;
   border-radius: 50%;
   background: #2e9e5b;
+}
+/* Hero phone: auto-rotating slideshow of real app screens (CSS-only, no JS) */
+.landing .phone-slides {
+  position: relative;
+  background: #fff;
+}
+.landing .phone-slides .phone-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: heroPhoneSlides 12s infinite;
+}
+.landing .phone-slides .phone-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.landing .phone-slides .phone-slide:nth-child(2) {
+  animation-delay: 4s;
+}
+.landing .phone-slides .phone-slide:nth-child(3) {
+  animation-delay: 8s;
+}
+@keyframes heroPhoneSlides {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing .phone-slides .phone-slide {
+    animation: none;
+    opacity: 0;
+  }
+  .landing .phone-slides .phone-slide:first-child {
+    opacity: 1;
+  }
 }
 @media (max-width: 940px) {
   .landing .lp-hero-grid {

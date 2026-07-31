@@ -277,18 +277,33 @@ export default function HostPage() {
               </div>
             </div>
             <div className="lp-hero-vis">
-              <div className="phone" role="img" aria-label="Corneroom app earnings screen, where hosts get paid">
+              <div className="phone" role="img" aria-label="The Corneroom app: manage your listings, track earnings, and get paid to your bank">
                 <span className="notch" />
-                <div className="screen">
+                <div className="screen phone-slides">
                   <img
-                    src="/home/screens/earn.png"
-                    alt="Corneroom app screen showing a host's earnings and payouts to their bank"
+                    className="phone-slide"
+                    src="/host/app/listings.png"
+                    alt="Corneroom app showing a host's listings with views and availability"
+                    width={270}
+                    height={586}
+                  />
+                  <img
+                    className="phone-slide"
+                    src="/host/app/earnings.png"
+                    alt="Corneroom app showing a host's earnings over the last six months"
+                    width={270}
+                    height={586}
+                  />
+                  <img
+                    className="phone-slide"
+                    src="/host/app/payments.png"
+                    alt="Corneroom app showing saved payment methods for faster checkout"
                     width={270}
                     height={586}
                   />
                 </div>
               </div>
-              <span className="phone-tag" aria-hidden="true">This is where you get paid</span>
+              <span className="phone-tag" aria-hidden="true">Run your whole space from your phone</span>
             </div>
           </div>
         </section>
@@ -307,7 +322,7 @@ export default function HostPage() {
                   <span className={`hw4-ic${s.paid ? " paid" : ""}`}>
                     {s.paid ? (
                       <img
-                        src="/home/screens/earn.png"
+                        src="/host/app/earnings.png"
                         alt=""
                         width={120}
                         height={260}

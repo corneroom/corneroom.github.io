@@ -872,7 +872,7 @@ export default function HomeInteractive() {
                 <div className="appcta-vis">
                   <div className="phone" role="img" aria-label="Corneroom app host earnings screen">
                     <span className="notch" />
-                    <div className="screen"><img loading="lazy" src="/home/screens/earn.png" alt="Corneroom app screen showing host earnings and payouts" width={230} height={498} /></div>
+                    <div className="screen"><img loading="lazy" src="/host/app/earnings.png" alt="Corneroom app screen showing host earnings and payouts" width={230} height={498} /></div>
                   </div>
                 </div>
               </div>
