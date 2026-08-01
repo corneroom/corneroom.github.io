@@ -381,6 +381,14 @@
 .home .foot ul{list-style:none;display:grid;gap:.6rem}
 .home .foot ul a{font-size:.9rem;color:rgba(246,235,226,.66);transition:color .15s}
 .home .foot ul a:hover{color:var(--primary)}
+/* Full-width Discover row (SEO landing pages) below the footer columns */
+.home .foot-discover-row{border-top:1px solid rgba(246,235,226,.12);margin-top:36px;padding-top:26px}
+.home .foot-discover-row h4{font-family:var(--disp);color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;font-weight:700}
+.home .foot-discover-row ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem 1.5rem}
+.home .foot-discover-row a{font-size:.9rem;color:rgba(246,235,226,.66);transition:color .15s}
+.home .foot-discover-row a:hover{color:var(--primary)}
+@media(max-width:760px){.home .foot-discover-row ul{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.home .foot-discover-row ul{grid-template-columns:1fr}}
 .home .foot-bottom{border-top:1px solid rgba(246,235,226,.12);margin-top:40px;padding-top:24px;
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.82rem;color:rgba(246,235,226,.5)}
 .home .foot-legal{display:flex;flex-wrap:wrap;gap:.5rem 1.1rem}

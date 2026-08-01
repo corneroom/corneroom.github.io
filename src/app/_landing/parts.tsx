@@ -271,6 +271,14 @@ export function LandingFooter() {
               Find &amp; share spaces worldwide. A verified, affordable community for travelers
               and hosts — to sleep, work, shower, boat, socialize &amp; more.
             </p>
+            <ul style={{ listStyle: "none", display: "flex", gap: "1.2rem", marginTop: "1.1rem" }}>
+              <li>
+                <a href="/host">Become a host</a>
+              </li>
+              <li>
+                <a href="/app">Get the app</a>
+              </li>
+            </ul>
           </div>
           <div className="foot">
             <h4>Discover</h4>
@@ -282,13 +290,27 @@ export function LandingFooter() {
                 <a href="/airbnb-alternative">Airbnb alternative</a>
               </li>
               <li>
+                <a href="/vrbo-alternative">Vrbo alternative</a>
+              </li>
+              <li>
+                <a href="/booking-com-alternative">Booking.com alternative</a>
+              </li>
+            </ul>
+          </div>
+          <div className="foot">
+            <h4>Places to stay</h4>
+            <ul>
+              <li>
                 <a href="/free-places-to-stay">Free places to stay</a>
               </li>
               <li>
-                <a href="/host">Become a host</a>
+                <a href="/cheap-places-to-stay">Cheap places to stay</a>
               </li>
               <li>
-                <a href="/app">Get the app</a>
+                <a href="/digital-nomad-accommodation">Digital nomad accommodation</a>
+              </li>
+              <li>
+                <a href="/day-use-stays">Day-use &amp; hourly stays</a>
               </li>
             </ul>
           </div>
