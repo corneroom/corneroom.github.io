@@ -17,10 +17,10 @@ import {
   type FaqItem,
 } from "../_landing/parts";
 
-const title = "Airbnb Alternative — Cheaper Real Stays | Corneroom";
+const title = "Booking.com Alternative — Real Community Spaces | Corneroom";
 const description =
-  "Want an Airbnb alternative that's actually affordable? Corneroom has real prices, verified hosts and guests, free community stays, and spaces Airbnb doesn't offer.";
-const slug = "airbnb-alternative";
+  "Want a Booking.com alternative with a human touch? Corneroom is real community spaces from verified hosts and guests — affordable, beyond hotels, with genuinely free stays too.";
+const slug = "booking-com-alternative";
 
 export const metadata: Metadata = {
   title,
@@ -45,56 +45,46 @@ export const metadata: Metadata = {
 
 const faqs: FaqItem[] = [
   {
-    q: "Is Corneroom really cheaper than Airbnb?",
-    a: "For many trips, yes. Corneroom spaces are priced by everyday hosts, and any service fee is small, capped and shown before you confirm — no cleaning fees or surprise charges stacked on at checkout. There are also genuinely free community stays, which no traditional booking site offers.",
+    q: "How is Corneroom different from Booking.com?",
+    a: "Booking.com is mostly hotels and large properties booked through a screen. Corneroom is real community spaces shared by everyday people you actually meet — a room, a desk, a shower, a boat, a social space & more. It's affordable, verified on both sides, and there are genuinely free community stays that hotel sites simply don't offer.",
   },
   {
-    q: "What can I book that Airbnb doesn't offer?",
-    a: "Beyond a place to sleep, Corneroom lets you book a desk to work, a shower between flights, a boat for the afternoon, a social hangout & more. New categories keep landing, so you can book exactly the kind of space you need, not just a whole home or room.",
+    q: "Is Corneroom cheaper than booking a hotel?",
+    a: "For many trips, yes. Everyday hosts set honest prices, any service fee is small, capped and shown before you confirm — so there's no stack of charges at checkout. And because you can book just the space you need, you're not paying hotel rates for room you won't use.",
   },
   {
     q: "Are the hosts and guests verified?",
-    a: "Both sides are. Every host and every guest completes ID verification before booking. That two-sided check keeps the community trustworthy for travelers and hosts alike.",
+    a: "Both sides are. Every host and every guest completes ID verification before booking — so you're trusting real, verified people, not just a property listing. That two-sided check keeps the community safe for travelers and hosts alike.",
   },
   {
-    q: "Are there hidden fees like on other platforms?",
+    q: "What can I book beyond a hotel room?",
+    a: "Beyond a place to sleep, Corneroom lets you book a desk to work, a shower between flights, a boat for the afternoon, a social hangout & more — by the night or by the hour. New categories keep landing, so you can book exactly what your trip needs.",
+  },
+  {
+    q: "Are there hidden fees at checkout?",
     a: "No. The total you see is the total you pay. Any fee on a paid space is transparent and capped, and free community stays carry no service fee at all for either party.",
   },
   {
     q: "Does Corneroom work worldwide?",
-    a: "Yes. Corneroom connects a verified community across 120+ countries and thousands of cities, so you can find an affordable space almost anywhere you travel.",
-  },
-  {
-    q: "Can I earn by hosting, like on Airbnb?",
-    a: "Absolutely. Listing is free, you set your own prices and availability, you only ever host verified guests, and payouts are fast and secure. Share a spare room, a desk, a boat & more and earn from space you already have.",
+    a: "Yes. Corneroom connects a verified community across 120+ countries and thousands of cities, so you can find an affordable, real place to stay almost anywhere you travel.",
   },
 ];
 
 const related = [
   {
-    href: "/couchsurfing-alternative",
-    title: "Couchsurfing alternative",
-    blurb: "Real free community stays with verified hosts and guests.",
+    href: "/airbnb-alternative",
+    title: "Airbnb alternative",
+    blurb: "Affordable real prices and space types beyond a whole home.",
   },
   {
-    href: "/vrbo-alternative",
-    title: "Vrbo alternative",
-    blurb: "Affordable stays beyond whole homes — book by night or by the hour.",
-  },
-  {
-    href: "/day-use-stays",
-    title: "Day-use & hourly stays",
-    blurb: "Book a shower, desk or rest space by the hour — not just by the night.",
+    href: "/cheap-places-to-stay",
+    title: "Cheap places to stay",
+    blurb: "Genuinely affordable spaces real people can actually book.",
   },
   {
     href: "/free-places-to-stay",
     title: "Free places to stay",
     blurb: "How to find genuinely free accommodation while traveling.",
-  },
-  {
-    href: "/app",
-    title: "Get the app",
-    blurb: "Browse, book and host verified spaces worldwide from your phone.",
   },
   {
     href: "/host",
@@ -103,10 +93,10 @@ const related = [
   },
 ];
 
-export default function AirbnbAlternativePage() {
+export default function BookingComAlternativePage() {
   return (
     <div className={`home landing ${fontVars}`}>
-      <JsonLd data={buildBreadcrumbJsonLd("Airbnb alternative", slug)} />
+      <JsonLd data={buildBreadcrumbJsonLd("Booking.com alternative", slug)} />
       <JsonLd data={buildFaqJsonLd(faqs)} />
 
       <LandingNav />
@@ -117,24 +107,24 @@ export default function AirbnbAlternativePage() {
           <div className="wrap">
             <p className="eyebrow">Affordable · Verified · Worldwide</p>
             <h1>
-              The <span className="hl">Airbnb alternative</span> that&apos;s actually affordable
+              The <span className="hl">Booking.com alternative</span> with a human touch
             </h1>
             <p className="lp-sub">
-              Real prices from everyday hosts, no surprise fees at checkout, and space types Airbnb
-              doesn&apos;t offer — work, shower, boat, social &amp; more. Every host and guest is
-              verified, and yes, genuinely free community stays are real. Book affordable spaces
-              worldwide with Corneroom.
+              Big hotel sites are efficient — and impersonal. Corneroom is real community spaces
+              shared by verified people you actually meet: a room, a desk, a shower, a boat, a social
+              space &amp; more. Affordable prices with no surprise fees, verified hosts <em>and</em>{" "}
+              guests, genuinely free stays, worldwide.
             </p>
             <StoreButtons />
             <div className="hero-badges">
               <span className="chip">
-                <ChipCheck /> No hidden fees
+                <ChipCheck /> Real people, not just properties
               </span>
               <span className="chip">
                 <ChipCheck /> Verified hosts &amp; guests
               </span>
               <span className="chip">
-                <ChipCheck /> Free stays available
+                <ChipCheck /> No hidden fees
               </span>
             </div>
           </div>
@@ -144,22 +134,22 @@ export default function AirbnbAlternativePage() {
         <section className="sec">
           <div className="wrap">
             <div className="sec-head">
-              <p className="eyebrow">Why look past the usual booking sites</p>
-              <h2>Affordable, real, and built for how people actually travel</h2>
+              <p className="eyebrow">Why look past the hotel sites</p>
+              <h2>Affordable, real, and built around people</h2>
             </div>
             <div className="prose">
               <p>
-                Big booking platforms are great at glossy listings and less great at the total on
-                the final screen. Cleaning fees, service fees and taxes can quietly double a nightly
-                price. Corneroom takes a different path: everyday hosts set honest prices, any fee is
-                small and capped, and what you see is what you pay.
+                Booking a hotel through a giant marketplace is quick, but it&apos;s a transaction — a
+                property, a price, and a stack of fees at the end. Corneroom is built around people
+                instead. Everyday hosts share real spaces, set honest prices, and you book from
+                verified individuals, not anonymous listings. Any fee is small, capped and shown up
+                front, so what you see is what you pay.
               </p>
               <p>
-                You also get more than a place to sleep. Need a quiet desk for the afternoon, a
-                shower between flights, or a boat for a few hours? Those are real categories here.
-                And if free is what you&apos;re after, our{" "}
-                <a href="/couchsurfing-alternative">Couchsurfing alternative</a> lives in the same
-                app.
+                You also get more than a standard room. Need a quiet desk for the afternoon, a shower
+                between flights, or a boat for a few hours? Those are real categories here. And if
+                budget is the priority, our <a href="/cheap-places-to-stay">cheap places to stay</a>{" "}
+                and genuinely free community stays live in the same app.
               </p>
             </div>
 
@@ -172,14 +162,19 @@ export default function AirbnbAlternativePage() {
                     <th scope="col" className="us">
                       Corneroom
                     </th>
-                    <th scope="col">Typical home-rental sites</th>
+                    <th scope="col">Typical hotel booking sites</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td className="feat">Who you book</td>
+                    <td className="us-col yes">Real, verified people</td>
+                    <td className="no">Properties &amp; brands</td>
+                  </tr>
+                  <tr>
                     <td className="feat">Pricing</td>
-                    <td className="us-col yes">Real prices, small capped fee</td>
-                    <td className="no">Fees &amp; charges stack at checkout</td>
+                    <td className="us-col yes">Affordable, small capped fee</td>
+                    <td className="no">Rates plus fees &amp; taxes</td>
                   </tr>
                   <tr>
                     <td className="feat">Free community stays</td>
@@ -189,17 +184,12 @@ export default function AirbnbAlternativePage() {
                   <tr>
                     <td className="feat">Space types</td>
                     <td className="us-col yes">Sleep, work, shower, boat, social &amp; more</td>
-                    <td className="no">Mostly whole homes &amp; rooms</td>
+                    <td className="no">Mostly hotel rooms</td>
                   </tr>
                   <tr>
                     <td className="feat">Two-sided ID verification</td>
                     <td className="us-col yes">Hosts and guests, always</td>
-                    <td className="no">Uneven, often guest-only</td>
-                  </tr>
-                  <tr>
-                    <td className="feat">Worldwide reach</td>
-                    <td className="us-col yes">120+ countries</td>
-                    <td className="no">Wide, but pricier</td>
+                    <td className="no">Property-level only</td>
                   </tr>
                 </tbody>
               </table>
@@ -211,11 +201,11 @@ export default function AirbnbAlternativePage() {
         <section className="sec tint">
           <div className="wrap">
             <div className="sec-head">
-              <p className="eyebrow">More than a place to sleep</p>
-              <h2>Categories Airbnb doesn&apos;t have</h2>
+              <p className="eyebrow">More than a hotel room</p>
+              <h2>Spaces a hotel site doesn&apos;t list</h2>
               <p>
-                Book exactly the kind of space your trip needs. New categories keep landing, so this
-                list only grows over time.
+                Book exactly the kind of space your trip needs — for a night or just a few hours. New
+                categories keep landing, so this list only grows over time.
               </p>
             </div>
             <CategoryStrip />
@@ -232,15 +222,15 @@ export default function AirbnbAlternativePage() {
             <div className="prose">
               <p>
                 Corneroom is designed to be affordable, not premium. Everyday hosts price their
-                spaces for real budgets, and on top of that, many share their space for free simply
-                because they love hosting. Free community stays carry no service fee for anyone. When
-                you book a paid space, the fee is small, capped and shown before you confirm — see
-                how <a href="/free-places-to-stay">free places to stay</a> work too.
+                spaces for real budgets, and many share their space for free simply because they love
+                hosting. Free community stays carry no service fee for anyone. When you book a paid
+                space, the fee is small, capped and shown before you confirm — no charges quietly
+                stacked on at the end.
               </p>
               <ul className="checklist">
                 <li>
                   <ChipCheck />
-                  <span>Honest nightly prices without checkout surprises</span>
+                  <span>Honest prices without checkout surprises</span>
                 </li>
                 <li>
                   <ChipCheck />
@@ -262,8 +252,8 @@ export default function AirbnbAlternativePage() {
               <p className="eyebrow">Built on trust</p>
               <h2>Verified on both sides, always</h2>
               <p>
-                Every host and every guest verifies their identity before booking — so travelers and
-                hosts can trust who they&apos;re dealing with.
+                Every host and every guest verifies their identity before booking — so you&apos;re
+                trusting real people, and hosts know exactly who&apos;s arriving.
               </p>
             </div>
             <TrustCards />
@@ -275,7 +265,7 @@ export default function AirbnbAlternativePage() {
           <div className="wrap">
             <div className="sec-head c">
               <p className="eyebrow">How it works</p>
-              <h2>Book an affordable space in three steps</h2>
+              <h2>Book a real space in three steps</h2>
             </div>
             <div className="lp-steps">
               <div className="step">
@@ -311,7 +301,7 @@ export default function AirbnbAlternativePage() {
           <div className="wrap">
             <div className="sec-head c">
               <p className="eyebrow">Questions?</p>
-              <h2>Airbnb alternative FAQ</h2>
+              <h2>Booking.com alternative FAQ</h2>
             </div>
             <FaqSection items={faqs} />
           </div>
@@ -323,9 +313,9 @@ export default function AirbnbAlternativePage() {
             <div className="appcta">
               <div className="appcta-in">
                 <div>
-                  <h2>Book an affordable space in minutes</h2>
+                  <h2>Book a real space in minutes</h2>
                   <p>
-                    Join a verified community sharing affordable spaces worldwide — with real free
+                    Join a verified community sharing affordable, real spaces worldwide — with free
                     stays too. Search, book, host and message, all from the Corneroom app.
                   </p>
                   <StoreButtons />

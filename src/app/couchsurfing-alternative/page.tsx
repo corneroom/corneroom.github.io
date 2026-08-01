@@ -82,6 +82,11 @@ const related = [
     blurb: "How genuinely free community stays work — and how to find them.",
   },
   {
+    href: "/cheap-places-to-stay",
+    title: "Cheap places to stay",
+    blurb: "Genuinely affordable spaces real people can actually book.",
+  },
+  {
     href: "/app",
     title: "Get the app",
     blurb: "Browse, book and host verified spaces worldwide from your phone.",

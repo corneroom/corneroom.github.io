@@ -896,7 +896,12 @@ export default function HomeInteractive() {
                 <ul style={{ listStyle: "none", display: "flex", flexWrap: "wrap", gap: ".5rem .9rem" }}>
                   <li><a href="/couchsurfing-alternative">Couchsurfing alternative</a></li>
                   <li><a href="/airbnb-alternative">Airbnb alternative</a></li>
+                  <li><a href="/vrbo-alternative">Vrbo alternative</a></li>
+                  <li><a href="/booking-com-alternative">Booking.com alternative</a></li>
                   <li><a href="/free-places-to-stay">Free places to stay</a></li>
+                  <li><a href="/cheap-places-to-stay">Cheap places to stay</a></li>
+                  <li><a href="/digital-nomad-accommodation">Digital nomad accommodation</a></li>
+                  <li><a href="/day-use-stays">Day-use &amp; hourly stays</a></li>
                 </ul>
               </div>
             </div>

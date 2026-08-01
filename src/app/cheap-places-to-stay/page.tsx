@@ -17,10 +17,10 @@ import {
   type FaqItem,
 } from "../_landing/parts";
 
-const title = "Free Places to Stay While Traveling | Corneroom";
+const title = "Cheap Places to Stay Worldwide | Corneroom";
 const description =
-  "Find free places to stay worldwide. Corneroom offers real free community stays with verified hosts and guests — plus very affordable paid spaces when you need them.";
-const slug = "free-places-to-stay";
+  "Find cheap places to stay worldwide. Corneroom is genuinely affordable spaces from verified hosts — priced so real people can book — plus real free community stays.";
+const slug = "cheap-places-to-stay";
 
 export const metadata: Metadata = {
   title,
@@ -45,36 +45,36 @@ export const metadata: Metadata = {
 
 const faqs: FaqItem[] = [
   {
-    q: "Are the free places to stay on Corneroom really free?",
-    a: "Yes. Free community stays are genuinely free — many hosts open their space at no charge because they enjoy meeting travelers. On a free stay there's no service fee for either the guest or the host. Free stays are real, though they're not the only option: very affordable paid spaces are available too.",
+    q: "How does Corneroom keep places to stay cheap?",
+    a: "Prices come from everyday hosts sharing space they already have, not from hotels or property managers — so they're set for real budgets. Any service fee is small, capped and shown before you confirm, with no charges stacked on at checkout. And because you can book just the space you need, you're not paying for room you won't use.",
   },
   {
-    q: "How do free community stays work?",
-    a: "A host lists a space and sets the price to free. You search, get verified, send a message, and book — just like any other stay. When you arrive you're a guest in someone's space, so being respectful and communicative keeps the community welcoming for everyone.",
+    q: "Are there genuinely free places to stay too?",
+    a: "Yes. Alongside affordable paid spaces, many hosts open their space for free because they love meeting travelers. On a free community stay there's no service fee for the guest or the host. Free stays are real — they just depend on host availability, so it's worth searching early.",
   },
   {
-    q: "Is it safe to stay somewhere for free?",
-    a: "Safety comes from Corneroom's two-sided verification: every host and every guest confirms their identity before a booking. You can also read real reviews and message the host beforehand, so you know who you're staying with. Free doesn't mean anonymous.",
+    q: "Is a cheap stay still safe?",
+    a: "Affordable doesn't mean anonymous. Every host and every guest verifies their identity before a booking, so you always know who you're staying with. You can also read real reviews and message the host for free before you commit.",
   },
   {
-    q: "What if I can't find a free stay for my dates?",
-    a: "Free stays depend on host availability, so they aren't guaranteed everywhere for every date. When a free space isn't open, Corneroom also lists very affordable paid spaces with small, capped, transparent fees — so you still have a budget-friendly option.",
+    q: "What kinds of cheap spaces can I book?",
+    a: "More than a bed. Book a room to sleep, a desk to work, a shower between flights, a boat, a social space & more — by the night or by the hour. New categories keep landing, so you can book exactly what fits your trip and your budget.",
   },
   {
-    q: "Do free places to stay exist worldwide?",
-    a: "Corneroom connects a verified community across 120+ countries and thousands of cities, and free community stays turn up across that map. Availability varies by place and season, so it's worth searching early and messaging hosts.",
+    q: "Can I find cheap places to stay worldwide?",
+    a: "Yes. Corneroom connects a verified community across 120+ countries and thousands of cities, so affordable — and often free — spaces turn up across the map. Availability varies by place and season, so search early and message hosts.",
   },
   {
-    q: "Can I host travelers for free too?",
-    a: "Yes. Listing is free and you set your own price — including free. Many hosts share a spare room, a couch, a desk & more at no charge simply for the company and the connection, and only ever host verified guests.",
+    q: "Can I earn by sharing my space affordably?",
+    a: "Absolutely. Listing is free and you set your own price — affordable, or even free. Share a spare room, a desk, a boat & more, only ever host verified guests, and get fast, secure payouts on paid stays.",
   },
 ];
 
 const related = [
   {
-    href: "/couchsurfing-alternative",
-    title: "Couchsurfing alternative",
-    blurb: "The community-first way to stay for free, brought up to date.",
+    href: "/free-places-to-stay",
+    title: "Free places to stay",
+    blurb: "How genuinely free community stays work — and how to find them.",
   },
   {
     href: "/airbnb-alternative",
@@ -82,14 +82,9 @@ const related = [
     blurb: "Affordable real prices and space types beyond a whole home.",
   },
   {
-    href: "/cheap-places-to-stay",
-    title: "Cheap places to stay",
-    blurb: "Genuinely affordable spaces real people can actually book.",
-  },
-  {
-    href: "/app",
-    title: "Get the app",
-    blurb: "Browse, book and host verified spaces worldwide from your phone.",
+    href: "/day-use-stays",
+    title: "Day-use & hourly stays",
+    blurb: "Book a shower, desk or rest space by the hour to save even more.",
   },
   {
     href: "/host",
@@ -98,10 +93,10 @@ const related = [
   },
 ];
 
-export default function FreePlacesToStayPage() {
+export default function CheapPlacesToStayPage() {
   return (
     <div className={`home landing ${fontVars}`}>
-      <JsonLd data={buildBreadcrumbJsonLd("Free places to stay", slug)} />
+      <JsonLd data={buildBreadcrumbJsonLd("Cheap places to stay", slug)} />
       <JsonLd data={buildFaqJsonLd(faqs)} />
 
       <LandingNav />
@@ -110,52 +105,50 @@ export default function FreePlacesToStayPage() {
         {/* HERO */}
         <section className="lp-hero">
           <div className="wrap">
-            <p className="eyebrow">Free · Verified · Worldwide</p>
+            <p className="eyebrow">Affordable · Verified · Worldwide</p>
             <h1>
-              Find <span className="hl">free places to stay</span> while traveling
+              Find <span className="hl">cheap places to stay</span> — priced for real people
             </h1>
             <p className="lp-sub">
-              Free community stays are real on Corneroom — hosted by people who love meeting
-              travelers, with no service fee for either side. Every host and guest is verified, and
-              when a free space isn&apos;t open, very affordable paid ones are a tap away. Sleep,
-              work, shower, boat, socialize &amp; more, worldwide.
+              Corneroom is built to be affordable. Everyday hosts share spaces at prices real budgets
+              can handle, with no surprise fees at checkout — and plenty share for free. Every host
+              and guest is verified, and you can book a room, a desk, a shower, a boat &amp; more, by
+              the night or the hour, worldwide.
             </p>
             <StoreButtons />
             <div className="hero-badges">
               <span className="chip">
-                <ChipCheck /> Real free stays
+                <ChipCheck /> Genuinely affordable
               </span>
               <span className="chip">
                 <ChipCheck /> Verified hosts &amp; guests
               </span>
               <span className="chip">
-                <ChipCheck /> 120+ countries
+                <ChipCheck /> Free stays available
               </span>
             </div>
           </div>
         </section>
 
-        {/* WHAT THEY ARE */}
+        {/* WHAT MAKES THEM CHEAP */}
         <section className="sec">
           <div className="wrap">
             <div className="sec-head">
-              <p className="eyebrow">The honest version</p>
-              <h2>Free accommodation that&apos;s real — not too good to be true</h2>
+              <p className="eyebrow">Why it&apos;s actually cheaper</p>
+              <h2>Affordable by design — not a sale that disappears</h2>
             </div>
             <div className="prose">
               <p>
-                Plenty of hosts on Corneroom share their space for free. Not as a gimmick, but
-                because hosting travelers is something they genuinely enjoy — the stories, the
-                company, the chance to show someone their city. On a free community stay there&apos;s
-                no service fee for the guest or the host. It&apos;s community, not commerce.
+                Cheap doesn&apos;t have to mean sketchy. On Corneroom, prices come from everyday
+                hosts sharing space they already have — a spare room, a quiet desk, a shower — so
+                they&apos;re set for real budgets, not hotel margins. Any service fee is small,
+                capped and shown before you confirm, so nothing quietly doubles at checkout.
               </p>
               <p>
-                We&apos;ll be straight with you: free stays depend on host availability, so
-                they&apos;re not guaranteed in every city on every date. That&apos;s why Corneroom
-                also lists very affordable paid spaces — so if a free space isn&apos;t open, you
-                still have a budget-friendly place to land. If saving money is the goal, our{" "}
-                <a href="/airbnb-alternative">affordable Airbnb alternative</a> covers the paid side
-                in more detail.
+                Booking just the space you need helps too: pay for a room for the night or a desk for
+                the afternoon, not a whole property. And when a host shares for free, it&apos;s
+                genuinely free — see exactly how{" "}
+                <a href="/free-places-to-stay">free places to stay</a> work on Corneroom.
               </p>
             </div>
           </div>
@@ -166,15 +159,15 @@ export default function FreePlacesToStayPage() {
           <div className="wrap">
             <div className="sec-head c">
               <p className="eyebrow">How it works</p>
-              <h2>How to find a free stay in three steps</h2>
+              <h2>How to find a cheap stay in three steps</h2>
             </div>
             <div className="lp-steps">
               <div className="step">
                 <div className="n">1</div>
                 <h3>Search your destination</h3>
                 <p>
-                  Enter where you&apos;re headed and what you need. Filter for free community stays,
-                  or browse affordable paid spaces alongside them.
+                  Enter where you&apos;re headed and what you need. Compare affordable spaces — and
+                  genuinely free ones — side by side.
                 </p>
               </div>
               <div className="step">
@@ -182,15 +175,15 @@ export default function FreePlacesToStayPage() {
                 <h3>Get verified &amp; message</h3>
                 <p>
                   Verify your ID once — every guest and host does. Message the host for free to
-                  introduce yourself and confirm the details.
+                  confirm the details before you book.
                 </p>
               </div>
               <div className="step">
                 <div className="n">3</div>
-                <h3>Book &amp; show up well</h3>
+                <h3>Book &amp; save</h3>
                 <p>
-                  Book your stay, arrive respectful and communicative, and leave a review — that&apos;s
-                  what keeps free hosting alive worldwide.
+                  Book an affordable space with the total shown up front, stay well, and leave a
+                  review to keep the community trusted worldwide.
                 </p>
               </div>
             </div>
@@ -201,12 +194,12 @@ export default function FreePlacesToStayPage() {
         <section className="sec">
           <div className="wrap">
             <div className="sec-head">
-              <p className="eyebrow">Free, but never anonymous</p>
+              <p className="eyebrow">Cheap, but never anonymous</p>
               <h2>Safety comes from two-sided verification</h2>
             </div>
             <div className="prose">
               <p>
-                A free stay should feel just as safe as a paid one. On Corneroom every host{" "}
+                An affordable stay should feel just as safe as a pricey one. On Corneroom every host{" "}
                 <strong>and</strong> every guest verifies their identity before a booking, so you
                 always know who you&apos;re staying with — and hosts know who&apos;s arriving. Real
                 reviews and free messaging let you get comfortable before you commit.
@@ -236,11 +229,11 @@ export default function FreePlacesToStayPage() {
         <section className="sec tint">
           <div className="wrap">
             <div className="sec-head">
-              <p className="eyebrow">More than a couch</p>
-              <h2>Free and affordable spaces of every kind</h2>
+              <p className="eyebrow">More than a cheap bed</p>
+              <h2>Affordable spaces of every kind</h2>
               <p>
-                It&apos;s not only a place to sleep. Book what you actually need — and new categories
-                keep landing.
+                It&apos;s not only a place to sleep. Book what you actually need — for a night or a
+                few hours — and new categories keep landing.
               </p>
             </div>
             <CategoryStrip />
@@ -252,7 +245,7 @@ export default function FreePlacesToStayPage() {
           <div className="wrap">
             <div className="sec-head c">
               <p className="eyebrow">Questions?</p>
-              <h2>Free places to stay FAQ</h2>
+              <h2>Cheap places to stay FAQ</h2>
             </div>
             <FaqSection items={faqs} />
           </div>
@@ -264,9 +257,9 @@ export default function FreePlacesToStayPage() {
             <div className="appcta">
               <div className="appcta-in">
                 <div>
-                  <h2>Find your next free stay</h2>
+                  <h2>Find your next affordable stay</h2>
                   <p>
-                    Join a verified community sharing genuinely free — and very affordable — spaces
+                    Join a verified community sharing affordable — and genuinely free — spaces
                     worldwide. Search, book, host and message, all from the Corneroom app.
                   </p>
                   <StoreButtons />
