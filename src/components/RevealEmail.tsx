@@ -10,7 +10,7 @@ import { useState } from "react";
  * button. Email harvesters that fetch the static HTML (the vast majority never
  * run JS, and regex for `user@domain`) find nothing parseable to scrape.
  *
- * Generate `enc` with:  printf '%s' 'support@corneroom.com' | base64
+ * Generate `enc` with:  printf '%s' 'you@example.com' | base64
  *
  * Defense-in-depth: also enable Cloudflare Scrape Shield -> Email Address
  * Obfuscation in the dashboard (corneroom.com is proxied through Cloudflare).
@@ -21,7 +21,7 @@ export function RevealEmail({
   buttonLabel = "Show email",
   className,
 }: {
-  /** base64-encoded email address, e.g. btoa("support@corneroom.com"). */
+  /** base64-encoded email address, e.g. btoa("you@example.com"). */
   enc: string;
   /** Optional `?subject=` appended to the revealed mailto link. */
   subject?: string;
@@ -57,7 +57,7 @@ export function RevealEmail({
         {buttonLabel}
       </button>
       {/* No-JS visitors can't reveal; point them to in-app support. */}
-      <noscript> — or use in-app support (Settings &rarr; Help &amp; Support)</noscript>
+      <noscript> — or reach us through in-app support.</noscript>
     </>
   );
 }
