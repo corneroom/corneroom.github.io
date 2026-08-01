@@ -180,7 +180,6 @@ const STEPS = [
     icon: <IconPaid />,
     title: "Get paid",
     desc: "Guests pay in the app; your earnings land in your bank through Stripe.",
-    paid: true,
   },
 ];
 
@@ -330,19 +329,7 @@ export default function HostPage() {
               {STEPS.map((s, i) => (
                 <li key={s.title} className="hw4-step">
                   <span className="hw4-num" aria-hidden="true">{i + 1}</span>
-                  <span className={`hw4-ic${s.paid ? " paid" : ""}`}>
-                    {s.paid ? (
-                      <img
-                        src="/host/app/earnings.png"
-                        alt=""
-                        width={120}
-                        height={260}
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      s.icon
-                    )}
-                  </span>
+                  <span className="hw4-ic">{s.icon}</span>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
                 </li>
