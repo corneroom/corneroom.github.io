@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata: Metadata = {
   title: "Cookie Policy — Corneroom",
@@ -361,10 +360,8 @@ export default function CookiePolicyPage() {
         <h2>10. Contact Us</h2>
         <p>
           If you have any questions, concerns, or requests regarding this Cookie
-          Policy or our use of cookies, please contact us at:
-        </p>
-        <p>
-          <ObfuscatedEmail user="privacy" />
+          Policy or our use of cookies, reach us through our{" "}
+          <a href="/support">Support page</a>.
         </p>
       </section>
     </LegalLayout>

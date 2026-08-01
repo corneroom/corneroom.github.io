@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Careers — Corneroom",
@@ -102,12 +101,12 @@ export default function CareersPage() {
                   <span>{pos.type}</span>
                 </div>
               </div>
-              <ObfuscatedEmail
-                user="careers"
-                subject={`Application: ${pos.title}`}
-                label="Apply"
+              <a
+                href="/support"
                 className="shrink-0 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary/20"
-              />
+              >
+                Apply
+              </a>
             </div>
             <p className="mt-3 text-sm text-white/50">{pos.desc}</p>
           </div>
@@ -116,13 +115,13 @@ export default function CareersPage() {
 
       <h2>How to Apply</h2>
       <p>
-        Send your resume and a brief note about why you&apos;re excited about Corneroom to{" "}
-        <ObfuscatedEmail user="careers" />. Include the role
-        title in the subject line. We review every application and respond within 5 business days.
+        Reach us through our <a href="/support">Support page</a> with your resume and a brief note
+        about why you&apos;re excited about Corneroom. Include the role title so we can route your
+        application. We review every application and respond within 5 business days.
       </p>
 
       <p>
-        Don&apos;t see a perfect fit? Email us anyway — we&apos;re always looking for exceptional
+        Don&apos;t see a perfect fit? Reach out anyway — we&apos;re always looking for exceptional
         people who believe in what we&apos;re building.
       </p>
     </LegalLayout>

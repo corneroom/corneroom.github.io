@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { RevealEmail } from "@/components/RevealEmail";
 
 /* ── FAQ data ── */
 const faqs = [
@@ -273,7 +273,12 @@ export default function SupportPage() {
                 Email Support
               </p>
               <p className="mt-1 text-xs text-[#FF642B]">
-                <ObfuscatedEmail user="support" />
+                <RevealEmail
+                  enc="c3VwcG9ydEBjb3JuZXJvb20uY29t"
+                  subject="Support request"
+                  buttonLabel="Show email"
+                  className="text-[#FF642B] underline decoration-dotted underline-offset-2 hover:opacity-80"
+                />
               </p>
               <p className="mt-2 text-xs text-white/30">
                 Usually responds within 24 hours
@@ -319,7 +324,12 @@ export default function SupportPage() {
                 Safety Line
               </p>
               <p className="mt-1 text-xs text-[#FF642B]">
-                <ObfuscatedEmail user="safety" />
+                <RevealEmail
+                  enc="c2FmZXR5QGNvcm5lcm9vbS5jb20="
+                  subject="Safety concern"
+                  buttonLabel="Show email"
+                  className="text-[#FF642B] underline decoration-dotted underline-offset-2 hover:opacity-80"
+                />
               </p>
               <p className="mt-2 text-xs text-white/30">
                 24/7 for urgent safety concerns

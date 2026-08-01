@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Safety — Corneroom",
@@ -283,8 +282,8 @@ export default function SafetyPage() {
           profile, or message.
         </li>
         <li>
-          <strong>Email:</strong> Send a detailed report to{" "}
-          <ObfuscatedEmail user="safety" />.
+          <strong>Support page:</strong> Send a detailed report through our{" "}
+          <a href="/support">Support page</a>.
         </li>
         <li>
           <strong>Support chat:</strong> Available 24/7 in the app under Settings &rarr; Help &amp;
@@ -306,8 +305,8 @@ export default function SafetyPage() {
       <h3>7.3 No Retaliation</h3>
       <p>
         Corneroom prohibits retaliation against anyone who reports a concern in good faith. If you
-        experience retaliation after making a report, contact{" "}
-        <ObfuscatedEmail user="safety" /> immediately.
+        experience retaliation after making a report, reach us through our{" "}
+        <a href="/support">Support page</a> immediately.
       </p>
 
       {/* ------------------------------------------------------------------ */}
@@ -322,8 +321,8 @@ export default function SafetyPage() {
           (e.g. 911 in the US, 999 in the UK, 112 in the EU, 000 in Australia).
         </li>
         <li>
-          <strong>Corneroom 24/7 Safety Line:</strong>{" "}
-          <ObfuscatedEmail user="safety" /> &mdash; monitored around
+          <strong>Corneroom 24/7 Safety Line:</strong> Reach our safety team through our{" "}
+          <a href="/support">Support page</a> or the in-app support chat &mdash; monitored around
           the clock, every day of the year.
         </li>
         <li>
@@ -350,8 +349,8 @@ export default function SafetyPage() {
         <li>Regular third-party security audits of our platform and infrastructure</li>
       </ul>
       <p>
-        If you have suggestions for how we can make Corneroom safer, we welcome your input at{" "}
-        <ObfuscatedEmail user="safety" />.
+        If you have suggestions for how we can make Corneroom safer, we welcome your input through
+        our <a href="/support">Support page</a>.
       </p>
     </LegalLayout>
   );

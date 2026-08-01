@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Terms of Service — Corneroom",
@@ -174,8 +173,7 @@ export default function TermsPage() {
 
       <h2>17. Contact</h2>
       <p>
-        Questions about these Terms? Contact us at <ObfuscatedEmail user="legal" /> or
-        visit our <a href="/support">Support page</a>.
+        Questions about these Terms? Contact us via our <a href="/support">Support page</a>.
       </p>
     </LegalLayout>
   );

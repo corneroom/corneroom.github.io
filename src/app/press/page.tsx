@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Press — Corneroom",
@@ -100,8 +99,8 @@ export default function PressPage() {
           or rotate.
         </li>
         <li>
-          <strong>Download:</strong> For brand assets, please contact{" "}
-          <ObfuscatedEmail user="press" /> and we
+          <strong>Download:</strong> For brand assets, reach us through our{" "}
+          <a href="/support">Support page</a> and we
           will send a full press kit.
         </li>
       </ul>
@@ -125,9 +124,8 @@ export default function PressPage() {
 
       <h2>Press Contact</h2>
       <p>
-        For media inquiries, interviews, or to request a press kit, reach out
-        to{" "}
-        <ObfuscatedEmail user="press" />. We aim to
+        For media inquiries, interviews, or to request a press kit, reach us
+        through our <a href="/support">Support page</a>. We aim to
         respond to all press inquiries within 24 hours.
       </p>
     </LegalLayout>

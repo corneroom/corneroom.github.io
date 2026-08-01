@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Privacy Policy — Corneroom",
@@ -85,7 +84,7 @@ export default function PrivacyPage() {
         <li><strong>Opt out</strong> of marketing communications</li>
         <li><strong>Withdraw consent</strong> for location tracking or push notifications via device settings</li>
       </ul>
-      <p>To exercise these rights, contact us at <ObfuscatedEmail user="privacy" />.</p>
+      <p>To exercise these rights, reach us through our <a href="/support">Support page</a>.</p>
 
       <h2>6. Location Data</h2>
       <p>
@@ -100,7 +99,7 @@ export default function PrivacyPage() {
         Corneroom is not directed at children under 16. We do not knowingly collect personal information
         from children. If we become aware that a child under 16 has provided personal information, we
         will delete it promptly. If you believe a child has provided us with personal data, contact
-        us at <ObfuscatedEmail user="privacy" />.
+        us through our <a href="/support">Support page</a>.
       </p>
 
       <h2>8. International Data Transfers</h2>
@@ -138,12 +137,9 @@ export default function PrivacyPage() {
 
       <h2>12. Contact Us</h2>
       <p>
-        For privacy-related questions or to exercise your data rights:
+        For privacy-related questions or to exercise your data rights, reach us through our{" "}
+        <a href="/support">Support page</a>.
       </p>
-      <ul>
-        <li>Email: <ObfuscatedEmail user="privacy" /></li>
-        <li>Support: <a href="/support">corneroom.com/support</a></li>
-      </ul>
     </LegalLayout>
   );
 }

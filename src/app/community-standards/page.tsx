@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Community Standards — Corneroom",
@@ -116,16 +115,16 @@ export default function CommunityStandardsPage() {
       <h2 id="reporting">Reporting Violations</h2>
       <p>
         If you encounter conduct that violates these Standards, you can report it from within the
-        Corneroom app or by contacting our trust and safety team at{" "}
-        <ObfuscatedEmail user="trust" />. Reports are reviewed by our
+        Corneroom app or by reaching our trust and safety team through our{" "}
+        <a href="/support">Support page</a>. Reports are reviewed by our
         moderation team and treated confidentially.
       </p>
 
       <h2 id="appeals">Appeals</h2>
       <p>
         If your account is suspended or content is removed under these Standards and you believe
-        the action was taken in error, you may request a review by contacting{" "}
-        <ObfuscatedEmail user="appeals" />. Appeals are reviewed by a
+        the action was taken in error, you may request a review through our{" "}
+        <a href="/support">Support page</a>. Appeals are reviewed by a
         team independent of the original moderation decision.
       </p>
 

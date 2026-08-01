@@ -1,5 +1,4 @@
 import LegalLayout from "@/components/LegalLayout";
-import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Delete Account — Corneroom",
@@ -27,11 +26,10 @@ export default function DeleteAccountPage() {
         <li>Confirm your decision</li>
       </ul>
 
-      <h3>Option 2: Via Email</h3>
+      <h3>Option 2: Via Support</h3>
       <p>
-        Send an email to <ObfuscatedEmail user="privacy" /> from
-        the email address associated with your account, with the subject line &ldquo;Delete My Account.&rdquo;
-        We will process your request within 7 business days.
+        Reach us through our <a href="/support">Support page</a> from the account associated with your
+        request and ask us to delete your account. We will process your request within 7 business days.
       </p>
 
       <h2>What Gets Deleted</h2>
@@ -69,16 +67,14 @@ export default function DeleteAccountPage() {
 
       <h2>Data Portability</h2>
       <p>
-        Before deleting your account, you may request a copy of your personal data. Contact{" "}
-        <ObfuscatedEmail user="privacy" /> with the subject line
-        &ldquo;Data Export Request&rdquo; and we will provide your data in a portable format within
-        30 days.
+        Before deleting your account, you may request a copy of your personal data. Reach us through
+        our <a href="/support">Support page</a> to request a data export, and we will provide your
+        data in a portable format within 30 days.
       </p>
 
       <h2>Questions?</h2>
       <p>
-        If you have questions about account deletion or data retention, contact us at{" "}
-        <ObfuscatedEmail user="privacy" /> or visit our{" "}
+        If you have questions about account deletion or data retention, reach us through our{" "}
         <a href="/support">Support page</a>.
       </p>
     </LegalLayout>
