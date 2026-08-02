@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Privacy Policy" lastUpdated="March 31, 2026">
+    <LegalLayout title="Privacy Policy" lastUpdated="August 2, 2026">
       <p>
         Corneroom (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) operates the Corneroom
         mobile application and website (corneroom.com). This Privacy Policy explains how we collect,

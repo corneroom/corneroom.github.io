@@ -39,7 +39,7 @@ const milestones = [
 
 export default function PressPage() {
   return (
-    <LegalLayout title="Press" lastUpdated="March 30, 2026">
+    <LegalLayout title="Press" lastUpdated="August 2, 2026">
       <p>
         Corneroom is a global hospitality platform that connects travelers with
         local hosts who share their homes, co-working spaces, and communities.

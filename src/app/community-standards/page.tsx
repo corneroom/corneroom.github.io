@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function CommunityStandardsPage() {
   return (
-    <LegalLayout title="Community Standards" lastUpdated="April 15, 2026">
+    <LegalLayout title="Community Standards" lastUpdated="August 2, 2026">
       <p>
         These Community Standards describe conduct that is prohibited on the Corneroom Platform.
         They apply to all users, in all interactions on the Platform, including messages between

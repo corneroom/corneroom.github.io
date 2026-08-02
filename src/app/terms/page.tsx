@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout title="Terms of Service" lastUpdated="March 31, 2026">
+    <LegalLayout title="Terms of Service" lastUpdated="August 2, 2026">
       <p>
         Welcome to Corneroom. These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the
         Corneroom mobile application and website (collectively, the &ldquo;Platform&rdquo;). By

@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function SafetyPage() {
   return (
-    <LegalLayout title="Safety at Corneroom" lastUpdated="March 30, 2026">
+    <LegalLayout title="Safety at Corneroom" lastUpdated="August 2, 2026">
       <p>
         When strangers share spaces, trust is everything. At Corneroom, safety is not an
         afterthought &mdash; it is the foundation our platform is built on. Every feature, policy,

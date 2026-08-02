@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <LegalLayout title="Account Deletion" lastUpdated="March 31, 2026">
+    <LegalLayout title="Account Deletion" lastUpdated="August 2, 2026">
       <p>
         You can delete your Corneroom account at any time. This will permanently remove your
         account and associated personal data from our platform.

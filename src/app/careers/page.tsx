@@ -72,7 +72,7 @@ const positions = [
 
 export default function CareersPage() {
   return (
-    <LegalLayout title="Careers" lastUpdated="March 31, 2026">
+    <LegalLayout title="Careers" lastUpdated="August 2, 2026">
       <p>
         We&apos;re a small, remote-first team building a platform that connects people through
         shared spaces across 120+ countries. If you&apos;re passionate about travel, community,
