@@ -338,7 +338,7 @@ export default function TravelerJobsPage() {
               </p>
               <div className="mt-8">
                 <a
-                  href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
+                  href="mailto:work@corneroom.com?subject=Traveler%20Jobs%20application"
                   className="inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#FF642B]/25 transition-all hover:brightness-110"
                 >
                   Apply

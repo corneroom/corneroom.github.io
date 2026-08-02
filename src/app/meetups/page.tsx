@@ -7,19 +7,19 @@ const upcomingMeetups = [
   {
     city: "Toronto",
     country: "Canada",
-    quarter: "Q2 2026",
+    quarter: "Q2 2027",
     tagline: "Where it all started",
   },
   {
     city: "Lisbon",
     country: "Portugal",
-    quarter: "Q3 2026",
+    quarter: "Q3 2027",
     tagline: "Europe's digital nomad capital",
   },
   {
     city: "Bali",
     country: "Indonesia",
-    quarter: "Q4 2026",
+    quarter: "Q4 2027",
     tagline: "The co-living paradise",
   },
 ];
@@ -204,15 +204,9 @@ export default function MeetupsPage() {
                 <p className="relative mt-4 text-sm italic text-white/50">
                   &ldquo;{meetup.tagline}&rdquo;
                 </p>
-                <a
-                  href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
-                  className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#e5572a] hover:shadow-lg hover:shadow-[#FF642B]/20"
-                >
-                  RSVP
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </a>
+                <p className="relative mt-6 text-xs font-medium uppercase tracking-widest text-white/30">
+                  Details announced closer to the date
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -285,14 +279,14 @@ export default function MeetupsPage() {
               Join the next meetup
             </h2>
             <p className="relative mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
-              Be the first to know when we announce the next city. RSVP now to
-              reserve your spot.
+              Want a meetup in your city — or to help host one? Get in touch and
+              we&apos;ll keep you posted on the next one.
             </p>
             <a
-              href="https://forms.gle/PLACEHOLDER" /* TODO: Replace with Google Form URL */
+              href="mailto:work@corneroom.com?subject=Corneroom%20meetups"
               className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-[#e5572a] hover:shadow-xl hover:shadow-[#FF642B]/25"
             >
-              RSVP Now
+              Email us
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
