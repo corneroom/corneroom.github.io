@@ -11,9 +11,10 @@ export default function TermsPage() {
   return (
     <LegalLayout title="Terms of Service" lastUpdated="August 2, 2026">
       <p>
-        Welcome to Corneroom. These Terms of Service (&ldquo;Terms&rdquo;) govern your use of the
-        Corneroom mobile application and website (collectively, the &ldquo;Platform&rdquo;). By
-        accessing or using Corneroom, you agree to be bound by these Terms.
+        Welcome to Corneroom. Corneroom is operated by Inspired Technologies Inc. These Terms of
+        Service (&ldquo;Terms&rdquo;) govern your use of the Corneroom mobile application and website
+        (collectively, the &ldquo;Platform&rdquo;). By accessing or using Corneroom, you agree to be
+        bound by these Terms.
       </p>
 
       <h2>1. About Corneroom</h2>
@@ -66,7 +67,7 @@ export default function TermsPage() {
       <h2>6. Bookings and Payments</h2>
       <ul>
         <li>Bookings are confirmed when the guest completes payment and the host accepts (or via Instant Book).</li>
-        <li>All payments are processed securely through Stripe. Corneroom does not store payment card details.</li>
+        <li>All payments are processed securely through our payment processor. Corneroom does not store payment card details.</li>
         <li>Corneroom charges a service fee on each booking, disclosed before confirmation.</li>
         <li>Host payouts are processed after guest check-in, per our payout schedule.</li>
         <li>Prices are displayed in the currency specified by the host unless otherwise indicated.</li>
@@ -167,8 +168,10 @@ export default function TermsPage() {
 
       <h2>16. Governing Law</h2>
       <p>
-        These Terms are governed by and construed in accordance with applicable laws. Any disputes
-        shall be subject to the exclusive jurisdiction of the courts in the applicable jurisdiction.
+        These Terms are governed by and construed in accordance with the laws of the Province of
+        Ontario and the federal laws of Canada applicable therein, without regard to conflict-of-law
+        principles. Any disputes shall be subject to the exclusive jurisdiction of the courts located
+        in Toronto, Ontario, Canada.
       </p>
 
       <h2>17. Contact</h2>

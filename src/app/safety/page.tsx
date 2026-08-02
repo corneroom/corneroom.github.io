@@ -56,9 +56,9 @@ export default function SafetyPage() {
 
       <h3>2.3 Secure Payments</h3>
       <p>
-        All payments are processed through <strong>Stripe</strong>, a PCI DSS Level 1 certified
-        payment processor &mdash; the highest level of security certification in the payments
-        industry. Your card details are never stored on Corneroom servers. Funds are held securely
+        All payments are processed through our PCI DSS Level 1 certified payment processor &mdash;
+        the highest level of security certification in the payments industry. Your card details are
+        never stored on Corneroom&apos;s infrastructure. Funds are held securely
         and only released to the host after your booking is confirmed and check-in begins.
       </p>
 

@@ -63,10 +63,10 @@ export default function CookiePolicyPage() {
 
         <h3>3.1 Authentication Cookies</h3>
         <p>
-          We use <strong>Firebase Authentication</strong> to manage user sign-in
-          sessions. Firebase sets cookies and local storage tokens to
-          authenticate your identity when you sign in via email, Google Sign-In,
-          or Apple Sign-In. These tokens persist your login session so you do not
+          We use our authentication provider to manage user sign-in
+          sessions. Our authentication provider sets cookies and local storage tokens to
+          authenticate your identity when you sign in via email or a social
+          sign-in provider. These tokens persist your login session so you do not
           need to re-enter your credentials on every page.
         </p>
 
@@ -89,8 +89,7 @@ export default function CookiePolicyPage() {
       <section>
         <h2>4. Analytics Cookies</h2>
         <p>
-          We use <strong>Firebase Analytics</strong> (powered by Google Analytics
-          infrastructure) to collect anonymized, aggregated data about how users
+          We use our analytics providers to collect anonymized, aggregated data about how users
           interact with our platform. This includes information such as pages
           visited, session duration, device type, geographic region, and feature
           usage. Analytics cookies help us:
@@ -102,18 +101,10 @@ export default function CookiePolicyPage() {
           <li>Diagnose technical issues and improve reliability.</li>
         </ul>
         <p>
-          Firebase Analytics may assign a unique identifier to your device. This
+          Our analytics providers may assign a unique identifier to your device. This
           identifier does not personally identify you and is used solely for
           statistical analysis. You can opt out of analytics cookies through your
-          browser settings or by using the{" "}
-          <a
-            href="https://tools.google.com/dlpage/gaoptout"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google Analytics Opt-out Browser Add-on
-          </a>
-          .
+          browser settings.
         </p>
       </section>
 
@@ -125,71 +116,34 @@ export default function CookiePolicyPage() {
           and recommend reviewing their respective privacy policies.
         </p>
 
-        <h3>5.1 Stripe (Payments)</h3>
+        <h3>5.1 Payment provider</h3>
         <p>
-          We use <strong>Stripe</strong> to process payments securely. When you
-          make or receive a payment, Stripe may place cookies on your device for
+          We use a third-party payment provider to process payments securely. When you
+          make or receive a payment, our payment provider may place cookies on your device for
           fraud detection, transaction authentication, and compliance with
-          financial regulations. For details, see{" "}
-          <a
-            href="https://stripe.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Stripe&apos;s Privacy Policy
-          </a>
-          .
+          financial regulations. For details, you can review your provider&apos;s
+          privacy policy.
         </p>
 
-        <h3>5.2 Google Maps</h3>
+        <h3>5.2 Maps provider</h3>
         <p>
-          Our platform embeds <strong>Google Maps</strong> to display space
-          locations and nearby amenities. Google may set cookies to load map
+          Our platform embeds a third-party mapping provider to display space
+          locations and nearby amenities. The mapping provider may set cookies to load map
           tiles, remember your map interactions, and gather usage data. For
-          details, see{" "}
-          <a
-            href="https://policies.google.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google&apos;s Privacy Policy
-          </a>
-          .
+          details, you can review your provider&apos;s privacy policy.
         </p>
 
-        <h3>5.3 Google Sign-In</h3>
+        <h3>5.3 Social sign-in</h3>
         <p>
-          If you choose to sign in using your Google account, Google may place
-          cookies related to authentication and session management. These cookies
-          are governed by{" "}
-          <a
-            href="https://policies.google.com/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Google&apos;s Privacy Policy
-          </a>
-          .
+          If you choose to sign in using a social sign-in provider, that provider
+          may place cookies related to authentication and session management. These
+          cookies are governed by the respective provider&apos;s privacy policy.
         </p>
 
-        <h3>5.4 Apple Sign-In</h3>
+        <h3>5.4 Push notifications</h3>
         <p>
-          If you choose to sign in using your Apple ID, Apple may place cookies
-          related to authentication. These cookies are governed by{" "}
-          <a
-            href="https://www.apple.com/legal/privacy/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Apple&apos;s Privacy Policy
-          </a>
-          .
-        </p>
-
-        <h3>5.5 Firebase Cloud Messaging</h3>
-        <p>
-          We use <strong>Firebase Cloud Messaging</strong> to deliver push
-          notifications. Firebase may store tokens on your device to route
+          We use a third-party push-notification provider to deliver push
+          notifications. The provider may store tokens on your device to route
           notifications to the correct browser or app instance. These tokens are
           essential for the notification service to function.
         </p>
