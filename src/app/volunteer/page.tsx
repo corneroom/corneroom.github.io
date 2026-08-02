@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { MailtoButton } from "@/components/MailtoButton";
 
 const whyCards = [
   {
@@ -265,15 +266,16 @@ export default function VolunteerPage() {
                 Tell us a bit about yourself and how you&apos;d like to help. We&apos;ll
                 get back to you soon.
               </p>
-              <a
-                href="mailto:work@corneroom.com?subject=Volunteer%20application"
+              <MailtoButton
+                enc="d29ya0Bjb3JuZXJvb20uY29t"
+                subject="Volunteer application"
                 className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-4 text-sm font-bold text-white transition-all hover:brightness-110 hover:shadow-[0_0_30px_rgba(255,100,43,0.3)]"
               >
                 Apply to volunteer
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </a>
+              </MailtoButton>
             </div>
           </motion.div>
         </div>

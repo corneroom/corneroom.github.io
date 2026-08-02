@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { MailtoButton } from "@/components/MailtoButton";
 
 /* ── animation helpers ─────────────────────────────────── */
 const fadeUp = {
@@ -337,15 +338,16 @@ export default function TravelerJobsPage() {
                 We&apos;re launching the traveler jobs program soon. Be first in line.
               </p>
               <div className="mt-8">
-                <a
-                  href="mailto:work@corneroom.com?subject=Traveler%20Jobs%20application"
+                <MailtoButton
+                  enc="d29ya0Bjb3JuZXJvb20uY29t"
+                  subject="Traveler Jobs application"
                   className="inline-flex items-center gap-2 rounded-full bg-[#FF642B] px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#FF642B]/25 transition-all hover:brightness-110"
                 >
                   Apply
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                </a>
+                </MailtoButton>
               </div>
             </div>
           </motion.div>
