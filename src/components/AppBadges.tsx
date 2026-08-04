@@ -1,4 +1,5 @@
 import { type FC } from "react";
+import { APP_STORE_URL } from "@/lib/store-links";
 
 type BadgeSize = "sm" | "md" | "lg";
 
@@ -20,7 +21,7 @@ const AppBadges: FC<AppBadgesProps> = ({ size = "md", className = "" }) => {
     <div className={`flex items-center gap-3 ${className}`}>
       {/* Download on the App Store */}
       <a
-        href="https://apps.apple.com/app/corneroom/id6740086312"
+        href={APP_STORE_URL}
         aria-label="Download on the App Store"
         className="inline-block transition-opacity hover:opacity-80"
       >

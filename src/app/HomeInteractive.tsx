@@ -11,6 +11,7 @@ import {
 import { createPortal } from "react-dom";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import BeaconMap from "@/components/maps/BeaconMap";
+import { APP_STORE_URL } from "@/lib/store-links";
 import "./home.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -26,8 +27,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// Real store URLs — reused from AppBadges.tsx / DownloadCTA on the live site.
-const APP_STORE_URL = "https://apps.apple.com/app/corneroom/id6740086312";
+// APP_STORE_URL comes from @/lib/store-links (single source of truth).
 const PLAY_STORE_URL =
   "https://play.google.com/store/apps/details?id=ca.inspiredtech.corneroom";
 

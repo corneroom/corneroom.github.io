@@ -15,8 +15,8 @@ const inter = Inter({
 });
 export const fontVars = `${jakarta.variable} ${inter.variable}`;
 
-/* Real store URLs — reused from AppBadges.tsx (do not invent). */
-export const APP_STORE_URL = "https://apps.apple.com/app/corneroom/id6754674174";
+/* App Store link comes from the single source of truth in @/lib/store-links. */
+import { APP_STORE_URL } from "@/lib/store-links";
 // Open-testing (beta) opt-in link — NOT the production store URL, which doesn't
 // resolve until the app is promoted to production. Testers tap this to join,
 // then install from Play normally. Swap to the store URL at production launch.

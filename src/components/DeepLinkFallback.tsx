@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { APP_STORE_URL } from "@/lib/store-links";
 
-const APP_STORE = "https://apps.apple.com/app/corneroom/id6740086312";
+const APP_STORE = APP_STORE_URL;
 const PLAY_STORE =
   "https://play.google.com/store/apps/details?id=ca.inspiredtech.corneroom";
 

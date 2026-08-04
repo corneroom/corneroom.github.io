@@ -1,3 +1,5 @@
+import { APP_STORE_URL } from "@/lib/store-links";
+
 export const metadata = {
   title: "Open Corneroom",
   description:
@@ -23,7 +25,7 @@ export default function AppLandingPage() {
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
           <a
-            href="https://apps.apple.com/app/corneroom/id6740086312"
+            href={APP_STORE_URL}
             className="inline-flex items-center justify-center bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors"
           >
             Download on the App Store
